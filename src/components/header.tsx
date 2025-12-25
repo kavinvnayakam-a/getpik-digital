@@ -16,33 +16,67 @@ const links = [
   { href: '/contact', label: 'Enquiry' },
 ];
 
+const leftLinks = links.slice(0, 3);
+const rightLinks = links.slice(3);
+
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 items-center">
-        <Link href="/" className="mr-6 flex items-center space-x-2">
-          <Bot className="h-6 w-6 text-primary" />
-          <span className="font-bold font-headline">GetPik</span>
-        </Link>
-        <nav className="hidden gap-6 text-sm md:flex">
-          {links.map(link => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={cn(
-                'transition-colors hover:text-foreground/80',
-                pathname === link.href
-                  ? 'text-foreground'
-                  : 'text-foreground/60'
-              )}
-            >
-              {link.label}
-            </Link>
-          ))}
+      <div className="container flex h-16 items-center">
+        <nav className="hidden w-1/3 md:flex">
+          <ul className="flex items-center gap-6 text-sm">
+            {leftLinks.map(link => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className={cn(
+                    'transition-colors hover:text-foreground/80',
+                    pathname === link.href
+                      ? 'text-foreground'
+                      : 'text-foreground/60'
+                  )}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </nav>
+
+        <div className="flex w-1/3 justify-center">
+          <Link
+            href="/"
+            className="flex items-center space-x-2"
+            onClick={() => isOpen && setIsOpen(false)}
+          >
+            <Bot className="h-6 w-6 text-primary" />
+            <span className="font-bold font-headline text-lg">GetPik</span>
+          </Link>
+        </div>
+
+        <nav className="hidden w-1/3 justify-end md:flex">
+          <ul className="flex items-center gap-6 text-sm">
+            {rightLinks.map(link => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className={cn(
+                    'transition-colors hover:text-foreground/80',
+                    pathname === link.href
+                      ? 'text-foreground'
+                      : 'text-foreground/60'
+                  )}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
         <div className="flex flex-1 items-center justify-end md:hidden">
           <Button
             onClick={() => setIsOpen(!isOpen)}
