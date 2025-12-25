@@ -1,3 +1,46 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "homepage-hero",
+      "description": "Digital Agency workspace",
+      "imageUrl": "https://images.unsplash.com/photo-1628017975048-74768e00219e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxkaWdpdGFsJTIwYWdlbmN5JTIwd29ya3NwYWNlfGVufDB8fHx8MTc2NjY3Mjc0NXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "digital agency workspace"
+    },
+    {
+      "id": "portfolio-1",
+      "description": "E-commerce website redesign",
+      "imageUrl": "https://images.unsplash.com/photo-1658297063569-162817482fb6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxlY29tbWVyY2UlMjB3ZWJzaXRlfGVufDB8fHx8MTc2NjY3Mjc0NXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "ecommerce website"
+    },
+    {
+      "id": "portfolio-2",
+      "description": "Mobile app for a startup",
+      "imageUrl": "https://images.unsplash.com/photo-1601972599720-36938d4ecd31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bW9iaWxlJTIwYXBwfGVufDB8fHx8MTc2NjY2NTM4MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "mobile app"
+    },
+    {
+      "id": "portfolio-3",
+      "description": "Branding for a coffee shop",
+      "imageUrl": "https://images.unsplash.com/photo-1511920170033-f8396924c348?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjb2ZmZWUlMjBzaG9wfGVufDB8fHx8MTc2NjYxNDkwMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "coffee shop"
+    },
+    {
+      "id": "portfolio-4",
+      "description": "Corporate website for a law firm",
+      "imageUrl": "https://images.unsplash.com/photo-1621857093087-7daa85ab14a6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjb3Jwb3JhdGUlMjB3ZWJzaXRlfGVufDB8fHx8MTc2NjYwMjM5NXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "corporate website"
+    },
+    {
+      "id": "portfolio-5",
+      "description": "Social media campaign graphics",
+      "imageUrl": "https://images.unsplash.com/photo-1683721003111-070bcc053d8b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzb2NpYWwlMjBtZWRpYXxlbnwwfHx8fDE3NjY1NTk4NTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "social media"
+    },
+    {
+      "id": "portfolio-6",
+      "description": "Data visualization dashboard",
+      "imageUrl": "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxkYXRhJTIwZGFzaGJvYXJkfGVufDB8fHx8MTc2NjY2MTY0NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "data dashboard"
+    }
+  ]
 }
