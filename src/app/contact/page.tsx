@@ -24,6 +24,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Loader2 } from 'lucide-react';
+import PageHeader from '@/components/page-header';
 
 const initialState = {
   message: '',
@@ -62,15 +63,14 @@ export default function ContactPage() {
   }, [state, toast]);
 
   return (
-    <div className="container mx-auto flex min-h-[calc(100vh-10rem)] animate-in fade-in duration-500 items-center justify-center px-4 py-8">
-      <Card className="w-full max-w-2xl">
-        <CardHeader>
-          <CardTitle className="font-headline text-3xl">Get in Touch</CardTitle>
-          <CardDescription>
-            Have a project in mind? We'd love to hear about it.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
+    <div className="container mx-auto max-w-3xl animate-in fade-in duration-500 px-4 py-8 md:py-12">
+      <PageHeader
+        title="Get in Touch"
+        description="Have a project in mind? We'd love to hear about it."
+        className="text-center"
+      />
+      <Card className="w-full">
+        <CardContent className="p-6 md:p-8">
           <form ref={formRef} action={formAction} className="space-y-6">
             <div className="grid gap-6 sm:grid-cols-2">
               <div className="space-y-2">

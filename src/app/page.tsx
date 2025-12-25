@@ -3,15 +3,14 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
-import PageHeader from '@/components/page-header';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function Home() {
-  const heroImage = PlaceHolderImages.find((img) => img.id === 'homepage-hero');
+  const heroImage = PlaceHolderImages.find(img => img.id === 'homepage-hero');
 
   return (
     <div className="flex flex-col animate-in fade-in duration-500">
-      <div className="relative w-full h-96">
+      <div className="relative w-full h-[60vh] md:h-[80vh]">
         {heroImage && (
           <Image
             src={heroImage.imageUrl}
@@ -22,15 +21,15 @@ export default function Home() {
             priority
           />
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end justify-center">
-          <div className="text-center text-white p-8">
-            <h1 className="font-headline text-4xl md:text-6xl font-bold">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-center justify-center">
+          <div className="text-center text-white p-8 max-w-4xl">
+            <h1 className="font-headline text-4xl md:text-7xl font-bold leading-tight">
               Creative Solutions. Real Results.
             </h1>
-            <p className="mt-4 max-w-2xl mx-auto text-lg text-primary-foreground/80">
+            <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-primary-foreground/80">
               Let us help you elevate your brand's digital presence.
             </p>
-            <Button asChild className="mt-6" size="lg">
+            <Button asChild className="mt-8" size="lg">
               <Link href="/portfolio">
                 See Our Work <ArrowRight className="ml-2" />
               </Link>
@@ -38,12 +37,15 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="container mx-auto px-4 py-12">
-        <div className="text-center max-w-3xl mx-auto mb-12">
-           <h2 className="font-headline text-3xl font-bold">Welcome to GetPik Agency</h2>
-           <p className="mt-2 text-lg text-muted-foreground">
-             Your partner in digital growth. We build stunning websites and craft marketing strategies that deliver results.
-           </p>
+      <div className="container mx-auto px-4 py-16 md:py-24">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <h2 className="font-headline text-3xl md:text-4xl font-bold">
+            Welcome to GetPik Agency
+          </h2>
+          <p className="mt-4 text-lg text-muted-foreground">
+            Your partner in digital growth. We build stunning websites and craft
+            marketing strategies that deliver results.
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -78,7 +80,7 @@ function FeatureCard({
   href: string;
 }) {
   return (
-    <Card className="hover:shadow-xl transition-shadow bg-card">
+    <Card className="hover:shadow-xl transition-shadow bg-card/50 hover:bg-card">
       <CardContent className="p-6">
         <h3 className="font-headline text-xl font-bold mb-2">{title}</h3>
         <p className="text-muted-foreground mb-4">{description}</p>

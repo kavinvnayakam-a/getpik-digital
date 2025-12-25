@@ -40,7 +40,7 @@ export default function ContentGeneratorPage() {
   const [state, formAction] = useFormState(generateIdeasAction, initialState);
 
   return (
-    <div className="container mx-auto animate-in fade-in duration-500 px-4 py-8">
+    <div className="container mx-auto animate-in fade-in duration-500 px-4 py-8 md:py-12">
       <PageHeader
         title="Content Idea Generator"
         description="Brainstorm content for blog posts, website descriptions, and client outreach using AI."
@@ -99,7 +99,7 @@ export default function ContentGeneratorPage() {
           <h2 className="font-headline mb-4 text-2xl font-bold">
             Generated Ideas
           </h2>
-          <div className="space-y-4">
+          <div className="min-h-[400px] space-y-4">
             {state.message !== 'success' && state.message !== '' && (
               <Alert variant="destructive">
                 <AlertTitle>Error</AlertTitle>
@@ -107,7 +107,7 @@ export default function ContentGeneratorPage() {
               </Alert>
             )}
             {!state.data && state.message === '' && (
-              <Card className="flex flex-col items-center justify-center border-dashed p-12 text-center">
+              <Card className="flex h-full min-h-[400px] flex-col items-center justify-center border-dashed p-12 text-center">
                 <Lightbulb className="h-12 w-12 text-muted-foreground" />
                 <p className="mt-4 text-muted-foreground">
                   Your content ideas will appear here.

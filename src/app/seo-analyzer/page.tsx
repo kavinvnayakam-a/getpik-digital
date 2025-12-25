@@ -33,7 +33,7 @@ export default function SeoAnalyzerPage() {
   const [state, formAction] = useFormState(analyzeSeoAction, initialState);
 
   return (
-    <div className="container mx-auto animate-in fade-in duration-500 px-4 py-8">
+    <div className="container mx-auto animate-in fade-in duration-500 px-4 py-8 md:py-12">
       <PageHeader
         title="SEO Analysis Tool"
         description="Analyze your website's SEO and get AI-powered suggestions for improvement."
@@ -82,9 +82,9 @@ export default function SeoAnalyzerPage() {
           <h2 className="font-headline mb-4 text-2xl font-bold">
             Analysis Results
           </h2>
-          <div className="space-y-4">
+          <div className="min-h-[400px] space-y-4">
             {!state.data && (
-              <Card className="flex flex-col items-center justify-center border-dashed p-12 text-center">
+              <Card className="flex h-full min-h-[400px] flex-col items-center justify-center border-dashed p-12 text-center">
                 <Search className="h-12 w-12 text-muted-foreground" />
                 <p className="mt-4 text-muted-foreground">
                   Your SEO analysis will appear here.
@@ -99,7 +99,7 @@ export default function SeoAnalyzerPage() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="whitespace-pre-wrap">
+                  <p className="whitespace-pre-wrap leading-relaxed">
                     {state.data.analysisSummary}
                   </p>
                 </CardContent>
@@ -108,7 +108,7 @@ export default function SeoAnalyzerPage() {
                   <CardTitle className="font-headline">Suggestions</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="whitespace-pre-wrap">
+                  <p className="whitespace-pre-wrap leading-relaxed">
                     {state.data.suggestions}
                   </p>
                 </CardContent>

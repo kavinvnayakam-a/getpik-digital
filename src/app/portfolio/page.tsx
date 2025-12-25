@@ -14,7 +14,7 @@ import { ArrowRight } from 'lucide-react';
 
 export default function PortfolioPage() {
   return (
-    <div className="container mx-auto animate-in fade-in duration-500 px-4 py-8">
+    <div className="container mx-auto animate-in fade-in duration-500 px-4 py-8 md:py-12">
       <PageHeader
         title="Our Work"
         description="We're proud of the work we do. Here are some of our favorite projects."
@@ -23,7 +23,7 @@ export default function PortfolioPage() {
         {portfolioProjects.map(project => (
           <Card
             key={project.id}
-            className="flex flex-col overflow-hidden transition-shadow duration-300 hover:shadow-xl"
+            className="flex flex-col overflow-hidden transition-shadow duration-300 hover:shadow-xl bg-card/50 hover:bg-card"
           >
             {project.image && (
               <div className="relative h-48 w-full">
