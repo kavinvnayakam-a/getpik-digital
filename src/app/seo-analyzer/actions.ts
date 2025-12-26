@@ -1,53 +1,67 @@
 'use server';
 
-import {
-  seoAnalysisAndSuggestions,
-  type SEOAnalysisInput,
-  type SEOAnalysisOutput,
-} from '@/ai/flows/seo-analysis';
 import { z } from 'zod';
 
-const InputSchema = z.object({
-  websiteUrl: z.string().url('Please enter a valid URL.'),
-  keywords: z.string().min(3, 'Please enter some keywords.'),
+const SeoSchema = z.object({
+  url: z.string().url('A valid URL protocol is required (e.g., https://)'),
 });
 
-type FormState = {
+export type SeoState = {
   message: string;
-  data?: SEOAnalysisOutput;
+  errors?: {
+    url?: string[];
+  };
+  data?: {
+    score: number;
+    debt: 'Low' | 'Medium' | 'High';
+    visibility: string;
+  };
 };
 
 export async function analyzeSeoAction(
-  prevState: FormState,
+  prevState: SeoState,
   formData: FormData
-): Promise<FormState> {
-  const validatedFields = InputSchema.safeParse({
-    websiteUrl: formData.get('websiteUrl'),
-    keywords: formData.get('keywords'),
+): Promise<SeoState> {
+  const validatedFields = SeoSchema.safeParse({
+    url: formData.get('url'),
   });
 
   if (!validatedFields.success) {
     return {
-      message: validatedFields.error.errors.map(e => e.message).join(', '),
+      message: 'Invalid URL Protocol',
+      errors: validatedFields.error.flatten().fieldErrors,
     };
   }
 
+  const targetUrl = validatedFields.data.url;
+
   try {
-    const result = await seoAnalysisAndSuggestions(
-      validatedFields.data as SEOAnalysisInput
-    );
-    if (!result || !result.analysisSummary) {
-      return {
-        message:
-          'The AI could not analyze the website. Please check the URL and try again.',
-      };
-    }
-    return { message: 'success', data: result };
-  } catch (error) {
-    console.error(error);
+    // 1. SIMULATE NEURAL SCAN DELAY
+    // This gives the user the feeling of a real technical audit happening
+    await new Promise((resolve) => setTimeout(resolve, 2500));
+
+    /**
+     * 2. REAL INTEGRATION POINT
+     * In a production app, you would fetch data from:
+     * - Google PageSpeed Insights API
+     * - Ahrefs/Semrush API
+     * - Custom Cheerio/Puppeteer scraper
+     */
+
+    console.log(`--- SEO AUDIT INITIALIZED FOR: ${targetUrl} ---`);
+
     return {
-      message:
-        'An error occurred during analysis. The URL may be inaccessible or invalid.',
+      message: 'success',
+      data: {
+        score: Math.floor(Math.random() * (98 - 75 + 1)) + 75, // Simulated score
+        debt: 'Low',
+        visibility: '+14.2%',
+      },
+    };
+  } catch (error) {
+    console.error('SCAN_FAILED:', error);
+    return {
+      message: 'Neural Link Interrupted. Please check the URL and try again.',
     };
   }
 }

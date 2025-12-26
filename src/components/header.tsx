@@ -2,8 +2,8 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
-import { Bot, Menu, X } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Bot, Menu, X, ArrowRight, Zap } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from './ui/button';
 
@@ -11,106 +11,126 @@ const links = [
   { href: '/', label: 'Home' },
   { href: '/portfolio', label: 'Portfolio' },
   { href: '/clients', label: 'Clients' },
-  { href: '/seo-analyzer', label: 'SEO Analyzer' },
-  { href: '/content-generator', label: 'Content Ideas' },
-  { href: '/contact', label: 'Enquiry' },
+  { href: '/seo-analyzer', label: 'SEO' },
+  { href: '/ideas', label: 'Ideas' },
 ];
-
-const leftLinks = links.slice(0, 3);
-const rightLinks = links.slice(3);
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false); // Fix for hydration
   const pathname = usePathname();
 
+  useEffect(() => {
+    setMounted(true);
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Prevent rendering until mounted to ensure server/client match
+  if (!mounted) return null;
+
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center">
-        <nav className="hidden w-1/3 md:flex">
-          <ul className="flex items-center gap-6 text-sm">
-            {leftLinks.map(link => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className={cn(
-                    'transition-colors hover:text-foreground/80',
-                    pathname === link.href
-                      ? 'text-foreground'
-                      : 'text-foreground/60'
-                  )}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        <div className="flex w-1/3 justify-center">
-          <Link
-            href="/"
-            className="flex items-center space-x-2"
-            onClick={() => isOpen && setIsOpen(false)}
-          >
-            <Bot className="h-6 w-6 text-primary" />
-            <span className="font-bold font-headline text-lg">GetPik</span>
+    <header 
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out px-4 pt-4",
+        scrolled ? "pt-2" : "pt-6"
+      )}
+    >
+      <div className={cn(
+        "mx-auto max-w-6xl rounded-[2rem] border transition-all duration-500",
+        "bg-[#0a0a0a]/80 backdrop-blur-2xl",
+        scrolled 
+          ? "border-blue-500/30 shadow-[0_0_30px_-10px_rgba(37,99,235,0.3)]" 
+          : "border-white/10 shadow-none"
+      )}>
+        <div className="container flex h-16 items-center justify-between px-6">
+          
+          {/* Logo Section */}
+          <Link href="/" className="flex items-center gap-2 group">
+            <div className="bg-blue-600 p-1.5 rounded-xl group-hover:rotate-12 transition-transform shadow-[0_0_15px_rgba(37,99,235,0.5)]">
+              <Zap className="h-5 w-5 text-white fill-white" />
+            </div>
+            <span className="font-black italic tracking-tighter text-xl uppercase">
+              GetPik<span className="text-blue-600">.</span>
+            </span>
           </Link>
-        </div>
 
-        <nav className="hidden w-1/3 justify-end md:flex">
-          <ul className="flex items-center gap-6 text-sm">
-            {rightLinks.map(link => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className={cn(
-                    'transition-colors hover:text-foreground/80',
-                    pathname === link.href
-                      ? 'text-foreground'
-                      : 'text-foreground/60'
-                  )}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        <div className="flex flex-1 items-center justify-end md:hidden">
-          <Button
-            onClick={() => setIsOpen(!isOpen)}
-            variant="ghost"
-            size="icon"
-          >
-            {isOpen ? <X /> : <Menu />}
-            <span className="sr-only">Toggle Menu</span>
-          </Button>
-        </div>
-      </div>
-      {isOpen && (
-        <div className="md:hidden">
-          <div className="container pb-4">
-            <nav className="grid gap-4">
-              {links.map(link => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className={cn(
-                    'block rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground',
-                    pathname === link.href
-                      ? 'bg-accent text-accent-foreground'
-                      : 'text-muted-foreground'
-                  )}
-                >
-                  {link.label}
-                </Link>
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center bg-white/5 rounded-full px-1 py-1 border border-white/10">
+            <ul className="flex items-center">
+              {links.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className={cn(
+                      'px-5 py-2 text-[10px] font-black uppercase tracking-widest transition-all rounded-full',
+                      pathname === link.href
+                        ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/20'
+                        : 'text-gray-400 hover:text-white'
+                    )}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
               ))}
-            </nav>
+            </ul>
+          </nav>
+
+          {/* Right Action Area */}
+          <div className="hidden md:flex items-center gap-4">
+            <Button asChild size="sm" className="rounded-full px-6 h-10 bg-white text-black hover:bg-blue-600 hover:text-white font-black italic uppercase transition-all group border-none">
+              <Link href="/contact">
+                Enquiry
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Button>
+          </div>
+
+          {/* Mobile Toggle */}
+          <div className="flex md:hidden">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="p-2 text-gray-400 hover:text-white transition-colors"
+            >
+              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
           </div>
         </div>
-      )}
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      <div className={cn(
+        "absolute top-full left-4 right-4 mt-4 p-6 rounded-[2.5rem] border border-white/10 bg-[#0a0a0a]/95 backdrop-blur-3xl md:hidden transition-all duration-500 origin-top shadow-2xl",
+        isOpen ? "scale-100 opacity-100 translate-y-0" : "scale-95 opacity-0 -translate-y-4 pointer-events-none"
+      )}>
+        <nav className="flex flex-col gap-3">
+          {links.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setIsOpen(false)}
+              className={cn(
+                "px-6 py-4 rounded-2xl text-sm font-black uppercase tracking-widest transition-all",
+                pathname === link.href 
+                  ? "bg-blue-600 text-white" 
+                  : "bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white"
+              )}
+            >
+              {link.label}
+            </Link>
+          ))}
+          <div className="pt-4 mt-2 border-t border-white/10">
+            <Button asChild className="w-full justify-between h-14 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-black italic uppercase">
+              <Link href="/contact" onClick={() => setIsOpen(false)}>
+                Start Project
+                <ArrowRight className="h-5 w-5" />
+              </Link>
+            </Button>
+          </div>
+        </nav>
+      </div>
     </header>
   );
 }
