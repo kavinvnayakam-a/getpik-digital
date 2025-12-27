@@ -1,8 +1,9 @@
 'use server';
 
 import { z } from 'zod';
+import { firestore } from '@/lib/firebase';
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 
-// 1. Define the validation schema matching our new UI fields
 const EnquirySchema = z.object({
   name: z.string().min(2, 'Identity required (min 2 chars)'),
   email: z.string().email('Invalid digital mail address'),
@@ -28,7 +29,6 @@ export async function submitEnquiryAction(
   prevState: FormState,
   formData: FormData
 ): Promise<FormState> {
-  // 2. Extract and Validate fields
   const validatedFields = EnquirySchema.safeParse({
     name: formData.get('name'),
     email: formData.get('email'),
@@ -38,7 +38,6 @@ export async function submitEnquiryAction(
     projectDetails: formData.get('projectDetails'),
   });
 
-  // 3. Handle Validation Errors
   if (!validatedFields.success) {
     return {
       message: 'Protocol Error: Please check the highlighted fields.',
@@ -46,34 +45,21 @@ export async function submitEnquiryAction(
     };
   }
 
-  const { name, email, company, whatsapp, budget, projectDetails } = validatedFields.data;
+  const newEnquiry = {
+    ...validatedFields.data,
+    createdAt: serverTimestamp(),
+  };
 
   try {
-    /**
-     * 4. DATA PROCESSING LOGIC
-     * Here you would typically:
-     * - Save to Database (Prisma/Supabase)
-     * - Send an email (Resend/Nodemailer)
-     * - Trigger a WhatsApp API notification
-     */
-    
-    console.log('--- NEW INQUIRY RECEIVED ---');
-    console.log(`Identity: ${name}`);
-    console.log(`Email: ${email}`);
-    console.log(`Brand: ${company}`);
-    console.log(`WhatsApp: ${whatsapp}`);
-    console.log(`Budget: ${budget}`);
-    console.log(`Brief: ${projectDetails}`);
-
-    // Simulate network delay for the "Neural" feel
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    const enquiriesCollection = collection(firestore, 'enquiries');
+    await addDoc(enquiriesCollection, newEnquiry);
 
     return {
       message: 'success',
     };
 
   } catch (error) {
-    console.error('TRANSMISSION_FAILED:', error);
+    console.error('DATABASE_WRITE_FAILED:', error);
     return {
       message: 'Signal Lost: Our servers encountered an error. Please retry.',
     };

@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "getpik-digital"
-  }
+    "default": "getpik-digital",
+    "getpik": "getpik-digital"
+  },
+  "targets": {},
+  "etags": {}
 }

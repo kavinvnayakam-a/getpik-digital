@@ -10,5 +10,11 @@
       "functions"
     ],
     "alwaysDeployFromSource": true
+  },
+  "firestore": {
+    "database": "(default)",
+    "location": "asia-south1",
+    "rules": "firestore.rules",
+    "indexes": "firebase firestore:databases:list"
   }
 }
