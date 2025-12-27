@@ -8,32 +8,32 @@
     },
     {
       "id": "portfolio-1",
-      "description": "E-commerce website redesign",
-      "imageUrl": "https://images.unsplash.com/photo-1658297063569-162817482fb6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxlY29tbWVyY2UlMjB3ZWJzaXRlfGVufDB8fHx8MTc2NjY3Mjc0NXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "E-commerce website End to End",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Getpik%20Website%2FPortfolio%2FPlush.webp?alt=media&token=14155cd5-9e6f-4955-a571-35549e4e2f0c",
       "imageHint": "ecommerce website"
     },
     {
       "id": "portfolio-2",
-      "description": "Mobile app for a startup",
-      "imageUrl": "https://images.unsplash.com/photo-1601972599720-36938d4ecd31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bW9iaWxlJTIwYXBwfGVufDB8fHx8MTc2NjY2NTM4MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Mobile app for a Ayush Wellness Centre",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Getpik%20Website%2FPortfolio%2FShreevarma.webp?alt=media&token=e48a272c-184d-4834-af3c-d354ab287c60",
       "imageHint": "mobile app"
     },
     {
       "id": "portfolio-3",
-      "description": "Branding for a coffee shop",
-      "imageUrl": "https://images.unsplash.com/photo-1511920170033-f8396924c348?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjb2ZmZWUlMjBzaG9wfGVufDB8fHx8MTc2NjYxNDkwMHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "coffee shop"
+      "description": "Branding for a Organisation",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Getpik%20Website%2FPortfolio%2FAyush%20Conclave.webp?alt=media&token=7584fd66-118d-4d7a-a607-b24355a91916",
+      "imageHint": "Expo"
     },
     {
       "id": "portfolio-4",
       "description": "Corporate website for a law firm",
-      "imageUrl": "https://images.unsplash.com/photo-1621857093087-7daa85ab14a6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjb3Jwb3JhdGUlMjB3ZWJzaXRlfGVufDB8fHx8MTc2NjYwMjM5NXww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "corporate website"
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Getpik%20Website%2FPortfolio%2FLAW.webp?alt=media&token=d0c3be53-ab65-4c24-abb1-f8970df90db5",
+      "imageHint": "LAW"
     },
     {
       "id": "portfolio-5",
       "description": "Social media campaign graphics",
-      "imageUrl": "https://images.unsplash.com/photo-1683721003111-070bcc053d8b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzb2NpYWwlMjBtZWRpYXxlbnwwfHx8fDE3NjY1NTk4NTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Getpik%20Website%2FPortfolio%2FWellness%20by%20Heartfulness.webp?alt=media&token=e61891f9-60f3-4755-95e3-4ba9786816e3",
       "imageHint": "social media"
     },
     {

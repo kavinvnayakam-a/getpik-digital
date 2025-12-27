@@ -13,7 +13,6 @@ const footerLinks = {
     { label: 'Content Ideas', href: '/ideas' },
   ],
   company: [
-    { label: 'About Us', href: '/about' },
     { label: 'Clients', href: '/clients' },
     { label: 'Contact', href: '/contact' },
   ],

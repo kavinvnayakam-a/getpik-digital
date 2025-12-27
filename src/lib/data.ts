@@ -5,33 +5,33 @@ const getImage = (id: string) => PlaceHolderImages.find((img) => img.id === id);
 export const portfolioProjects = [
   {
     id: '1',
-    title: 'E-commerce Platform Overhaul',
+    title: 'E-commerce Platform',
     description:
       'A complete redesign and migration of a legacy e-commerce site to a modern, headless architecture.',
     image: getImage('portfolio-1'),
     testimonial:
       'GetPik Agency transformed our online store. Sales are up 40% year-over-year!',
-    client: 'UrbanStyle Co.',
+    client: 'Plush Lounge.',
   },
   {
     id: '2',
-    title: 'Fintech Mobile Application',
+    title: 'Ayurvedic Hospital - Wellness',
     description:
       'Developed a cross-platform mobile app for a startup, focusing on user experience and security.',
     image: getImage('portfolio-2'),
     testimonial:
       'The app is beautiful and intuitive. The team was professional and delivered on time.',
-    client: 'PayWise',
+    client: 'ShreeVarma',
   },
   {
     id: '3',
-    title: 'Cafe & Roastery Branding',
+    title: 'Ticket Booking App',
     description:
-      'Full branding package including logo design, packaging, and a new website for a local coffee shop.',
+      'Full branding including logo design, App Development, and a new website for a local Ayush Expo.',
     image: getImage('portfolio-3'),
     testimonial:
       "Our new brand identity perfectly captures our essence. We've seen a huge increase in foot traffic.",
-    client: 'The Daily Grind',
+    client: 'Ayush Conclave 2026',
   },
   {
     id: '4',
@@ -41,17 +41,17 @@ export const portfolioProjects = [
     image: getImage('portfolio-4'),
     testimonial:
       'The website instills confidence and is incredibly easy for our clients to navigate.',
-    client: 'Juris & Partners',
+    client: 'LAW (Legal Analysis & Wisdom)',
   },
   {
     id: '5',
-    title: 'Viral Social Media Campaign',
+    title: 'Viral Social Media Campaign & Website',
     description:
       'Created a suite of engaging graphics and videos for a social media campaign that reached millions.',
     image: getImage('portfolio-5'),
     testimonial:
       "Their creative work was exceptional and played a key role in our campaign's success.",
-    client: 'GlowUp Cosmetics',
+    client: 'Wellness By Heartfulnes',
   },
   {
     id: '6',
@@ -61,7 +61,7 @@ export const portfolioProjects = [
     image: getImage('portfolio-6'),
     testimonial:
       'The new dashboard makes complex data understandable and actionable. A game-changer for our users.',
-    client: 'Datafy',
+    client: 'Prime9 Events',
   },
 ];
 

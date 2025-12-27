@@ -5,14 +5,14 @@ import { ArrowRight, ShieldCheck, Star, Zap, Users2 } from 'lucide-react';
 
 // Modern Tech Dummy Logos using Clearbit API
 const dummyClients = [
-  { id: 1, name: 'Slack', logo: 'https://logo.clearbit.com/slack.com' },
-  { id: 2, name: 'Vercel', logo: 'https://logo.clearbit.com/vercel.com' },
-  { id: 3, name: 'Linear', logo: 'https://logo.clearbit.com/linear.app' },
-  { id: 4, name: 'Notion', logo: 'https://logo.clearbit.com/notion.so' },
-  { id: 5, name: 'Stripe', logo: 'https://logo.clearbit.com/stripe.com' },
-  { id: 6, name: 'GitHub', logo: 'https://logo.clearbit.com/github.com' },
-  { id: 7, name: 'Airbnb', logo: 'https://logo.clearbit.com/airbnb.com' },
-  { id: 8, name: 'Discord', logo: 'https://logo.clearbit.com/discord.com' },
+  { id: 1, name: 'Heartfulness', logo: 'https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Getpik%20Website%2FLogos%2FHEARTFULNESS.webp?alt=media&token=472a8032-985c-4aa8-b326-467ae2db2cef' },
+  { id: 2, name: 'ShreeVarma', logo: 'https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Getpik%20Website%2FLogos%2FSVW-Logo.webp?alt=media&token=caf45a1c-9c1c-4f93-809e-3e118d3b8db4' },
+  { id: 3, name: 'Plush', logo: 'https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Getpik%20Website%2FLogos%2FPlush%20Logo.ai.webp?alt=media&token=4ec643dd-74cc-460a-acb3-5161faf4d921' },
+  { id: 4, name: 'Inforce Solar', logo: 'https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Getpik%20Website%2FLogos%2FInforces%20Solar%20Logo.webp?alt=media&token=57525c1a-65e6-4f1f-b342-a80a87454614' },
+  { id: 5, name: 'Ayush Conclave', logo: 'https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Getpik%20Website%2FLogos%2FArogya%202026%20logo.webp?alt=media&token=f018c39f-ddd8-4acd-aed4-d8d9e9834cfd' },
+  { id: 6, name: 'Prim9Events', logo: 'https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Getpik%20Website%2FLogos%2FPrime%209%20Events.webp?alt=media&token=7b9fb3e7-b524-4eab-a40d-25412d2b0c9f' },
+  { id: 7, name: 'SAA-Builders', logo: 'https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Getpik%20Website%2FLogos%2FSAA%20Logo.webp?alt=media&token=9d182f03-c34d-4043-8f32-74f86e29dec6' },
+  { id: 8, name: 'Godeals', logo: 'https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Getpik%20Website%2FLogos%2FGodeals%20Logo.webp?alt=media&token=15277e6b-809e-42c3-87a5-c4405bc11e7c' },
 ];
 
 export default function ClientsPage() {
