@@ -1,7 +1,7 @@
 'use client';
 
 // 1. Update the import from 'react-dom' to 'react'
-import { useActionState, useEffect, useRef } from 'react'; 
+import { useActionState, useEffect, useRef } from 'react';
 import { useFormStatus } from 'react-dom'; // keep this in react-dom
 import { submitEnquiryAction } from './actions';
 import { useToast } from '@/hooks/use-toast';
@@ -28,9 +28,9 @@ const initialState = {
 function SubmitButton() {
   const { pending } = useFormStatus();
   return (
-    <Button 
-      type="submit" 
-      disabled={pending} 
+    <Button
+      type="submit"
+      disabled={pending}
       className="w-full h-14 bg-blue-600 hover:bg-blue-700 text-white font-black italic uppercase rounded-2xl transition-all shadow-lg shadow-blue-600/20 group"
     >
       {pending ? (
@@ -54,11 +54,13 @@ export default function ContactPage() {
     if (state.message === 'success') {
       toast({
         title: 'TRANSMISSION RECEIVED',
-        description: "Our strategists are reviewing your data. Stand by.",
+        description: 'Our strategists are reviewing your data. Stand by.',
       });
       formRef.current?.reset();
-    } else if (state.message !== '' && state.message !== 'success') {
-      toast({
+    } else if (state.message !== '' && state.message !== 'success' && state.errors) {
+      // Don't show toast on validation error, as errors are inline now.
+    } else if (state.message && state.message !== 'success') {
+       toast({
         title: 'SIGNAL ERROR',
         description: state.message,
         variant: 'destructive',
@@ -70,10 +72,9 @@ export default function ContactPage() {
     <div className="min-h-screen bg-[#0a0a0a] text-white pt-32 pb-20 px-6 relative overflow-hidden">
       {/* Background Abstract Glows */}
       <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-blue-600/10 blur-[120px] rounded-full -z-10" />
-      
+
       <div className="container mx-auto max-w-6xl">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          
           {/* Left Side: Contextual Info */}
           <div className="space-y-8 animate-in fade-in slide-in-from-left-8 duration-700">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-600/10 border border-blue-600/20 text-blue-500 text-[10px] font-black uppercase tracking-widest">
@@ -85,7 +86,7 @@ export default function ContactPage() {
             <p className="text-gray-500 text-lg font-medium max-w-md leading-relaxed">
               Initiate your brand upgrade. Our systems usually process inquiries in <span className="text-blue-500 italic font-bold">&lt; 4 hours.</span>
             </p>
-            
+
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
               <div className="p-6 rounded-[2rem] bg-white/5 border border-white/10 space-y-2">
                 <Globe className="w-5 h-5 text-blue-500" />
@@ -104,15 +105,16 @@ export default function ContactPage() {
           <Card className="bg-white/5 border-white/10 rounded-[3rem] backdrop-blur-2xl shadow-2xl overflow-hidden animate-in fade-in slide-in-from-right-8 duration-700">
             <CardContent className="p-8 md:p-12">
               <form ref={formRef} action={formAction} className="space-y-5">
-                
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div className="space-y-2">
                     <Label className="text-[10px] font-black uppercase tracking-widest text-gray-500 px-1">Identity</Label>
                     <Input id="name" name="name" placeholder="Name" required className="bg-black/50 border-white/10 h-12 rounded-xl text-white" />
+                    {state.errors?.name && <p className="text-red-500 text-xs italic mt-1">{state.errors.name[0]}</p>}
                   </div>
                   <div className="space-y-2">
                     <Label className="text-[10px] font-black uppercase tracking-widest text-gray-500 px-1">Digital Mail</Label>
                     <Input id="email" name="email" type="email" placeholder="Email" required className="bg-black/50 border-white/10 h-12 rounded-xl text-white" />
+                    {state.errors?.email && <p className="text-red-500 text-xs italic mt-1">{state.errors.email[0]}</p>}
                   </div>
                 </div>
 
@@ -123,6 +125,7 @@ export default function ContactPage() {
                       <Building2 className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-600" />
                       <Input id="company" name="company" placeholder="Brand Name" required className="bg-black/50 border-white/10 h-12 pl-11 rounded-xl text-white" />
                     </div>
+                     {state.errors?.company && <p className="text-red-500 text-xs italic mt-1">{state.errors.company[0]}</p>}
                   </div>
                   <div className="space-y-2">
                     <Label className="text-[10px] font-black uppercase tracking-widest text-gray-500 px-1">WhatsApp Protocol</Label>
@@ -130,6 +133,7 @@ export default function ContactPage() {
                       <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-blue-500" />
                       <Input id="whatsapp" name="whatsapp" placeholder="+91" required className="bg-black/50 border-white/10 h-12 pl-11 rounded-xl text-white" />
                     </div>
+                     {state.errors?.whatsapp && <p className="text-red-500 text-xs italic mt-1">{state.errors.whatsapp[0]}</p>}
                   </div>
                 </div>
 
@@ -146,6 +150,7 @@ export default function ContactPage() {
                       <SelectItem value="5l+">₹5 Lakh +</SelectItem>
                     </SelectContent>
                   </Select>
+                  {state.errors?.budget && <p className="text-red-500 text-xs italic mt-1">{state.errors.budget[0]}</p>}
                 </div>
 
                 <div className="space-y-2">
@@ -157,7 +162,12 @@ export default function ContactPage() {
                     className="min-h-[100px] bg-black/50 border-white/10 rounded-xl text-white"
                     required
                   />
+                  {state.errors?.projectDetails && <p className="text-red-500 text-xs italic mt-1">{state.errors.projectDetails[0]}</p>}
                 </div>
+
+                {state.message && state.message !== 'success' && !state.errors && (
+                  <p className="text-red-500 text-sm font-bold text-center">{state.message}</p>
+                )}
 
                 <SubmitButton />
               </form>
