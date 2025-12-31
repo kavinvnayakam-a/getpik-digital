@@ -1,6 +1,6 @@
 
-import { initializeApp, getApps, getApp } from 'firebase/app';
-import { getFirestore } from 'firebase/firestore';
+import { initializeApp, getApps, getApp, FirebaseApp } from 'firebase/app';
+import { getFirestore, Firestore } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -11,8 +11,21 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-// Initialize Firebase
-const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
-const firestore = getFirestore(app);
+// This function ensures that we initialize Firebase only once.
+function getClientApp(): FirebaseApp {
+  if (getApps().length) {
+    return getApp();
+  }
+  const app = initializeApp(firebaseConfig);
+  return app;
+}
 
-export { app, firestore };
+// Separate getter for Firestore service to ensure it's also a singleton.
+function getClientFirestore(): Firestore {
+  const app = getClientApp();
+  return getFirestore(app);
+}
+
+// Export the service instance, not the app itself for actions.
+export const firestore = getClientFirestore();
+export const app = getClientApp();

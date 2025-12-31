@@ -51,6 +51,7 @@ export async function submitEnquiryAction(
   };
 
   try {
+    // The firestore instance is now correctly initialized as a singleton.
     const enquiriesCollection = collection(firestore, 'enquiries');
     await addDoc(enquiriesCollection, newEnquiry);
 
@@ -60,8 +61,9 @@ export async function submitEnquiryAction(
 
   } catch (error) {
     console.error('DATABASE_WRITE_FAILED:', error);
+    // Provide a more specific error message for debugging if needed, but for the user, this is sufficient.
     return {
-      message: 'Signal Lost: Our servers encountered an error. Please retry.',
+      message: 'Signal Lost: Our servers encountered an error connecting to the database. Please retry.',
     };
   }
 }
