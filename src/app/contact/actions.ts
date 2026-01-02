@@ -4,15 +4,17 @@ import { z } from 'zod';
 import { firestore } from '@/lib/firebase';
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 
+// Define the schema for validation
 const EnquirySchema = z.object({
   name: z.string().min(2, 'Identity required (min 2 chars)'),
   email: z.string().email('Invalid digital mail address'),
   company: z.string().min(1, 'Brand/Company name is required'),
   whatsapp: z.string().regex(/^[0-9+\s-]{10,15}$/, 'Invalid WhatsApp number format'),
   budget: z.string().min(1, 'Please select an investment range'),
-  projectDetails: z.string().min(10, 'Mission brief is too short (min 10 chars)'),
+  projectDetails: z.string().min(1, 'Mission brief cannot be empty'),
 });
 
+// Define the return type for the form state
 export type FormState = {
   message: string;
   errors?: {
@@ -25,19 +27,18 @@ export type FormState = {
   };
 };
 
+/**
+ * Server Action to handle the Enquiry Form submission
+ */
 export async function submitEnquiryAction(
   prevState: FormState,
   formData: FormData
 ): Promise<FormState> {
-  const validatedFields = EnquirySchema.safeParse({
-    name: formData.get('name'),
-    email: formData.get('email'),
-    company: formData.get('company'),
-    whatsapp: formData.get('whatsapp'),
-    budget: formData.get('budget'),
-    projectDetails: formData.get('projectDetails'),
-  });
+  // 1. Extract and Validate fields
+  const rawFormData = Object.fromEntries(formData.entries());
+  const validatedFields = EnquirySchema.safeParse(rawFormData);
 
+  // 2. Return errors early if validation fails
   if (!validatedFields.success) {
     return {
       message: 'Protocol Error: Please check the highlighted fields.',
@@ -45,25 +46,35 @@ export async function submitEnquiryAction(
     };
   }
 
-  const newEnquiry = {
-    ...validatedFields.data,
-    createdAt: serverTimestamp(),
-  };
-
   try {
-    // The firestore instance is now correctly initialized as a singleton.
+    // 3. Prepare data for Firestore
+    const newEnquiry = {
+      ...validatedFields.data,
+      // Metadata for your internal tracking
+      status: 'unread',
+      source: 'web_contact_form',
+      createdAt: serverTimestamp(),
+    };
+
+    // 4. Write to Firestore
+    // Ensure 'enquiries' is the name of your collection in Firebase
     const enquiriesCollection = collection(firestore, 'enquiries');
     await addDoc(enquiriesCollection, newEnquiry);
 
+    // 5. Return success state
     return {
       message: 'success',
+      errors: {},
     };
 
   } catch (error) {
+    // Log the error on the server for debugging
     console.error('DATABASE_WRITE_FAILED:', error);
-    // Provide a more specific error message for debugging if needed, but for the user, this is sufficient.
+
+    // Return a user-friendly error message
     return {
       message: 'Signal Lost: Our servers encountered an error connecting to the database. Please retry.',
+      errors: {},
     };
   }
 }
