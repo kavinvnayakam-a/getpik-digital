@@ -113,7 +113,7 @@ export default function Home() {
               Bestsellers
             </h2>
             <p className="text-muted-foreground font-medium italic mt-4">
-              Transparent pricing for rapid content deployment. Choose your protocol.
+              Affordable plans for every need. Find the perfect fit for your project.
             </p>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -149,9 +149,9 @@ export default function Home() {
             />
           </div>
           <div className="mt-16 max-w-4xl mx-auto">
-            <div className="p-8 md:p-12 rounded-[3rem] bg-foreground text-background border border-destructive/30 shadow-2xl shadow-destructive/10 transition-all duration-300 hover:shadow-destructive/20 hover:border-destructive/50">
+            <div className="p-8 md:p-12 rounded-[3rem] bg-foreground text-background border border-primary/30 shadow-2xl shadow-primary/10 transition-all duration-300 hover:shadow-primary/20 hover:border-primary/50">
               <div className="text-center mb-8">
-                <p className="text-sm font-bold uppercase tracking-widest text-destructive mb-4">For Business and Brands</p>
+                <p className="text-sm font-bold uppercase tracking-widest text-primary mb-4">For Business and Brands</p>
                 <h3 className="text-5xl font-bold text-background mb-4">Business</h3>
                 <p className="text-lg text-muted max-w-2xl mx-auto">
                     Professional coverage for your business events, delivering polished content that aligns with your brand identity and marketing goals.
@@ -159,28 +159,28 @@ export default function Home() {
               </div>
 
               <div className="my-12 text-center">
-                  <h4 className="text-6xl font-bold text-destructive">Customised Pricing <span className="text-2xl text-muted align-middle">+GST</span></h4>
+                  <h4 className="text-6xl font-bold text-primary">Customised Pricing <span className="text-2xl text-muted align-middle">+GST</span></h4>
               </div>
 
               <div>
                 <h5 className="font-bold text-center text-background mb-8 uppercase tracking-widest">Package Inclusions:</h5>
                 <div className="grid md:grid-cols-2 gap-x-12 gap-y-4 text-muted">
                     <ul className="space-y-4">
-                        <li className="flex items-center gap-3"><Check className="w-4 h-4 text-destructive" /><span>Cinematic visuals for premium brands & events</span></li>
-                        <li className="flex items-center gap-3"><Check className="w-4 h-4 text-destructive" /><span>Refined, brand-aligned storytelling</span></li>
-                        <li className="flex items-center gap-3"><Check className="w-4 h-4 text-destructive" /><span>Professional production with expert direction</span></li>
-                        <li className="flex items-center gap-3"><Check className="w-4 h-4 text-destructive" /><span>Hassle-free booking & coordination</span></li>
+                        <li className="flex items-center gap-3"><Check className="w-4 h-4 text-primary" /><span>Cinematic visuals for premium brands & events</span></li>
+                        <li className="flex items-center gap-3"><Check className="w-4 h-4 text-primary" /><span>Refined, brand-aligned storytelling</span></li>
+                        <li className="flex items-center gap-3"><Check className="w-4 h-4 text-primary" /><span>Professional production with expert direction</span></li>
+                        <li className="flex items-center gap-3"><Check className="w-4 h-4 text-primary" /><span>Hassle-free booking & coordination</span></li>
                     </ul>
                     <ul className="space-y-4">
-                        <li className="flex items-center gap-3"><Check className="w-4 h-4 text-destructive" /><span>Quick turnaround Cut. Polish. Launch</span></li>
-                        <li className="flex items-center gap-3"><Check className="w-4 h-4 text-destructive" /><span>Ideal for campaigns, launches & brand showcases</span></li>
-                        <li className="flex items-center gap-3"><Check className="w-4 h-4 text-destructive" /><span>Elevate your brand with polished visual storytelling</span></li>
+                        <li className="flex items-center gap-3"><Check className="w-4 h-4 text-primary" /><span>Quick turnaround from shoot to final cut</span></li>
+                        <li className="flex items-center gap-3"><Check className="w-4 h-4 text-primary" /><span>Ideal for campaigns, launches & brand showcases</span></li>
+                        <li className="flex items-center gap-3"><Check className="w-4 h-4 text-primary" /><span>Elevate your brand with polished visual storytelling</span></li>
                     </ul>
                 </div>
               </div>
 
               <div className="mt-12 text-center">
-                  <Button size="lg" variant="destructive" className="rounded-full px-12 h-16 text-lg font-bold group">
+                  <Button size="lg" variant="default" className="rounded-full px-12 h-16 text-lg font-bold group bg-primary hover:bg-primary/90">
                       Book Now <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
               </div>
