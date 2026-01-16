@@ -85,7 +85,7 @@ export const Card = ({
           "0 0 #0000004d, 0 7px 10px #0000004a, 0 20px 20px #00000042, 0 84px 50px #00000026, 0 149px 60px #0000000a, 0 233px 65px #00000003",
       }}
       className={cn(
-        "mx-auto -mt-28 md:-mt-20 relative bg-[#171717] border-[#262626] border-[8px] md:border-[12px]",
+        "mx-auto -mt-40 md:-mt-20 relative bg-[#171717] border-[#262626] border-[8px] md:border-[12px]",
         // SMOOTHER CORNERS: Using higher values for a "Squircle" look
         deviceType === "tablet" && "max-w-5xl h-[30rem] md:h-[40rem] rounded-[40px] md:rounded-[60px]",
         deviceType === "phone" && "max-w-[360px] h-[720px] rounded-[56px]"
