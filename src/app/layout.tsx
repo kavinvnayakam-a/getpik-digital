@@ -3,6 +3,7 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
+import { ScrollTimeline } from '@/components/ui/scroll-timeline';
 
 export const metadata: Metadata = {
   title: 'GetPik Agency',
@@ -38,6 +39,7 @@ export default function RootLayout({
           <main className="flex-1">{children}</main>
           <Footer />
         </div>
+        <ScrollTimeline />
         <Toaster />
       </body>
     </html>
