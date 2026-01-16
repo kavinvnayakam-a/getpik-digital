@@ -148,6 +148,44 @@ export default function Home() {
               isPopular={true}
             />
           </div>
+          <div className="mt-16 max-w-4xl mx-auto">
+            <div className="p-8 md:p-12 rounded-[3rem] bg-foreground text-background border border-destructive/30 shadow-2xl shadow-destructive/10 transition-all duration-300 hover:shadow-destructive/20 hover:border-destructive/50">
+              <div className="text-center mb-8">
+                <p className="text-sm font-bold uppercase tracking-widest text-destructive mb-4">For Business and Brands</p>
+                <h3 className="text-5xl font-bold text-background mb-4">Business</h3>
+                <p className="text-lg text-muted max-w-2xl mx-auto">
+                    Professional coverage for your business events, delivering polished content that aligns with your brand identity and marketing goals.
+                </p>
+              </div>
+
+              <div className="my-12 text-center">
+                  <h4 className="text-6xl font-bold text-destructive">Customised Pricing <span className="text-2xl text-muted align-middle">+GST</span></h4>
+              </div>
+
+              <div>
+                <h5 className="font-bold text-center text-background mb-8 uppercase tracking-widest">Package Inclusions:</h5>
+                <div className="grid md:grid-cols-2 gap-x-12 gap-y-4 text-muted">
+                    <ul className="space-y-4">
+                        <li className="flex items-center gap-3"><Check className="w-4 h-4 text-destructive" /><span>Cinematic visuals for premium brands & events</span></li>
+                        <li className="flex items-center gap-3"><Check className="w-4 h-4 text-destructive" /><span>Refined, brand-aligned storytelling</span></li>
+                        <li className="flex items-center gap-3"><Check className="w-4 h-4 text-destructive" /><span>Professional production with expert direction</span></li>
+                        <li className="flex items-center gap-3"><Check className="w-4 h-4 text-destructive" /><span>Hassle-free booking & coordination</span></li>
+                    </ul>
+                    <ul className="space-y-4">
+                        <li className="flex items-center gap-3"><Check className="w-4 h-4 text-destructive" /><span>Quick turnaround Cut. Polish. Launch</span></li>
+                        <li className="flex items-center gap-3"><Check className="w-4 h-4 text-destructive" /><span>Ideal for campaigns, launches & brand showcases</span></li>
+                        <li className="flex items-center gap-3"><Check className="w-4 h-4 text-destructive" /><span>Elevate your brand with polished visual storytelling</span></li>
+                    </ul>
+                </div>
+              </div>
+
+              <div className="mt-12 text-center">
+                  <Button size="lg" variant="destructive" className="rounded-full px-12 h-16 text-lg font-bold group">
+                      Book Now <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -347,7 +385,7 @@ function PricingCard({
     <Card
       className={cn(
         "relative flex flex-col p-8 rounded-[2.5rem] border bg-card/80 backdrop-blur-sm transition-all duration-300",
-        isPopular ? "border-primary shadow-2xl shadow-primary/10" : "border-border/50"
+        isPopular ? "border-primary shadow-2xl shadow-primary/10" : "border-border/50 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10"
       )}
     >
       {isPopular && (
