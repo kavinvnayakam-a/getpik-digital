@@ -15,7 +15,6 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { ContainerScroll } from '@/components/ui/container-scroll-animation';
-import Image from 'next/image';
 
 export default function Home() {
   return (
@@ -40,13 +39,14 @@ export default function Home() {
           }
           deviceType="phone"
         >
-          <Image
-            src="https://storage.googleapis.com/res-blockcraft/public/1721051515984.png"
-            alt="Quick content service app"
-            height={720}
-            width={400}
+          <video
+            src="https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Getpik%20Website%2FGetpik%20Hero%20Reels.MP4?alt=media&token=8cefea4e-dfe8-4250-ab36-e3ee1c3937bb"
+            autoPlay
+            loop
+            muted
+            playsInline
+            onContextMenu={(e) => e.preventDefault()}
             className="mx-auto rounded-none object-cover h-full w-full"
-            draggable={false}
           />
         </ContainerScroll>
       </section>
