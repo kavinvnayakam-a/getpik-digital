@@ -17,9 +17,11 @@ import {
   Users,
   Smile,
   Camera,
+  Check,
 } from 'lucide-react';
 import Link from 'next/link';
 import { ContainerScroll } from '@/components/ui/container-scroll-animation';
+import { cn } from '@/lib/utils';
 
 export default function Home() {
   return (
@@ -64,7 +66,7 @@ export default function Home() {
               Why Choose Us
             </div>
             <h2 className="text-4xl md:text-6xl font-black italic tracking-tighter uppercase leading-tight">
-              Not Just Instant Delivery, <span className="text-primary not-italic">But So Much More.</span>
+              Not Just Instant Delivery, But So Much More.
             </h2>
           </div>
 
@@ -98,6 +100,52 @@ export default function Home() {
               icon={<Camera className="w-6 h-6 text-primary" />}
               title="Pro-Grade Equipment"
               description="We shoot on the latest iPhones, mirrorless cameras, and other pro gear to ensure your content is top-notch."
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* --- PRICING SECTION --- */}
+      <section className="py-12 sm:py-24 bg-muted/20">
+        <div className="container mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-4xl md:text-6xl font-black italic tracking-tighter uppercase leading-tight">
+              Bestsellers
+            </h2>
+            <p className="text-muted-foreground font-medium italic mt-4">
+              Transparent pricing for rapid content deployment. Choose your protocol.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <PricingCard
+              planName="Hourly Plan"
+              tagline="Quickest Content"
+              description="Perfect for anyone who wants a single, fast, high-quality reel."
+              price="1,999"
+              features={[
+                '1 Hour Shoot',
+                '1 Edited Reel Delivered',
+                'Shot on Latest iPhone',
+                'Fast Delivery (10 mins post shoot)',
+                'Trained and Certified Reel Maker',
+                'GetPik Branding Included',
+              ]}
+              isPopular={false}
+            />
+            <PricingCard
+              planName="Half-Day Plan"
+              tagline="Event Essential"
+              description="Ideal for events and creators who need more time and more content."
+              price="4,999"
+              features={[
+                'Up to 3 Hours Shoot',
+                '2 Edited reels',
+                'Shot on Latest iPhone',
+                'Fast Delivery (10 mins post shoot)',
+                'Trained and Certified Reel Maker',
+                'GetPik Branding Included',
+              ]}
+              isPopular={true}
             />
           </div>
         </div>
@@ -276,6 +324,63 @@ function FeatureCard({
           </Button>
         </div>
       </CardContent>
+    </Card>
+  );
+}
+
+function PricingCard({
+  planName,
+  tagline,
+  description,
+  price,
+  features,
+  isPopular,
+}: {
+  planName: string;
+  tagline: string;
+  description: string;
+  price: string;
+  features: string[];
+  isPopular: boolean;
+}) {
+  return (
+    <Card
+      className={cn(
+        "relative flex flex-col p-8 rounded-[2.5rem] border bg-card/80 backdrop-blur-sm transition-all duration-300",
+        isPopular ? "border-primary shadow-2xl shadow-primary/10" : "border-border/50"
+      )}
+    >
+      {isPopular && (
+        <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-primary text-primary-foreground text-xs font-bold uppercase tracking-widest">
+          Most Popular
+        </div>
+      )}
+      <div className="flex-1">
+        <p className="text-primary font-bold uppercase tracking-widest text-[10px] mb-2">{tagline}</p>
+        <h3 className="text-2xl font-black italic uppercase tracking-tighter mb-3">{planName}</h3>
+        <p className="text-sm text-muted-foreground font-medium italic mb-8">{description}</p>
+        
+        <div className="mb-8">
+          <span className="text-5xl font-black text-foreground">₹{price}</span>
+          <span className="text-muted-foreground font-bold"> + GST</span>
+        </div>
+
+        <p className="text-muted-foreground text-[10px] font-black uppercase tracking-[0.2em] mb-4">What's Included</p>
+        <ul className="space-y-3 text-sm font-medium text-foreground/80 italic">
+          {features.map((feature, index) => (
+            <li key={index} className="flex items-center gap-3">
+              <Check className="w-4 h-4 text-primary" />
+              <span>{feature}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="mt-10">
+        <Button size="lg" className="w-full rounded-2xl h-14 font-black italic uppercase text-base">
+          Book Now <ArrowRight className="ml-2"/>
+        </Button>
+      </div>
     </Card>
   );
 }
