@@ -84,7 +84,7 @@ export const Card = ({
           "0 0 #0000004d, 0 9px 20px #0000004a, 0 37px 37px #00000042, 0 84px 50px #00000026, 0 149px 60px #0000000a, 0 233px 65px #00000003",
       }}
       className={cn(
-        "mx-auto -mt-20 relative bg-neutral-900 border-neutral-800 border-8",
+        "mx-auto -mt-28 md:-mt-20 relative bg-neutral-900 border-neutral-800 border-8",
         // Tablet Dimensions
         deviceType === "tablet" && "max-w-5xl h-[30rem] md:h-[40rem] rounded-[30px]",
         // Phone Dimensions
