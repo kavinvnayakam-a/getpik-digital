@@ -1,15 +1,15 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
+  type CarouselApi,
 } from '@/components/ui/carousel';
+import Autoplay from 'embla-carousel-autoplay';
 import { Layers } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -22,24 +22,45 @@ const categories = [
   'Personal Branding',
 ];
 
-// Placeholder data for videos. When you have the links, you can add them here.
 const works = [
   { id: 1, category: 'Makeup Artist', videoSrc: 'https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Getpik%20Website%2FWork%2Fmakeup.mp4?alt=media&token=509e0cb2-faee-4f12-b360-3da450f5d27d' },
   { id: 2, category: 'Outfit Shoot', videoSrc: 'https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Getpik%20Website%2FWork%2FOutfit.mp4?alt=media&token=a14ceb52-8ee1-4f3e-bcd2-ad6a1e9b33af' },
   { id: 3, category: 'Jewellery Shoot', videoSrc: 'https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Getpik%20Website%2FWork%2FJewellery.mp4?alt=media&token=5101bb01-af88-41df-8aae-f8ec6628fcaa' },
   { id: 4, category: 'Jewellery Shoot', videoSrc: 'https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Getpik%20Website%2FWork%2FJewellery%202.mp4?alt=media&token=e99f259e-526a-4206-8087-37047603c56f' },
   { id: 5, category: 'Personal Branding', videoSrc: 'https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Getpik%20Website%2FGetpik%20Hero%20Reels.MP4?alt=media&token=8cefea4e-dfe8-4250-ab36-e3ee1c3937bb' },
-  { id: 6, category: 'Outfit Shoot', videoSrc: 'https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Getpik%20Website%2FWork%2FOutfit.mp4?alt=media&token=a14ceb52-8ee1-4f3e-bcd2-ad6a1e9b33af' },
-  { id: 7, category: 'Makeup Artist', videoSrc: 'https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Getpik%20Website%2FWork%2Fmakeup.mp4?alt=media&token=509e0cb2-faee-4f12-b360-3da450f5d27d' },
 ];
 
 export default function WorkPage() {
   const [activeCategory, setActiveCategory] = useState('All');
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+
+  const plugin = useRef(
+    Autoplay({ delay: 2500, stopOnInteraction: true })
+  );
 
   const filteredWorks =
     activeCategory === 'All'
       ? works
       : works.filter((work) => work.category === activeCategory);
+
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    setCurrent(api.selectedScrollSnap());
+
+    const onSelect = () => {
+      setCurrent(api.selectedScrollSnap());
+    };
+
+    api.on('select', onSelect);
+
+    return () => {
+      api.off('select', onSelect);
+    };
+  }, [api, filteredWorks]);
 
   return (
     <div className="min-h-screen bg-background text-foreground pt-32 pb-20 px-6 relative overflow-hidden">
@@ -76,8 +97,14 @@ export default function WorkPage() {
         </div>
 
         {/* Video Slideshow */}
-        <div className="w-full max-w-6xl mx-auto animate-in fade-in zoom-in-95 duration-700 delay-300">
+        <div 
+          className="w-full max-w-6xl mx-auto animate-in fade-in zoom-in-95 duration-700 delay-300"
+          onMouseEnter={plugin.current.stop}
+          onMouseLeave={plugin.current.reset}
+        >
           <Carousel
+            setApi={setApi}
+            plugins={[plugin.current]}
             opts={{
               align: 'start',
               loop: true,
@@ -111,9 +138,20 @@ export default function WorkPage() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="hidden sm:flex" />
-            <CarouselNext className="hidden sm:flex" />
           </Carousel>
+           <div className="flex justify-center gap-2 mt-6">
+            {api && Array.from({ length: api.scrollSnapList().length }).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => api.scrollTo(index)}
+                className={cn(
+                  'h-2.5 w-2.5 rounded-full bg-muted/50 transition-all duration-300',
+                  index === current ? 'w-6 bg-primary' : 'hover:bg-muted'
+                )}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
         </div>
         
         {filteredWorks.length === 0 && (
