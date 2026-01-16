@@ -24,12 +24,13 @@ const categories = [
 
 // Placeholder data for videos. When you have the links, you can add them here.
 const works = [
-  { id: 1, category: 'Outfit Shoot', videoSrc: 'https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Getpik%20Website%2FGetpik%20Hero%20Reels.MP4?alt=media&token=8cefea4e-dfe8-4250-ab36-e3ee1c3937bb' },
-  { id: 2, category: 'Makeup Artist', videoSrc: 'https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Getpik%20Website%2FGetpik%20Hero%20Reels.MP4?alt=media&token=8cefea4e-dfe8-4250-ab36-e3ee1c3937bb' },
-  { id: 3, category: 'Jewellery Shoot', videoSrc: 'https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Getpik%20Website%2FGetpik%20Hero%20Reels.MP4?alt=media&token=8cefea4e-dfe8-4250-ab36-e3ee1c3937bb' },
-  { id: 4, category: 'Personal Branding', videoSrc: 'https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Getpik%20Website%2FGetpik%20Hero%20Reels.MP4?alt=media&token=8cefea4e-dfe8-4250-ab36-e3ee1c3937bb' },
-  { id: 5, category: 'Outfit Shoot', videoSrc: 'https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Getpik%20Website%2FGetpik%20Hero%20Reels.MP4?alt=media&token=8cefea4e-dfe8-4250-ab36-e3ee1c3937bb' },
-  { id: 6, category: 'Makeup Artist', videoSrc: 'https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Getpik%20Website%2FGetpik%20Hero%20Reels.MP4?alt=media&token=8cefea4e-dfe8-4250-ab36-e3ee1c3937bb' },
+  { id: 1, category: 'Makeup Artist', videoSrc: 'https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Getpik%20Website%2FWork%2Fmakeup.mp4?alt=media&token=509e0cb2-faee-4f12-b360-3da450f5d27d' },
+  { id: 2, category: 'Outfit Shoot', videoSrc: 'https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Getpik%20Website%2FWork%2FOutfit.mp4?alt=media&token=a14ceb52-8ee1-4f3e-bcd2-ad6a1e9b33af' },
+  { id: 3, category: 'Jewellery Shoot', videoSrc: 'https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Getpik%20Website%2FWork%2FJewellery.mp4?alt=media&token=5101bb01-af88-41df-8aae-f8ec6628fcaa' },
+  { id: 4, category: 'Jewellery Shoot', videoSrc: 'https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Getpik%20Website%2FWork%2FJewellery%202.mp4?alt=media&token=e99f259e-526a-4206-8087-37047603c56f' },
+  { id: 5, category: 'Personal Branding', videoSrc: 'https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Getpik%20Website%2FGetpik%20Hero%20Reels.MP4?alt=media&token=8cefea4e-dfe8-4250-ab36-e3ee1c3937bb' },
+  { id: 6, category: 'Outfit Shoot', videoSrc: 'https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Getpik%20Website%2FWork%2FOutfit.mp4?alt=media&token=a14ceb52-8ee1-4f3e-bcd2-ad6a1e9b33af' },
+  { id: 7, category: 'Makeup Artist', videoSrc: 'https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Getpik%20Website%2FWork%2Fmakeup.mp4?alt=media&token=509e0cb2-faee-4f12-b360-3da450f5d27d' },
 ];
 
 export default function WorkPage() {
@@ -90,7 +91,7 @@ export default function WorkPage() {
                     <Card className="rounded-3xl overflow-hidden aspect-[9/16] group border-2 border-transparent hover:border-primary/50 transition-all">
                       <CardContent className="relative flex h-full w-full items-center justify-center p-0">
                         <video
-                          src={work.videoSrc} // You will replace this with your actual video URLs
+                          src={work.videoSrc}
                           autoPlay
                           loop
                           muted
