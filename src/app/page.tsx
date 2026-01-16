@@ -36,11 +36,11 @@ export default function Home() {
               </div>
 
               <h1 className="text-xl md:text-3xl font-bold text-foreground mb-4 leading-tight">
-                We Shoot • Edit • Deliver Content in
+                Get picked on social media
               </h1>
 
               <p className="text-6xl md:text-9xl font-black text-primary leading-none tracking-tighter md:tracking-normal">
-                Same Day<span className="text-3xl md:text-4xl align-super">*</span>
+                Ready the very same day!
               </p>
             </>
           }
