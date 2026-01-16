@@ -26,7 +26,7 @@ function AnalyzeButton() {
     <Button 
       type="submit" 
       disabled={pending} 
-      className="h-14 px-8 bg-primary hover:bg-primary/90 text-primary-foreground font-black italic uppercase rounded-xl transition-all shadow-lg shadow-blue-600/20 group"
+      className="h-14 px-8 bg-primary hover:bg-primary/90 text-primary-foreground font-black italic uppercase rounded-xl transition-all shadow-lg shadow-primary/20 group"
     >
       {pending ? (
         <Loader2 className="animate-spin" />
@@ -54,7 +54,7 @@ export default function SeoPage() {
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-primary/5 blur-[120px]" />
           
           {/* Moving Laser Line Abstract Animation */}
-          <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-30 animate-scan" />
+          <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent opacity-30 animate-scan" />
           
           {/* Subtle Grid */}
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000003_1px,transparent_1px),linear-gradient(to_bottom,#00000003_1px,transparent_1px)] bg-[size:40px_40px]" />
@@ -136,7 +136,7 @@ export default function SeoPage() {
                   </div>
                   <div className="space-y-6">
                     <p className="flex items-center gap-2 text-foreground font-black uppercase text-[10px] tracking-widest">
-                      <ShieldAlert className="text-blue-500 w-4 h-4" /> Priority Warnings
+                      <ShieldAlert className="text-primary w-4 h-4" /> Priority Warnings
                     </p>
                     <ul className="space-y-3 text-sm border-l border-border pl-6">
                         <li>LCP exceeds 2.5s threshold</li>

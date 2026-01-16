@@ -42,18 +42,18 @@ export function Header() {
         "mx-auto max-w-6xl rounded-[2rem] border transition-all duration-500",
         "bg-background/80 backdrop-blur-2xl",
         scrolled 
-          ? "border-blue-500/30 shadow-[0_0_30px_-10px_rgba(37,99,235,0.3)]" 
+          ? "border-primary/30 shadow-[0_0_30px_-10px_hsl(var(--primary)/0.3)]" 
           : "border-border/10 shadow-none"
       )}>
         <div className="container flex h-16 items-center justify-between px-6">
           
           {/* Logo Section */}
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="bg-blue-600 p-1.5 rounded-xl group-hover:rotate-12 transition-transform shadow-[0_0_15px_rgba(37,99,235,0.5)]">
+            <div className="bg-primary p-1.5 rounded-xl group-hover:rotate-12 transition-transform shadow-[0_0_15px_hsl(var(--primary)/0.5)]">
               <Zap className="h-5 w-5 text-white fill-white" />
             </div>
             <span className="font-black italic tracking-tighter text-xl uppercase">
-              GetPik<span className="text-blue-600">.</span>
+              GetPik<span className="text-primary">.</span>
             </span>
           </Link>
 
@@ -67,7 +67,7 @@ export function Header() {
                     className={cn(
                       'px-5 py-2 text-[10px] font-black uppercase tracking-widest transition-all rounded-full',
                       pathname === link.href
-                        ? 'bg-primary text-primary-foreground shadow-lg shadow-blue-600/20'
+                        ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/20'
                         : 'text-muted-foreground hover:text-foreground'
                     )}
                   >

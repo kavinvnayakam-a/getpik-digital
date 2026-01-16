@@ -35,7 +35,7 @@ export function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-2 space-y-8">
             <Link href="/" className="flex items-center gap-2 group w-fit">
-              <div className="bg-blue-600 p-1.5 rounded-xl group-hover:rotate-12 transition-transform shadow-[0_0_20px_rgba(37,99,235,0.4)]">
+              <div className="bg-primary p-1.5 rounded-xl group-hover:rotate-12 transition-transform shadow-[0_0_20px_hsl(var(--primary)/0.4)]">
                 <Zap className="h-6 w-6 text-white fill-white" />
               </div>
               <span className="font-black italic tracking-tighter text-2xl uppercase text-foreground">
@@ -101,7 +101,7 @@ export function Footer() {
               />
               <Button 
                 size="icon" 
-                className="absolute right-2 top-2 h-10 w-10 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-blue-600/20"
+                className="absolute right-2 top-2 h-10 w-10 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/20"
               >
                 <ArrowRight className="h-4 w-4" />
               </Button>
@@ -113,9 +113,9 @@ export function Footer() {
                     <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
                     <span className="text-[8px] font-black uppercase tracking-widest text-green-500">System Online</span>
                 </div>
-                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20">
-                    <Activity className="w-3 h-3 text-blue-500" />
-                    <span className="text-[8px] font-black uppercase tracking-widest text-blue-500">Neural Link Active</span>
+                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20">
+                    <Activity className="w-3 h-3 text-primary" />
+                    <span className="text-[8px] font-black uppercase tracking-widest text-primary">Neural Link Active</span>
                 </div>
             </div>
           </div>

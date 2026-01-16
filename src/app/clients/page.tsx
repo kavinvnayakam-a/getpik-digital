@@ -21,7 +21,7 @@ export default function ClientsPage() {
       {/* Background Mesh Glows */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
         <div className="absolute top-[10%] left-[-10%] w-[500px] h-[500px] bg-primary/10 blur-[120px] rounded-full opacity-50" />
-        <div className="absolute bottom-[10%] right-[-10%] w-[400px] h-[400px] bg-blue-500/10 blur-[120px] rounded-full opacity-50" />
+        <div className="absolute bottom-[10%] right-[-10%] w-[400px] h-[400px] bg-primary/10 blur-[120px] rounded-full opacity-50" />
       </div>
 
       <div className="container mx-auto px-6 pt-32 pb-24">
@@ -69,7 +69,7 @@ export default function ClientsPage() {
         {/* Trust Stats Section */}
         <div className="relative group max-w-5xl mx-auto">
           {/* Subtle Outer Glow */}
-          <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-blue-500/20 rounded-[3rem] blur-xl opacity-50 group-hover:opacity-100 transition duration-1000"></div>
+          <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-primary/20 rounded-[3rem] blur-xl opacity-50 group-hover:opacity-100 transition duration-1000"></div>
           
           <div className="relative grid md:grid-cols-3 gap-12 p-10 md:p-16 rounded-[3rem] bg-card/50 border border-border backdrop-blur-2xl">
             <StatItem 
@@ -83,7 +83,7 @@ export default function ClientsPage() {
               label="Successful Launches" 
             />
             <StatItem 
-              icon={<Star className="w-6 h-6 text-blue-500" />} 
+              icon={<Star className="w-6 h-6 text-primary" />} 
               value="4.9/5" 
               label="Client Satisfaction" 
             />

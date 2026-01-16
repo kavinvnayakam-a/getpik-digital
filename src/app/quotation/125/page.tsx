@@ -36,7 +36,7 @@ export default function Quotation125() {
         </div>
 
         {/* --- THE MOSAIC WHITE CARD --- */}
-        <div className="bg-card text-card-foreground rounded-[3rem] overflow-hidden shadow-[0_0_100px_rgba(37,99,235,0.2)] border border-border">
+        <div className="bg-card text-card-foreground rounded-[3rem] overflow-hidden shadow-[0_0_100px_hsl(var(--primary)/0.2)] border border-border">
           <div className="p-8 md:p-16">
             
             <div className="max-w-3xl mb-16">
@@ -53,7 +53,7 @@ export default function Quotation125() {
               {/* Module 1: E-com */}
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-primary text-primary-foreground flex items-center justify-center rounded-2xl shadow-lg shadow-blue-600/20">
+                  <div className="w-12 h-12 bg-primary text-primary-foreground flex items-center justify-center rounded-2xl shadow-lg shadow-primary/20">
                     <Globe size={24} />
                   </div>
                   <div>
@@ -89,7 +89,7 @@ export default function Quotation125() {
               {/* Module 3: Checkout */}
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-primary text-primary-foreground flex items-center justify-center rounded-2xl shadow-lg shadow-blue-600/20">
+                  <div className="w-12 h-12 bg-primary text-primary-foreground flex items-center justify-center rounded-2xl shadow-lg shadow-primary/20">
                     <CreditCard size={24} />
                   </div>
                   <div>
@@ -152,11 +152,11 @@ export default function Quotation125() {
               </div>
 
               <div className="flex gap-4 group">
-                <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0">
                   <Info className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h5 className="text-xs font-black uppercase tracking-widest text-foreground mb-2 italic underline decoration-blue-200 decoration-2">Service Exclusions</h5>
+                  <h5 className="text-xs font-black uppercase tracking-widest text-foreground mb-2 italic underline decoration-primary/40 decoration-2">Service Exclusions</h5>
                   <p className="text-[13px] text-muted-foreground italic leading-relaxed">
                     If required, <strong>Social Media development + Off-page SEO</strong> will be considered <strong>totally additional costs</strong> and are not included in this deployment architecture.
                   </p>

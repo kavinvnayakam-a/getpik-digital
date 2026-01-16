@@ -30,7 +30,7 @@ function SubmitButton() {
     <Button 
       type="submit" 
       disabled={pending} 
-      className="w-full h-14 bg-primary hover:bg-primary/90 text-primary-foreground font-black italic uppercase rounded-2xl transition-all shadow-lg shadow-blue-600/20"
+      className="w-full h-14 bg-primary hover:bg-primary/90 text-primary-foreground font-black italic uppercase rounded-2xl transition-all shadow-lg shadow-primary/20"
     >
       {pending ? <Loader2 className="animate-spin mr-2" /> : <Sparkles className="mr-2 w-5 h-5" />}
       {pending ? "Synthesizing..." : "Ignite Concepts"}
@@ -45,7 +45,7 @@ export default function ContentGeneratorPage() {
     <div className="min-h-screen bg-background text-foreground pt-32 pb-20 px-6 relative overflow-hidden">
       {/* Background Blue Glow */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 blur-[120px] rounded-full -z-10" />
-      <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-blue-500/5 blur-[100px] rounded-full -z-10" />
+      <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-primary/5 blur-[100px] rounded-full -z-10" />
       
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
