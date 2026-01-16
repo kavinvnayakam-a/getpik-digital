@@ -30,7 +30,7 @@ export const ContainerScroll = ({
   }, []);
 
   const rotate = useTransform(scrollYProgress, [0, 1], [20, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], isMobile ? [0.7, 0.9] : [1.05, 1]);
+  const scale = useTransform(scrollYProgress, [0, 1], isMobile ? [0.7, 0.9] : [0.9, 1]);
   const translate = useTransform(scrollYProgress, [0, 1], [0, -100]);
 
   return (
@@ -75,7 +75,7 @@ export const Card = ({
         scale,
       }}
       className={cn(
-        "mx-auto relative bg-black border-neutral-800 border-8 shadow-2xl",
+        "mx-auto relative bg-neutral-900 border-neutral-800 border-8 shadow-2xl",
         // Tablet Dimensions
         deviceType === "tablet" && "max-w-5xl h-[35rem] md:h-[50rem] rounded-[3rem]",
         // Phone Dimensions
