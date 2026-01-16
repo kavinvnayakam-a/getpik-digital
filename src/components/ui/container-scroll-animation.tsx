@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -19,9 +19,9 @@ export const ContainerScroll = ({
     target: containerRef,
   });
   
-  const [isMobile, setIsMobile] = React.useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768);
     };
@@ -36,6 +36,7 @@ export const ContainerScroll = ({
     return isMobile ? [0.7, 0.9] : [1.05, 1];
   };
 
+  // RESTORED: Original animation transforms
   const rotate = useTransform(scrollYProgress, [0, 1], [20, 0]);
   const scale = useTransform(scrollYProgress, [0, 1], scaleDimensions());
   const translate = useTransform(scrollYProgress, [0, 1], [0, -100]);
@@ -81,31 +82,46 @@ export const Card = ({
         rotateX: rotate,
         scale,
         boxShadow:
-          "0 0 #0000004d, 0 9px 20px #0000004a, 0 37px 37px #00000042, 0 84px 50px #00000026, 0 149px 60px #0000000a, 0 233px 65px #00000003",
+          "0 0 #0000004d, 0 7px 10px #0000004a, 0 20px 20px #00000042, 0 84px 50px #00000026, 0 149px 60px #0000000a, 0 233px 65px #00000003",
       }}
       className={cn(
-        "mx-auto -mt-28 md:-mt-20 relative bg-neutral-900 border-neutral-800 border-8",
-        // Tablet Dimensions
-        deviceType === "tablet" && "max-w-5xl h-[30rem] md:h-[40rem] rounded-[30px]",
-        // Phone Dimensions
-        deviceType === "phone" && "max-w-[350px] h-[700px] rounded-[4rem]"
+        "mx-auto -mt-28 md:-mt-20 relative bg-[#171717] border-[#262626] border-[8px] md:border-[12px]",
+        // SMOOTHER CORNERS: Using higher values for a "Squircle" look
+        deviceType === "tablet" && "max-w-5xl h-[30rem] md:h-[40rem] rounded-[40px] md:rounded-[60px]",
+        deviceType === "phone" && "max-w-[360px] h-[720px] rounded-[56px]"
       )}
     >
-      {/* Notch / Camera Detail */}
-      <div className={cn(
-        "absolute top-0 left-1/2 -translate-x-1/2 bg-neutral-800 z-20",
-        deviceType === "tablet" ? "w-2 h-2 rounded-full mt-4" : "w-32 h-6 rounded-b-2xl"
-      )} />
+      {/* DYNAMIC ISLAND: Replaces the old notch */}
+      {deviceType === "phone" && (
+        <div className="absolute top-5 left-1/2 -translate-x-1/2 z-50">
+          <div className="h-7 w-28 bg-black rounded-full border border-white/5 shadow-inner flex items-center justify-end px-3">
+             {/* Small lens detail */}
+             <div className="w-2 h-2 rounded-full bg-white/10" />
+          </div>
+        </div>
+      )}
 
-      {/* Internal Screen Container */}
-      <div className="h-full w-full overflow-hidden p-1 rounded-[inherit]">
-        <div className="h-full w-full overflow-hidden rounded-[22px] bg-background">
+      {/* TABLET CAMERA: Small dot for tablet mode */}
+      {deviceType === "tablet" && (
+        <div className="absolute top-4 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-neutral-800 z-30" />
+      )}
+
+      {/* INTERNAL SCREEN: Nested radius math for smoothness */}
+      <div className="h-full w-full p-1.5 md:p-2 overflow-hidden rounded-[inherit]">
+        <div 
+          className={cn(
+            "h-full w-full overflow-hidden bg-white dark:bg-neutral-950",
+            // Inner radius is smaller than outer frame for perfect nesting
+            deviceType === "tablet" ? "rounded-[30px] md:rounded-[48px]" : "rounded-[42px]"
+          )}
+        >
           {children}
         </div>
       </div>
       
-      {/* Side Buttons (Visual Polish) */}
-      <div className="absolute -right-[10px] top-24 w-[2px] h-16 bg-gradient-to-b from-transparent via-neutral-600 to-transparent" />
+      {/* HARDWARE BUTTONS: Visual depth during rotation */}
+      <div className="absolute -right-[2px] top-32 w-[3px] h-14 bg-neutral-800 rounded-l-md" />
+      <div className="absolute -left-[2px] top-28 w-[3px] h-10 bg-neutral-800 rounded-r-md" />
     </motion.div>
   );
 };

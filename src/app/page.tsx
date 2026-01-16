@@ -28,7 +28,7 @@ export default function Home() {
                 <span>Premier Rapid-Deployment Content & Digital Services</span>
               </div>
 
-              <h1 className="text-3xl md:text-6xl font-bold text-foreground mb-4 leading-tight">
+              <h1 className="text-xl md:text-3xl font-bold text-foreground mb-4 leading-tight">
                 We Shoot • Edit • Deliver Content in
               </h1>
 
