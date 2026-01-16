@@ -64,8 +64,7 @@ export default function Home() {
               Why Choose Us
             </div>
             <h2 className="text-4xl md:text-6xl font-black italic tracking-tighter uppercase leading-tight">
-              Not Just Instant Delivery, <br />
-              <span className="text-primary not-italic">But So Much More.</span>
+              Not Just Instant Delivery, <span className="text-primary not-italic">But So Much More.</span>
             </h2>
           </div>
 
