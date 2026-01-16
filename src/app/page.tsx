@@ -65,8 +65,8 @@ export default function Home() {
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.2em] mb-6">
               Why Choose Us
             </div>
-            <h2 className="text-4xl md:text-6xl font-black italic tracking-tighter uppercase leading-tight">
-              Not Just Instant Delivery, But So Much More.
+            <h2 className="text-4xl md:text-6xl font-black italic tracking-tighter uppercase leading-tight text-primary">
+              Instant Delivery, and So Much More.
             </h2>
           </div>
 
