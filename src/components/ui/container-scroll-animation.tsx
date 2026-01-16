@@ -75,7 +75,7 @@ export const Card = ({
         scale,
       }}
       className={cn(
-        "mx-auto relative bg-black border-neutral-900 border-8 shadow-2xl",
+        "mx-auto relative bg-black border-neutral-800 border-8 shadow-2xl",
         // Tablet Dimensions
         deviceType === "tablet" && "max-w-5xl h-[35rem] md:h-[50rem] rounded-[3rem]",
         // Phone Dimensions
@@ -84,19 +84,19 @@ export const Card = ({
     >
       {/* Notch / Camera Detail */}
       <div className={cn(
-        "absolute top-0 left-1/2 -translate-x-1/2 bg-neutral-900 z-20",
+        "absolute top-0 left-1/2 -translate-x-1/2 bg-neutral-800 z-20",
         deviceType === "tablet" ? "w-2 h-2 rounded-full mt-4" : "w-32 h-6 rounded-b-2xl"
       )} />
 
       {/* Internal Screen Container */}
-      <div className="h-full w-full overflow-hidden p-1 md:p-3 rounded-[inherit]">
-        <div className="h-full w-full overflow-hidden rounded-[2rem] bg-background border border-neutral-800">
+      <div className="h-full w-full overflow-hidden p-1 rounded-[inherit]">
+        <div className="h-full w-full overflow-hidden rounded-[2rem] bg-background">
           {children}
         </div>
       </div>
       
       {/* Side Buttons (Visual Polish) */}
-      <div className="absolute -right-[10px] top-24 w-[2px] h-16 bg-gradient-to-b from-transparent via-neutral-700 to-transparent" />
+      <div className="absolute -right-[10px] top-24 w-[2px] h-16 bg-gradient-to-b from-transparent via-neutral-600 to-transparent" />
     </motion.div>
   );
 };

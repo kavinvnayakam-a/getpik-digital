@@ -12,7 +12,6 @@ import {
   Rocket,
   Share2,
   PenTool,
-  Radio,
 } from 'lucide-react';
 import Link from 'next/link';
 import { ContainerScroll } from '@/components/ui/container-scroll-animation';
@@ -27,49 +26,26 @@ export default function Home() {
           titleComponent={
             <>
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.3em] mb-8">
-                <Radio className="w-3 h-3 animate-pulse" />
-                <span>Neural Intelligence Protocol v2.5</span>
+                <span>World's First Quick Content Service</span>
               </div>
 
-              <h1 className="text-6xl md:text-[10rem] font-black italic tracking-tighter uppercase leading-[0.8] mb-8">
-                The Digital <br />
-                <span className="text-primary not-italic">Architect.</span>
+              <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-4 leading-tight">
+                We Shoot • Edit • Deliver Reels in
               </h1>
 
-              <p className="max-w-xl mx-auto text-lg md:text-xl text-muted-foreground font-medium italic mb-12">
-                We develop brands, deploy high-speed ecosystems, and dominate
-                search landscapes using aggressive neural execution.
+              <p className="text-8xl md:text-9xl font-black text-primary leading-none">
+                10 Minutes<span className="text-4xl align-super">*</span>
               </p>
-
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                <Button
-                  asChild
-                  size="xl"
-                  className="rounded-2xl px-10 h-16 bg-primary hover:bg-primary/90 text-primary-foreground font-black italic uppercase text-lg shadow-2xl shadow-blue-600/40 group"
-                >
-                  <Link href="/contact">
-                    Deploy Inquiry
-                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </Button>
-                <Button
-                  asChild
-                  size="xl"
-                  variant="outline"
-                  className="rounded-2xl px-10 h-16 text-lg font-black italic uppercase border-input hover:bg-accent"
-                >
-                  <Link href="/portfolio">Our Work</Link>
-                </Button>
-              </div>
             </>
           }
+          deviceType="phone"
         >
           <Image
-            src="https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Getpik%20Website%2FPortfolio%2FPlush.webp?alt=media&token=14155cd5-9e6f-4955-a571-35549e4e2f0c"
-            alt="hero"
+            src="https://storage.googleapis.com/res-blockcraft/public/1721051515984.png"
+            alt="Quick content service app"
             height={720}
-            width={1400}
-            className="mx-auto rounded-2xl object-cover h-full object-left-top"
+            width={400}
+            className="mx-auto rounded-none object-cover h-full w-full"
             draggable={false}
           />
         </ContainerScroll>
