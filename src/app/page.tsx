@@ -16,8 +16,7 @@ import {
   Zap,
   Users,
   Smile,
-  Lock,
-  Heart,
+  Camera,
 } from 'lucide-react';
 import Link from 'next/link';
 import { ContainerScroll } from '@/components/ui/container-scroll-animation';
@@ -26,11 +25,11 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground">
       {/* --- HERO SECTION --- */}
-      <section className="flex flex-col pt-16 md:pt-0">
+      <section className="flex flex-col pt-28 md:pt-0">
         <ContainerScroll
           titleComponent={
             <>
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-normal mb-6 md:mb-8">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold uppercase tracking-normal mb-6 md:mb-8">
                 <span>Premier Rapid-Deployment Content & Digital Services</span>
               </div>
 
@@ -38,7 +37,7 @@ export default function Home() {
                 We Shoot • Edit • Deliver Content in
               </h1>
 
-              <p className="text-6xl md:text-9xl font-black text-primary leading-none">
+              <p className="text-6xl md:text-9xl font-black text-primary leading-none tracking-tighter md:tracking-normal">
                 Same Day<span className="text-3xl md:text-4xl align-super">*</span>
               </p>
             </>
@@ -58,7 +57,7 @@ export default function Home() {
       </section>
 
       {/* --- WHY CHOOSE US SECTION --- */}
-      <section className="py-24 sm:py-32">
+      <section className="py-12 sm:py-16">
         <div className="container mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.2em] mb-6">
@@ -73,33 +72,33 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <MosaicCard
               icon={<Users className="w-6 h-6 text-primary" />}
-              title="Trained & Certified Reel Makers"
-              description="Each Partner clears 6 filters to get their certification."
+              title="Vetted Pro Creators"
+              description="Our partners are experienced professionals who know how to capture high-quality, engaging content."
             />
             <MosaicCard
               icon={<Smile className="w-6 h-6 text-primary" />}
-              title="Easy Booking"
-              description="Stop struggling with complex booking procedures."
+              title="Effortless Booking"
+              description="Get matched with a creator in minutes. Our booking process is fast, simple, and stress-free."
             />
             <MosaicCard
               icon={<Zap className="w-6 h-6 text-primary" />}
-              title="Unbelievable Pricing"
-              description="Each Reel starts at just 1999/-."
+              title="Transparent Pricing"
+              description="Affordable, upfront pricing with no hidden fees. Reels start at just ₹1999."
             />
             <MosaicCard
               icon={<ShieldCheck className="w-6 h-6 text-primary" />}
-              title="Safe & Secure"
-              description="Your data is safe and secured with our advanced protocols."
+              title="Safe & Secure Platform"
+              description="Your data and content are protected with advanced security and privacy protocols."
             />
             <MosaicCard
               icon={<PenTool className="w-6 h-6 text-primary" />}
-              title="Instant Reels, Instant Editing"
-              description="No hidden charges! Get upfront pricing and secure payment options."
+              title="Lightning-Fast Delivery"
+              description="True to our promise, we deliver your edited content the very same day."
             />
             <MosaicCard
-              icon={<Heart className="w-6 h-6 text-primary" />}
-              title="Women Safety"
-              description="A woman can book a female Reel maker for complete peace of mind."
+              icon={<Camera className="w-6 h-6 text-primary" />}
+              title="Pro-Grade Equipment"
+              description="We shoot on the latest iPhones, mirrorless cameras, and other pro gear to ensure your content is top-notch."
             />
           </div>
         </div>
