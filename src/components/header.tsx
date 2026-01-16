@@ -40,10 +40,10 @@ export function Header() {
     >
       <div className={cn(
         "mx-auto max-w-6xl rounded-[2rem] border transition-all duration-500",
-        "bg-[#0a0a0a]/80 backdrop-blur-2xl",
+        "bg-background/80 backdrop-blur-2xl",
         scrolled 
           ? "border-blue-500/30 shadow-[0_0_30px_-10px_rgba(37,99,235,0.3)]" 
-          : "border-white/10 shadow-none"
+          : "border-border/10 shadow-none"
       )}>
         <div className="container flex h-16 items-center justify-between px-6">
           
@@ -58,7 +58,7 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center bg-white/5 rounded-full px-1 py-1 border border-white/10">
+          <nav className="hidden md:flex items-center bg-muted/50 rounded-full px-1 py-1 border border-border">
             <ul className="flex items-center">
               {links.map((link) => (
                 <li key={link.href}>
@@ -67,8 +67,8 @@ export function Header() {
                     className={cn(
                       'px-5 py-2 text-[10px] font-black uppercase tracking-widest transition-all rounded-full',
                       pathname === link.href
-                        ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/20'
-                        : 'text-gray-400 hover:text-white'
+                        ? 'bg-primary text-primary-foreground shadow-lg shadow-blue-600/20'
+                        : 'text-muted-foreground hover:text-foreground'
                     )}
                   >
                     {link.label}
@@ -80,7 +80,7 @@ export function Header() {
 
           {/* Right Action Area */}
           <div className="hidden md:flex items-center gap-4">
-            <Button asChild size="sm" className="rounded-full px-6 h-10 bg-white text-black hover:bg-blue-600 hover:text-white font-black italic uppercase transition-all group border-none">
+            <Button asChild size="sm" className="rounded-full px-6 h-10 bg-foreground text-background hover:bg-primary hover:text-primary-foreground font-black italic uppercase transition-all group border">
               <Link href="/contact">
                 Enquiry
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -92,7 +92,7 @@ export function Header() {
           <div className="flex md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 text-gray-400 hover:text-white transition-colors"
+              className="p-2 text-muted-foreground hover:text-foreground transition-colors"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -102,7 +102,7 @@ export function Header() {
 
       {/* Mobile Menu Overlay */}
       <div className={cn(
-        "absolute top-full left-4 right-4 mt-4 p-6 rounded-[2.5rem] border border-white/10 bg-[#0a0a0a]/95 backdrop-blur-3xl md:hidden transition-all duration-500 origin-top shadow-2xl",
+        "absolute top-full left-4 right-4 mt-4 p-6 rounded-[2.5rem] border border-border bg-background/95 backdrop-blur-3xl md:hidden transition-all duration-500 origin-top shadow-2xl",
         isOpen ? "scale-100 opacity-100 translate-y-0" : "scale-95 opacity-0 -translate-y-4 pointer-events-none"
       )}>
         <nav className="flex flex-col gap-3">
@@ -114,15 +114,15 @@ export function Header() {
               className={cn(
                 "px-6 py-4 rounded-2xl text-sm font-black uppercase tracking-widest transition-all",
                 pathname === link.href 
-                  ? "bg-blue-600 text-white" 
-                  : "bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white"
+                  ? "bg-primary text-primary-foreground" 
+                  : "bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground"
               )}
             >
               {link.label}
             </Link>
           ))}
-          <div className="pt-4 mt-2 border-t border-white/10">
-            <Button asChild className="w-full justify-between h-14 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-black italic uppercase">
+          <div className="pt-4 mt-2 border-t border-border">
+            <Button asChild className="w-full justify-between h-14 rounded-2xl bg-primary hover:bg-primary/90 text-primary-foreground font-black italic uppercase">
               <Link href="/contact" onClick={() => setIsOpen(false)}>
                 Start Project
                 <ArrowRight className="h-5 w-5" />

@@ -2,17 +2,17 @@
 
 export default function TermsPage() {
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white pt-32 pb-20 px-6 relative overflow-hidden">
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-600/5 blur-[120px] rounded-full -z-10" />
+    <div className="min-h-screen bg-background text-foreground pt-32 pb-20 px-6 relative overflow-hidden">
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/5 blur-[120px] rounded-full -z-10" />
       <div className="container mx-auto max-w-4xl">
         <header className="mb-12 text-center">
           <h1 className="text-5xl md:text-7xl font-black italic tracking-tighter uppercase leading-[0.9]">
-            Terms of <span className="text-gray-700 not-italic">Service.</span>
+            Terms of <span className="text-muted-foreground/80 not-italic">Service.</span>
           </h1>
-          <p className="text-gray-500 mt-4 font-medium italic">Last updated: {new Date().toLocaleDateString()}</p>
+          <p className="text-muted-foreground mt-4 font-medium italic">Last updated: {new Date().toLocaleDateString()}</p>
         </header>
 
-        <div className="prose prose-invert prose-lg max-w-none mx-auto space-y-8 text-gray-400 prose-headings:text-white prose-headings:font-black prose-headings:italic prose-headings:uppercase prose-a:text-blue-500 prose-strong:text-white">
+        <div className="prose prose-lg max-w-none mx-auto space-y-8 text-muted-foreground prose-headings:text-foreground prose-headings:font-black prose-headings:italic prose-headings:uppercase prose-a:text-primary prose-strong:text-foreground">
           <section>
             <h2>1. Agreement to Terms</h2>
             <p>

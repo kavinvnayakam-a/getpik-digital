@@ -40,7 +40,7 @@ export default function PortfolioPage() {
                 "px-6 py-2 rounded-full text-sm font-medium transition-all border",
                 i === 0 
                   ? "bg-foreground text-background border-foreground" 
-                  : "bg-muted/50 border-white/5 hover:border-primary/50 text-muted-foreground hover:text-foreground"
+                  : "bg-muted/50 border-border hover:border-primary/50 text-muted-foreground hover:text-foreground"
               )}
             >
               {filter}
@@ -53,7 +53,7 @@ export default function PortfolioPage() {
           {portfolioProjects.map((project, index) => (
             <div
               key={project.id}
-              className="group relative flex flex-col rounded-3xl border border-white/10 bg-muted/30 overflow-hidden transition-all duration-500 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/5"
+              className="group relative flex flex-col rounded-3xl border border-border bg-card overflow-hidden transition-all duration-500 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/5"
             >
               {/* Image Container */}
               <div className="relative aspect-[16/10] overflow-hidden">
@@ -74,7 +74,7 @@ export default function PortfolioPage() {
                 
                 {/* Project Tag */}
                 <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 rounded-lg bg-background/80 backdrop-blur-md border border-white/10 text-[10px] font-bold uppercase tracking-widest">
+                  <span className="px-3 py-1 rounded-lg bg-background/80 backdrop-blur-md border border-border text-[10px] font-bold uppercase tracking-widest">
                     {index % 2 === 0 ? 'Digital Experience' : 'AI Platform'}
                   </span>
                 </div>
@@ -89,7 +89,7 @@ export default function PortfolioPage() {
                     </h3>
                     <p className="text-primary text-sm font-medium">{project.client}</p>
                   </div>
-                  <div className="h-10 w-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                  <div className="h-10 w-10 rounded-full border border-border flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-all">
                     <ArrowRight className="-rotate-45 h-5 w-5" />
                   </div>
                 </div>
@@ -97,7 +97,7 @@ export default function PortfolioPage() {
                   {project.description}
                 </p>
                 
-                <div className="mt-6 pt-6 border-t border-white/5 flex gap-4">
+                <div className="mt-6 pt-6 border-t border-border flex gap-4">
                   <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
                     <Globe className="w-3.5 h-3.5" />
                     Live Site
@@ -113,7 +113,7 @@ export default function PortfolioPage() {
         </div>
 
         {/* CTA Bottom Section */}
-        <div className="mt-32 p-12 rounded-[3rem] bg-gradient-to-b from-muted/50 to-transparent border border-white/10 text-center">
+        <div className="mt-32 p-12 rounded-[3rem] bg-gradient-to-b from-muted/50 to-transparent border border-border text-center">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">Have a vision?</h2>
           <p className="text-muted-foreground mb-10 max-w-xl mx-auto">
             We’re currently accepting new projects for 2025. Let’s build something 

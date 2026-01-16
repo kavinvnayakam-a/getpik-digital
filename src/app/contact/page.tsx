@@ -33,7 +33,7 @@ function SubmitButton() {
     <Button
       type="submit"
       disabled={pending}
-      className="w-full h-14 bg-blue-600 hover:bg-blue-700 text-white font-black italic uppercase rounded-2xl transition-all shadow-lg shadow-blue-600/20 group"
+      className="w-full h-14 bg-primary hover:bg-primary/90 text-primary-foreground font-black italic uppercase rounded-2xl transition-all shadow-lg shadow-blue-600/20 group"
     >
       {pending ? (
         <Loader2 className="animate-spin" />
@@ -71,54 +71,54 @@ export default function ContactPage() {
   }, [state, toast]);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white pt-32 pb-20 px-6 relative overflow-hidden">
+    <div className="min-h-screen bg-background text-foreground pt-32 pb-20 px-6 relative overflow-hidden">
       {/* Background Abstract Glows */}
-      <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-blue-600/10 blur-[120px] rounded-full -z-10" />
+      <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-primary/10 blur-[120px] rounded-full -z-10" />
 
       <div className="container mx-auto max-w-6xl">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           
           {/* Left Side: Contextual Info */}
           <div className="space-y-8 animate-in fade-in slide-in-from-left-8 duration-700">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-600/10 border border-blue-600/20 text-blue-500 text-[10px] font-black uppercase tracking-widest">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-widest">
               <Radio className="w-3 h-3 animate-pulse" /> Uplink Active
             </div>
             <h1 className="text-6xl md:text-8xl font-black italic tracking-tighter uppercase leading-[0.85]">
-              Contact <br /><span className="text-gray-700 not-italic">Protocol.</span>
+              Contact <br /><span className="text-muted-foreground/80 not-italic">Protocol.</span>
             </h1>
-            <p className="text-gray-500 text-lg font-medium max-w-md leading-relaxed">
-              Initiate your brand upgrade. Our systems usually process inquiries in <span className="text-blue-500 italic font-bold">&lt; 4 hours.</span>
+            <p className="text-muted-foreground text-lg font-medium max-w-md leading-relaxed">
+              Initiate your brand upgrade. Our systems usually process inquiries in <span className="text-primary italic font-bold">&lt; 4 hours.</span>
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-              <div className="p-6 rounded-[2rem] bg-white/5 border border-white/10 space-y-2">
-                <Globe className="w-5 h-5 text-blue-500" />
-                <p className="text-[10px] font-black uppercase tracking-widest text-gray-400">Availability</p>
+              <div className="p-6 rounded-[2rem] bg-card border border-border space-y-2">
+                <Globe className="w-5 h-5 text-primary" />
+                <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Availability</p>
                 <p className="text-sm font-bold italic">Global / Remote</p>
               </div>
-              <div className="p-6 rounded-[2rem] bg-white/5 border border-white/10 space-y-2">
-                <MessageSquare className="w-5 h-5 text-blue-500" />
-                <p className="text-[10px] font-black uppercase tracking-widest text-gray-400">Direct Line</p>
+              <div className="p-6 rounded-[2rem] bg-card border border-border space-y-2">
+                <MessageSquare className="w-5 h-5 text-primary" />
+                <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Direct Line</p>
                 <p className="text-sm font-bold italic">WhatsApp Priority</p>
               </div>
             </div>
           </div>
 
           {/* Right Side: The Form */}
-          <Card className="bg-white/5 border-white/10 rounded-[3rem] backdrop-blur-2xl shadow-2xl overflow-hidden animate-in fade-in slide-in-from-right-8 duration-700">
+          <Card className="bg-card/80 border-border/50 rounded-[3rem] backdrop-blur-2xl shadow-2xl overflow-hidden animate-in fade-in slide-in-from-right-8 duration-700">
             <CardContent className="p-8 md:p-12">
               <form ref={formRef} action={formAction} className="space-y-5">
                 
                 {/* Identity & Email */}
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div className="space-y-2">
-                    <Label className="text-[10px] font-black uppercase tracking-widest text-gray-500 px-1">Identity</Label>
-                    <Input id="name" name="name" placeholder="Name" required className="bg-black/50 border-white/10 h-12 rounded-xl text-white" />
+                    <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground px-1">Identity</Label>
+                    <Input id="name" name="name" placeholder="Name" required className="bg-background/50 border-border h-12 rounded-xl" />
                     {state.errors?.name && <p className="text-red-500 text-[10px] italic mt-1 font-bold">{state.errors.name[0]}</p>}
                   </div>
                   <div className="space-y-2">
-                    <Label className="text-[10px] font-black uppercase tracking-widest text-gray-500 px-1">Digital Mail</Label>
-                    <Input id="email" name="email" type="email" placeholder="Email" required className="bg-black/50 border-white/10 h-12 rounded-xl text-white" />
+                    <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground px-1">Digital Mail</Label>
+                    <Input id="email" name="email" type="email" placeholder="Email" required className="bg-background/50 border-border h-12 rounded-xl" />
                     {state.errors?.email && <p className="text-red-500 text-[10px] italic mt-1 font-bold">{state.errors.email[0]}</p>}
                   </div>
                 </div>
@@ -126,18 +126,18 @@ export default function ContactPage() {
                 {/* Company & WhatsApp */}
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div className="space-y-2">
-                    <Label className="text-[10px] font-black uppercase tracking-widest text-gray-500 px-1">Brand / Company</Label>
+                    <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground px-1">Brand / Company</Label>
                     <div className="relative">
-                      <Building2 className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-600" />
-                      <Input id="company" name="company" placeholder="Brand Name" required className="bg-black/50 border-white/10 h-12 pl-11 rounded-xl text-white" />
+                      <Building2 className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                      <Input id="company" name="company" placeholder="Brand Name" required className="bg-background/50 border-border h-12 pl-11 rounded-xl" />
                     </div>
                      {state.errors?.company && <p className="text-red-500 text-[10px] italic mt-1 font-bold">{state.errors.company[0]}</p>}
                   </div>
                   <div className="space-y-2">
-                    <Label className="text-[10px] font-black uppercase tracking-widest text-gray-500 px-1">WhatsApp Protocol</Label>
+                    <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground px-1">WhatsApp Protocol</Label>
                     <div className="relative">
-                      <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-blue-500" />
-                      <Input id="whatsapp" name="whatsapp" placeholder="+91" required className="bg-black/50 border-white/10 h-12 pl-11 rounded-xl text-white" />
+                      <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-primary" />
+                      <Input id="whatsapp" name="whatsapp" placeholder="+91" required className="bg-background/50 border-border h-12 pl-11 rounded-xl" />
                     </div>
                      {state.errors?.whatsapp && <p className="text-red-500 text-[10px] italic mt-1 font-bold">{state.errors.whatsapp[0]}</p>}
                   </div>
@@ -145,12 +145,12 @@ export default function ContactPage() {
 
                 {/* Budget Selection */}
                 <div className="space-y-2">
-                  <Label className="text-[10px] font-black uppercase tracking-widest text-gray-500 px-1">Investment Range (INR)</Label>
+                  <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground px-1">Investment Range (INR)</Label>
                   <Select name="budget" required>
-                    <SelectTrigger className="bg-black/50 border-white/10 h-12 rounded-xl text-white">
+                    <SelectTrigger className="bg-background/50 border-border h-12 rounded-xl">
                       <SelectValue placeholder="Select INR Range" />
                     </SelectTrigger>
-                    <SelectContent className="bg-[#111] border-white/10 text-white">
+                    <SelectContent className="bg-popover border-border">
                       <SelectItem value="<50k">Under ₹50,000</SelectItem>
                       <SelectItem value="50k-1.5l">₹50,000 — ₹1.5 Lakh</SelectItem>
                       <SelectItem value="1.5l-5l">₹1.5 Lakh — ₹5 Lakh</SelectItem>
@@ -162,12 +162,12 @@ export default function ContactPage() {
 
                 {/* Mission Brief - Now allows 1 character minimum */}
                 <div className="space-y-2">
-                  <Label className="text-[10px] font-black uppercase tracking-widest text-gray-500 px-1">Mission Brief</Label>
+                  <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground px-1">Mission Brief</Label>
                   <Textarea
                     id="projectDetails"
                     name="projectDetails"
                     placeholder="Describe your goals..."
-                    className="min-h-[100px] bg-black/50 border-white/10 rounded-xl text-white"
+                    className="min-h-[100px] bg-background/50 border-border rounded-xl"
                     required
                   />
                   {state.errors?.projectDetails && <p className="text-red-500 text-[10px] italic mt-1 font-bold">{state.errors.projectDetails[0]}</p>}

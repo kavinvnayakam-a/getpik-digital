@@ -50,18 +50,18 @@ export default function ClientsPage() {
           {dummyClients.map((client) => (
             <div
               key={client.id}
-              className="group relative flex items-center justify-center h-32 md:h-48 rounded-[2.5rem] border border-white/5 bg-muted/20 backdrop-blur-md transition-all duration-500 hover:border-primary/40 hover:bg-muted/40"
+              className="group relative flex items-center justify-center h-32 md:h-48 rounded-[2.5rem] border border-border bg-muted/20 backdrop-blur-md transition-all duration-500 hover:border-primary/40 hover:bg-muted/40"
             >
               <div className="relative w-20 h-10 md:w-32 md:h-16 transition-all duration-500 group-hover:scale-110 flex items-center justify-center">
                 <img
                   src={client.logo}
                   alt={client.name}
-                  className="max-h-full max-w-full object-contain opacity-30 grayscale invert dark:invert-0 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
+                  className="max-h-full max-w-full object-contain opacity-60 group-hover:opacity-100 transition-all duration-700"
                 />
               </div>
               
               {/* Decorative Corner Element */}
-              <div className="absolute top-6 right-6 w-1 h-1 rounded-full bg-white/10 group-hover:bg-primary group-hover:scale-[3] transition-all duration-500" />
+              <div className="absolute top-6 right-6 w-1 h-1 rounded-full bg-foreground/10 group-hover:bg-primary group-hover:scale-[3] transition-all duration-500" />
             </div>
           ))}
         </div>
@@ -71,7 +71,7 @@ export default function ClientsPage() {
           {/* Subtle Outer Glow */}
           <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-blue-500/20 rounded-[3rem] blur-xl opacity-50 group-hover:opacity-100 transition duration-1000"></div>
           
-          <div className="relative grid md:grid-cols-3 gap-12 p-10 md:p-16 rounded-[3rem] bg-card/50 border border-white/10 backdrop-blur-2xl">
+          <div className="relative grid md:grid-cols-3 gap-12 p-10 md:p-16 rounded-[3rem] bg-card/50 border border-border backdrop-blur-2xl">
             <StatItem 
               icon={<ShieldCheck className="w-6 h-6 text-primary" />} 
               value="99.9%" 
@@ -106,7 +106,7 @@ export default function ClientsPage() {
 function StatItem({ icon, value, label }: { icon: React.ReactNode, value: string, label: string }) {
   return (
     <div className="flex flex-col items-center text-center space-y-4">
-      <div className="w-14 h-14 rounded-2xl bg-background border border-white/5 flex items-center justify-center shadow-2xl">
+      <div className="w-14 h-14 rounded-2xl bg-background border border-border flex items-center justify-center shadow-2xl">
         {icon}
       </div>
       <div>
