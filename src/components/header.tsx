@@ -9,7 +9,7 @@ import { Button } from './ui/button';
 
 const links = [
   { href: '/', label: 'Home' },
-  { href: '/portfolio', label: 'Portfolio' },
+  { href: '/work', label: 'Work' },
   { href: '/clients', label: 'Clients' },
   { href: '/seo-analyzer', label: 'SEO' },
   { href: '/ideas', label: 'Ideas' },
