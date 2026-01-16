@@ -12,6 +12,12 @@ import {
   Rocket,
   Share2,
   PenTool,
+  ShieldCheck,
+  Zap,
+  Users,
+  Smile,
+  Lock,
+  Heart,
 } from 'lucide-react';
 import Link from 'next/link';
 import { ContainerScroll } from '@/components/ui/container-scroll-animation';
@@ -20,11 +26,11 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground">
       {/* --- HERO SECTION --- */}
-      <section className="flex flex-col pt-32 md:pt-0">
+      <section className="flex flex-col pt-16 md:pt-0">
         <ContainerScroll
           titleComponent={
             <>
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-normal md:tracking-widest mb-6 md:mb-8">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-normal mb-6 md:mb-8">
                 <span>Premier Rapid-Deployment Content & Digital Services</span>
               </div>
 
@@ -49,6 +55,54 @@ export default function Home() {
             className="mx-auto rounded-none object-cover h-full w-full"
           />
         </ContainerScroll>
+      </section>
+
+      {/* --- WHY CHOOSE US SECTION --- */}
+      <section className="py-24 sm:py-32">
+        <div className="container mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.2em] mb-6">
+              Why Choose Us
+            </div>
+            <h2 className="text-4xl md:text-6xl font-black italic tracking-tighter uppercase leading-tight">
+              Not Just Instant Delivery, <br />
+              <span className="text-primary not-italic">But So Much More.</span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <MosaicCard
+              icon={<Users className="w-6 h-6 text-primary" />}
+              title="Trained & Certified Reel Makers"
+              description="Each Partner clears 6 filters to get their certification."
+            />
+            <MosaicCard
+              icon={<Smile className="w-6 h-6 text-primary" />}
+              title="Easy Booking"
+              description="Stop struggling with complex booking procedures."
+            />
+            <MosaicCard
+              icon={<Zap className="w-6 h-6 text-primary" />}
+              title="Unbelievable Pricing"
+              description="Each Reel starts at just 1999/-."
+            />
+            <MosaicCard
+              icon={<ShieldCheck className="w-6 h-6 text-primary" />}
+              title="Safe & Secure"
+              description="Your data is safe and secured with our advanced protocols."
+            />
+            <MosaicCard
+              icon={<PenTool className="w-6 h-6 text-primary" />}
+              title="Instant Reels, Instant Editing"
+              description="No hidden charges! Get upfront pricing and secure payment options."
+            />
+            <MosaicCard
+              icon={<Heart className="w-6 h-6 text-primary" />}
+              title="Women Safety"
+              description="A woman can book a female Reel maker for complete peace of mind."
+            />
+          </div>
+        </div>
       </section>
 
       {/* --- CORE CAPABILITIES (Services) --- */}
@@ -129,6 +183,36 @@ export default function Home() {
     </div>
   );
 }
+
+function MosaicCard({
+  icon,
+  title,
+  description,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+}) {
+  return (
+    <div className="relative p-8 rounded-[2.5rem] bg-card/50 border border-border/30 overflow-hidden group hover:border-primary/40 transition-colors duration-300">
+      {/* Glossy overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-50 group-hover:opacity-80 transition-opacity duration-500" />
+      
+      <div className="relative z-10 space-y-4">
+        <div className="w-12 h-12 bg-background border border-border rounded-2xl flex items-center justify-center mb-4 text-primary">
+          {icon}
+        </div>
+        <h3 className="text-xl font-black italic uppercase tracking-tighter text-foreground">
+          {title}
+        </h3>
+        <p className="text-sm text-muted-foreground font-medium italic leading-relaxed">
+          {description}
+        </p>
+      </div>
+    </div>
+  );
+}
+
 
 function ServiceCard({
   icon,
