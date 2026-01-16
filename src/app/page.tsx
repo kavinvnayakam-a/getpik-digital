@@ -40,7 +40,7 @@ export default function Home() {
               </h1>
 
               <p className="text-6xl md:text-9xl font-black text-primary leading-none tracking-tighter md:tracking-normal">
-                Ready the very same day!
+                Ready the very <br className="md:hidden" /> same day!
               </p>
             </>
           }
