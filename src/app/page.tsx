@@ -159,7 +159,7 @@ export default function Home() {
               </div>
 
               <div className="my-12 text-center">
-                  <h4 className="text-6xl font-bold text-primary">Customised Pricing <span className="text-2xl text-muted align-middle">+GST</span></h4>
+                  <h4 className="text-4xl md:text-6xl font-bold text-primary">Customised Pricing <span className="text-lg md:text-2xl text-muted align-middle">+GST</span></h4>
               </div>
 
               <div>
