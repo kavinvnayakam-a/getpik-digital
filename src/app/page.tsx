@@ -25,16 +25,16 @@ export default function Home() {
         <ContainerScroll
           titleComponent={
             <>
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-widest mb-8">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-normal md:tracking-widest mb-6 md:mb-8">
                 <span>Premier Rapid-Deployment Content & Digital Services</span>
               </div>
 
-              <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-4 leading-tight">
+              <h1 className="text-3xl md:text-6xl font-bold text-foreground mb-4 leading-tight">
                 We Shoot • Edit • Deliver Content in
               </h1>
 
-              <p className="text-7xl md:text-9xl font-black text-primary leading-none">
-                Same Day<span className="text-4xl align-super">*</span>
+              <p className="text-6xl md:text-9xl font-black text-primary leading-none">
+                Same Day<span className="text-3xl md:text-4xl align-super">*</span>
               </p>
             </>
           }
