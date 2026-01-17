@@ -4,6 +4,7 @@ import { Toaster } from '@/components/ui/toaster';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { ScrollTimeline } from '@/components/ui/scroll-timeline';
+import { GridBackground } from '@/components/ui/grid-background';
 
 export const metadata: Metadata = {
   title: 'GetPik Agency',
@@ -34,6 +35,7 @@ export default function RootLayout({
         />
       </head>
       <body className="font-body antialiased">
+        <GridBackground />
         <div className="flex min-h-screen flex-col">
           <Header />
           <main className="flex-1">{children}</main>
