@@ -2,7 +2,7 @@
 
 export default function PrivacyPage() {
   return (
-    <div className="min-h-screen bg-background text-foreground pt-32 pb-20 px-6 relative overflow-hidden">
+    <div className="min-h-screen text-foreground pt-32 pb-20 px-6 relative overflow-hidden">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full -z-10" />
       <div className="container mx-auto max-w-4xl">
         <header className="mb-12 text-center">

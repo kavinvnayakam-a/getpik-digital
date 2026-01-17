@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils';
 
 export default function PortfolioPage() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen">
       {/* Background Glows */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
         <div className="absolute top-[20%] right-[10%] w-[400px] h-[400px] bg-primary/5 blur-[120px] rounded-full" />

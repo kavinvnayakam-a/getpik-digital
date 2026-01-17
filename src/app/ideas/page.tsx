@@ -42,7 +42,7 @@ export default function ContentGeneratorPage() {
   const [state, formAction] = useFormState(generateIdeasAction, initialState);
 
   return (
-    <div className="min-h-screen bg-background text-foreground pt-32 pb-20 px-6 relative overflow-hidden">
+    <div className="min-h-screen text-foreground pt-32 pb-20 px-6 relative overflow-hidden">
       {/* Background Blue Glow */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 blur-[120px] rounded-full -z-10" />
       <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-primary/5 blur-[100px] rounded-full -z-10" />

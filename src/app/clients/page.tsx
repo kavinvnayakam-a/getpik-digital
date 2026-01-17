@@ -17,7 +17,7 @@ const dummyClients = [
 
 export default function ClientsPage() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen">
       {/* Background Mesh Glows */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
         <div className="absolute top-[10%] left-[-10%] w-[500px] h-[500px] bg-primary/10 blur-[120px] rounded-full opacity-50" />

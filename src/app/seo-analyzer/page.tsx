@@ -45,7 +45,7 @@ export default function SeoPage() {
   const [url, setUrl] = useState('');
 
   return (
-    <div className="min-h-screen bg-background text-foreground selection:bg-primary/30">
+    <div className="min-h-screen text-foreground selection:bg-primary/30">
       
       {/* --- ABSTRACT SCANNER HERO (FULL WIDTH) --- */}
       <section className="relative pt-32 pb-20 overflow-hidden border-b border-border">

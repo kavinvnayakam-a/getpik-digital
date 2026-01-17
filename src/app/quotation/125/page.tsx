@@ -11,7 +11,7 @@ import {
 
 export default function Quotation125() {
   return (
-    <div className="flex flex-col min-h-screen bg-muted/20 text-foreground selection:bg-primary/30 font-sans">
+    <div className="flex flex-col min-h-screen text-foreground selection:bg-primary/30 font-sans">
       
       {/* --- NEURAL BACKGROUND --- */}
       <div className="fixed inset-0 -z-10">
