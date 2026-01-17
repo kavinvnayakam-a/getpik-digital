@@ -1,7 +1,7 @@
 export const GridBackground = () => {
   return (
     <div
-      className="fixed inset-0 z-[-1] opacity-75"
+      className="fixed inset-0 z-[-1] opacity-50"
       style={{
         background: 'hsl(var(--background))',
         backgroundImage: `
