@@ -24,7 +24,7 @@ export default function RootLayout({
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'GetPik',
-    url: 'https://getpik.co', // Please replace with your actual domain
+    url: 'https://www.getpik.in', // Please replace with your actual domain
   };
 
   return (
