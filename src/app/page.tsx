@@ -190,47 +190,45 @@ export default function Home() {
       </section>
 
       {/* --- CORE CAPABILITIES (Services) --- */}
-      <section className="py-32 container mx-auto px-6">
-        <div className="grid lg:grid-cols-12 gap-12 items-start">
-          <div className="lg:col-span-4 space-y-6 lg:sticky lg:top-32">
-            <h2 className="text-5xl md:text-7xl font-black italic tracking-tighter uppercase leading-[0.9]">
-              Execution <br />
-              <span className="text-muted-foreground/50">Modules.</span>
-            </h2>
-            <p className="text-muted-foreground font-medium italic max-w-sm">
-              Five core protocols designed to transform your market presence
-              from static to dominant.
-            </p>
-          </div>
+      <section className="py-24 container mx-auto px-6">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <h2 className="text-5xl md:text-7xl font-black italic tracking-tighter uppercase leading-[0.9]">
+            Execution <br />
+            <span className="text-muted-foreground/50">Modules.</span>
+          </h2>
+          <p className="text-muted-foreground font-medium italic mt-6 max-w-md mx-auto">
+            Five core protocols designed to transform your market presence
+            from static to dominant.
+          </p>
+        </div>
 
-          <div className="lg:col-span-8 grid sm:grid-cols-2 gap-4">
-            <ServiceCard
-              icon={<Globe />}
-              title="Brand Websites"
-              desc="High-performance digital flagships optimized for conversion speed."
-            />
-            <ServiceCard
-              icon={<Smartphone />}
-              title="App Development"
-              desc="Native and cross-platform mobile ecosystems built for retention."
-            />
-            <ServiceCard
-              icon={<Rocket />}
-              title="SEO Boosting"
-              desc="Aggressive keyword dominance and technical search optimization."
-            />
-            <ServiceCard
-              icon={<Share2 />}
-              title="Social Manage"
-              desc="Algorithmic growth strategies across all major neural social networks."
-            />
-            <ServiceCard
-              icon={<PenTool />}
-              title="Content Creation"
-              desc="High-fidelity visual and written assets designed to capture intent."
-              className="sm:col-span-2"
-            />
-          </div>
+        <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <ServiceCard
+            icon={<Globe />}
+            title="Brand Websites"
+            desc="High-performance digital flagships optimized for conversion speed."
+          />
+          <ServiceCard
+            icon={<Smartphone />}
+            title="App Development"
+            desc="Native and cross-platform mobile ecosystems built for retention."
+          />
+          <ServiceCard
+            icon={<Rocket />}
+            title="SEO Boosting"
+            desc="Aggressive keyword dominance and technical search optimization."
+          />
+          <ServiceCard
+            icon={<Share2 />}
+            title="Social Manage"
+            desc="Algorithmic growth strategies across all major neural social networks."
+          />
+          <ServiceCard
+            icon={<PenTool />}
+            title="Content Creation"
+            desc="High-fidelity visual and written assets designed to capture intent."
+            className="sm:col-span-2"
+          />
         </div>
       </section>
 
@@ -302,7 +300,7 @@ function ServiceCard({
   icon,
   title,
   desc,
-  className = '',
+  className,
 }: {
   icon: React.ReactNode;
   title: string;
@@ -311,7 +309,10 @@ function ServiceCard({
 }) {
   return (
     <div
-      className={`p-8 rounded-[2.5rem] bg-card border hover:border-primary/30 transition-all group ${className}`}
+      className={cn(
+        'p-8 rounded-[2.5rem] bg-card border hover:border-primary/30 transition-all group',
+        className
+      )}
     >
       <div className="w-12 h-12 rounded-2xl bg-background border border-border flex items-center justify-center mb-6 group-hover:text-primary transition-colors">
         {icon}
