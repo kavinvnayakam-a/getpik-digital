@@ -1,5 +1,7 @@
 'use client';
 
+import { useState } from 'react';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import {
@@ -24,6 +26,8 @@ import { ContainerScroll } from '@/components/ui/container-scroll-animation';
 import { cn } from '@/lib/utils';
 
 export default function Home() {
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+
   return (
     <div className="flex flex-col min-h-screen text-foreground">
       {/* --- HERO SECTION --- */}
@@ -46,15 +50,31 @@ export default function Home() {
           }
           deviceType="phone"
         >
-          <video
-            src="https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Getpik%20Website%2FGetpik%20Hero%20Reels.MP4?alt=media&token=8cefea4e-dfe8-4250-ab36-e3ee1c3937bb"
-            autoPlay
-            loop
-            muted
-            playsInline
-            onContextMenu={(e) => e.preventDefault()}
-            className="mx-auto rounded-none object-cover h-full w-full"
-          />
+          <div className="relative w-full h-full bg-black">
+            <Image
+              src="https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Getpik%20Website%2FAkshaya%20Shoot.webp?alt=media&token=5820e360-c663-4d7b-9842-24750ee1390c"
+              alt="GetPik Hero Image"
+              fill
+              className={cn(
+                'absolute inset-0 mx-auto rounded-none object-cover h-full w-full transition-opacity duration-1000',
+                isVideoLoaded ? 'opacity-0' : 'opacity-100'
+              )}
+              priority
+            />
+            <video
+              src="https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Getpik%20Website%2FGetpik%20Hero%20Reels.MP4?alt=media&token=8cefea4e-dfe8-4250-ab36-e3ee1c3937bb"
+              autoPlay
+              loop
+              muted
+              playsInline
+              onLoadedData={() => setIsVideoLoaded(true)}
+              onContextMenu={(e) => e.preventDefault()}
+              className={cn(
+                'mx-auto rounded-none object-cover h-full w-full transition-opacity duration-1000',
+                isVideoLoaded ? 'opacity-100' : 'opacity-0'
+              )}
+            />
+          </div>
         </ContainerScroll>
       </section>
 
