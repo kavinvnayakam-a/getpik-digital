@@ -1,0 +1,82 @@
+{
+  "entities": {
+    "Enquiry": {
+      "title": "Enquiry",
+      "description": "Represents an enquiry submitted through the contact form.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "company": {
+          "type": "string"
+        },
+        "whatsapp": {
+          "type": "string"
+        },
+        "budget": {
+          "type": "string"
+        },
+        "projectDetails": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "name",
+        "email",
+        "company",
+        "whatsapp",
+        "budget",
+        "projectDetails"
+      ]
+    },
+    "User": {
+      "title": "User",
+      "description": "Represents a user of the application.",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "displayName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "uid",
+        "email"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "email_password"
+    ]
+  },
+  "firestore": {
+    "/enquiries/{enquiryId}": {
+      "schema": {
+        "$ref": "#/entities/Enquiry"
+      },
+      "description": "Stores enquiries from the contact form."
+    },
+    "/users/{userId}": {
+      "schema": {
+        "$ref": "#/entities/User"
+      },
+      "description": "Stores user profile information."
+    }
+  }
+}

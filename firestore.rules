@@ -9,10 +9,17 @@ service cloud.firestore {
 
     // Allow anyone to create a document in the 'enquiries' collection.
     // This allows the public contact form to submit data.
-    // Reads and updates/deletes are denied.
+    // Reads are allowed only for authenticated users (admins).
+    // Updates and deletes are denied for now.
     match /enquiries/{enquiryId} {
       allow create: if true;
-      allow read, update, delete: if false;
+      allow read: if request.auth != null;
+      allow update, delete: if false;
+    }
+    
+    // Allow users to manage their own data.
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
     }
   }
 }

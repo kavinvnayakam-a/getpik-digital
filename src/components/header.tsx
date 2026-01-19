@@ -3,9 +3,12 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
-import { Bot, Menu, X, ArrowRight, Zap } from 'lucide-react';
+import { Bot, Menu, X, ArrowRight, Zap, LogOut, LogIn } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from './ui/button';
+import { useUser, useAuth } from '@/firebase';
+import { signOut } from 'firebase/auth';
+import { useToast } from '@/hooks/use-toast';
 
 const links = [
   { href: '/', label: 'Home' },
@@ -18,8 +21,11 @@ const links = [
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [mounted, setMounted] = useState(false); // Fix for hydration
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
+  const { user } = useUser();
+  const auth = useAuth();
+  const { toast } = useToast();
 
   useEffect(() => {
     setMounted(true);
@@ -28,7 +34,12 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Prevent rendering until mounted to ensure server/client match
+  const handleLogout = async () => {
+    if (!auth) return;
+    await signOut(auth);
+    toast({ title: "Logged out successfully." });
+  };
+
   if (!mounted) return null;
 
   return (
@@ -47,7 +58,6 @@ export function Header() {
       )}>
         <div className="container flex h-16 items-center justify-between px-6">
           
-          {/* Logo Section */}
           <Link href="/" className="flex items-center gap-2 group">
             <div className="bg-primary p-1.5 rounded-xl group-hover:rotate-12 transition-transform shadow-[0_0_15px_hsl(var(--primary)/0.5)]">
               <Zap className="h-5 w-5 text-white fill-white" />
@@ -57,7 +67,6 @@ export function Header() {
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center bg-muted/50 rounded-full px-1 py-1 border border-border">
             <ul className="flex items-center">
               {links.map((link) => (
@@ -78,17 +87,35 @@ export function Header() {
             </ul>
           </nav>
 
-          {/* Right Action Area */}
           <div className="hidden md:flex items-center gap-4">
-            <Button asChild size="sm" className="rounded-full px-6 h-10 bg-foreground text-background hover:bg-primary hover:text-primary-foreground font-black italic uppercase transition-all group border">
-              <Link href="/contact">
-                Enquiry
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </Button>
+            {user ? (
+              <>
+                <Button variant="ghost" size="sm" asChild className="rounded-full font-bold">
+                  <Link href="/admin">Dashboard</Link>
+                </Button>
+                <Button onClick={handleLogout} size="sm" variant="outline" className="rounded-full font-bold">
+                  <LogOut className="mr-2 h-4 w-4" />
+                  Logout
+                </Button>
+              </>
+            ) : (
+              <>
+                <Button asChild size="sm" variant="ghost" className="rounded-full font-bold">
+                    <Link href="/login">
+                        <LogIn className="mr-2 h-4 w-4" />
+                        Login
+                    </Link>
+                </Button>
+                <Button asChild size="sm" className="rounded-full px-6 h-10 bg-foreground text-background hover:bg-primary hover:text-primary-foreground font-black italic uppercase transition-all group border">
+                <Link href="/contact">
+                    Enquiry
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+                </Button>
+              </>
+            )}
           </div>
 
-          {/* Mobile Toggle */}
           <div className="flex md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -100,7 +127,6 @@ export function Header() {
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
       <div className={cn(
         "absolute top-full left-4 right-4 mt-4 p-6 rounded-[2.5rem] border border-border bg-background/95 backdrop-blur-3xl md:hidden transition-all duration-500 origin-top shadow-2xl",
         isOpen ? "scale-100 opacity-100 translate-y-0" : "scale-95 opacity-0 -translate-y-4 pointer-events-none"
@@ -122,12 +148,18 @@ export function Header() {
             </Link>
           ))}
           <div className="pt-4 mt-2 border-t border-border">
-            <Button asChild className="w-full justify-between h-14 rounded-2xl bg-primary hover:bg-primary/90 text-primary-foreground font-black italic uppercase">
-              <Link href="/contact" onClick={() => setIsOpen(false)}>
-                Start Project
-                <ArrowRight className="h-5 w-5" />
-              </Link>
-            </Button>
+            {user ? (
+              <Button onClick={handleLogout} className="w-full justify-between h-14 rounded-2xl">
+                Logout <LogOut className="h-5 w-5" />
+              </Button>
+            ) : (
+              <Button asChild className="w-full justify-between h-14 rounded-2xl bg-primary hover:bg-primary/90 text-primary-foreground font-black italic uppercase">
+                <Link href="/login" onClick={() => setIsOpen(false)}>
+                  Admin Login
+                  <LogIn className="h-5 w-5" />
+                </Link>
+              </Button>
+            )}
           </div>
         </nav>
       </div>

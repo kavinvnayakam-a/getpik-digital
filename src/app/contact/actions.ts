@@ -1,8 +1,10 @@
 'use server';
 
 import { z } from 'zod';
-import { firestore } from '@/lib/firebase';
+import { initializeFirebase } from '@/firebase';
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
+
+const { firestore } = initializeFirebase();
 
 // Define the schema for validation
 const EnquirySchema = z.object({
