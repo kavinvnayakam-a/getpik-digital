@@ -100,12 +100,6 @@ export function Header() {
               </>
             ) : (
               <>
-                <Button asChild size="sm" variant="ghost" className="rounded-full font-bold">
-                    <Link href="/login">
-                        <LogIn className="mr-2 h-4 w-4" />
-                        Login
-                    </Link>
-                </Button>
                 <Button asChild size="sm" className="rounded-full px-6 h-10 bg-foreground text-background hover:bg-primary hover:text-primary-foreground font-black italic uppercase transition-all group border">
                 <Link href="/contact">
                     Enquiry
@@ -154,9 +148,9 @@ export function Header() {
               </Button>
             ) : (
               <Button asChild className="w-full justify-between h-14 rounded-2xl bg-primary hover:bg-primary/90 text-primary-foreground font-black italic uppercase">
-                <Link href="/login" onClick={() => setIsOpen(false)}>
-                  Admin Login
-                  <LogIn className="h-5 w-5" />
+                <Link href="/contact" onClick={() => setIsOpen(false)}>
+                  Enquiry
+                  <ArrowRight className="h-5 w-5" />
                 </Link>
               </Button>
             )}
