@@ -200,8 +200,10 @@ export default function Home() {
               </div>
 
               <div className="mt-12 text-center">
-                  <Button size="lg" variant="default" className="rounded-full px-12 h-16 text-lg font-bold group bg-primary hover:bg-primary/90">
+                  <Button asChild size="lg" variant="default" className="rounded-full px-12 h-16 text-lg font-bold group bg-primary hover:bg-primary/90">
+                    <Link href="/contact">
                       Book Now <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                    </Link>
                   </Button>
               </div>
             </div>
@@ -436,8 +438,10 @@ function PricingCard({
       </div>
 
       <div className="mt-10">
-        <Button size="lg" className="w-full rounded-2xl h-14 font-black italic uppercase text-base">
-          Book Now <ArrowRight className="ml-2"/>
+        <Button asChild size="lg" className="w-full rounded-2xl h-14 font-black italic uppercase text-base">
+          <Link href="/contact">
+            Book Now <ArrowRight className="ml-2"/>
+          </Link>
         </Button>
       </div>
     </Card>
