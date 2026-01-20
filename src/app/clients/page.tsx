@@ -11,6 +11,7 @@ import {
   PenTool,
   TrendingUp,
 } from 'lucide-react';
+import Link from 'next/link';
 
 export default function ClientsPage() {
   return (
@@ -107,11 +108,14 @@ export default function ClientsPage() {
             Ready to write your success story?
           </h2>
           <Button
+            asChild
             size="lg"
             className="rounded-full px-10 h-14 text-base font-semibold group bg-primary hover:bg-primary/90 transition-all shadow-2xl shadow-primary/20"
           >
-            Start a Project
-            <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            <Link href="/contact">
+              Start a Project
+              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
           </Button>
         </div>
       </div>
