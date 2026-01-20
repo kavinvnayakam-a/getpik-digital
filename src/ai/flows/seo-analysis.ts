@@ -50,16 +50,11 @@ const seoAnalysisPrompt = ai.definePrompt({
   name: 'seoAnalysisPrompt',
   input: {schema: SEOAnalysisInputSchema},
   output: {schema: SEOAnalysisOutputSchema},
-  prompt: `You are an expert SEO analyst. Analyze the SEO of the website at the following URL: {{websiteUrl}}.
-The target keywords for this website are: {{keywords}}.
+  prompt: `You are an expert SEO analyst. Your task is to analyze the SEO of the website at the provided URL against the given keywords.
+You must return a JSON object containing an 'analysisSummary' and 'suggestions' for improvement.
 
-Provide a detailed analysis summary and specific, actionable suggestions for improvement.
-
-Analysis Summary:
-{{analysisSummary}}
-
-Suggestions:
-{{suggestions}}`,
+Analyze the website at the following URL: {{{websiteUrl}}}.
+The target keywords for this website are: {{{keywords}}}.`,
 });
 
 const seoAnalysisFlow = ai.defineFlow(

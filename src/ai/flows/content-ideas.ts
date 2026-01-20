@@ -48,15 +48,14 @@ const prompt = ai.definePrompt({
   output: {schema: ContentIdeasOutputSchema},
   prompt: `You are a marketing expert specializing in content creation.
 
-You will generate content ideas for the specified content type, incorporating the provided industry keywords.
+Your task is to generate content ideas based on the provided criteria.
+You must respond with a JSON object that conforms to the schema.
 
-Consider the target audience when generating ideas.
+The content type is: {{{contentType}}}.
+The industry keywords are: {{{industryKeywords}}}.
+The target audience is: {{{targetAudience}}}.
 
-Industry Keywords: {{{industryKeywords}}}
-Content Type: {{{contentType}}}
-Target Audience: {{{targetAudience}}}
-
-Content Ideas:`,
+Generate a list of content ideas based on the above information.`,
 });
 
 const contentIdeasFlow = ai.defineFlow(
