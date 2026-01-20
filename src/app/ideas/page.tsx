@@ -1,6 +1,7 @@
 'use client';
 
-import { useFormState, useFormStatus } from 'react-dom';
+import { useActionState } from 'react';
+import { useFormStatus } from 'react-dom';
 import { generateIdeasAction } from './actions';
 import {
   Card,
@@ -39,7 +40,7 @@ function SubmitButton() {
 }
 
 export default function ContentGeneratorPage() {
-  const [state, formAction] = useFormState(generateIdeasAction, initialState);
+  const [state, formAction] = useActionState(generateIdeasAction, initialState);
 
   return (
     <div className="min-h-screen text-foreground pt-32 pb-20 px-6 relative overflow-hidden">
