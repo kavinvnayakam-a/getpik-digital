@@ -171,10 +171,10 @@ export default function Home() {
           <div className="mt-16 max-w-4xl mx-auto">
             <div className="p-8 md:p-12 rounded-[3rem] bg-foreground text-background border border-primary/30 shadow-2xl shadow-primary/10 transition-all duration-300 hover:shadow-primary/20 hover:border-primary/50">
               <div className="text-center mb-8">
-                <p className="text-sm font-bold uppercase tracking-widest text-primary mb-4">For Business and Brands</p>
-                <h3 className="text-5xl font-bold text-background mb-4">Business</h3>
+                <p className="text-sm font-bold uppercase tracking-widest text-primary mb-4">Enterprise & Brand Protocol</p>
+                <h3 className="text-5xl font-bold text-background mb-4">Strategic Content</h3>
                 <p className="text-lg text-muted max-w-2xl mx-auto">
-                    Professional coverage for your business events, delivering polished content that aligns with your brand identity and marketing goals.
+                    Scalable content solutions for enterprises. We deploy dedicated teams and cinematic equipment to produce high-fidelity visual assets for your campaigns, events, and brand showcases.
                 </p>
               </div>
 
@@ -183,18 +183,17 @@ export default function Home() {
               </div>
 
               <div>
-                <h5 className="font-bold text-center text-background mb-8 uppercase tracking-widest">Package Inclusions:</h5>
+                <h5 className="font-bold text-center text-background mb-8 uppercase tracking-widest">Core Inclusions:</h5>
                 <div className="grid md:grid-cols-2 gap-x-12 gap-y-4 text-muted">
                     <ul className="space-y-4">
-                        <li className="flex items-center gap-3"><Check className="w-4 h-4 text-primary" /><span>Cinematic visuals for premium brands & events</span></li>
-                        <li className="flex items-center gap-3"><Check className="w-4 h-4 text-primary" /><span>Refined, brand-aligned storytelling</span></li>
-                        <li className="flex items-center gap-3"><Check className="w-4 h-4 text-primary" /><span>Professional production with expert direction</span></li>
-                        <li className="flex items-center gap-3"><Check className="w-4 h-4 text-primary" /><span>Hassle-free booking & coordination</span></li>
+                        <li className="flex items-center gap-3"><Check className="w-4 h-4 text-primary" /><span>Bespoke Content Strategy</span></li>
+                        <li className="flex items-center gap-3"><Check className="w-4 h-4 text-primary" /><span>Multi-Format Asset Delivery</span></li>
+                        <li className="flex items-center gap-3"><Check className="w-4 h-4 text-primary" /><span>On-Demand Creative Teams</span></li>
                     </ul>
                     <ul className="space-y-4">
-                        <li className="flex items-center gap-3"><Check className="w-4 h-4 text-primary" /><span>Quick turnaround from shoot to final cut</span></li>
-                        <li className="flex items-center gap-3"><Check className="w-4 h-4 text-primary" /><span>Ideal for campaigns, launches & brand showcases</span></li>
-                        <li className="flex items-center gap-3"><Check className="w-4 h-4 text-primary" /><span>Elevate your brand with polished visual storytelling</span></li>
+                        <li className="flex items-center gap-3"><Check className="w-4 h-4 text-primary" /><span>Priority Scheduling & Logistics</span></li>
+                        <li className="flex items-center gap-3"><Check className="w-4 h-4 text-primary" /><span>Expedited Post-Production</span></li>
+                        <li className="flex items-center gap-3"><Check className="w-4 h-4 text-primary" /><span>Full Commercial Licensing</span></li>
                     </ul>
                 </div>
               </div>
