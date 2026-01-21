@@ -11,10 +11,16 @@ type Enquiry = {
   id: string;
   name: string;
   email: string;
-  company: string;
-  budget: string;
+  whatsapp: string;
+  service: string;
   projectDetails: string;
   createdAt: { seconds: number; nanoseconds: number };
+  company?: string;
+  brideName?: string;
+  bridePhone?: string;
+  groomName?: string;
+  groomPhone?: string;
+  weddingVenue?: string;
 };
 
 export default function AdminPage() {
@@ -68,10 +74,14 @@ export default function AdminPage() {
                   <TableHeader>
                     <TableRow>
                       <TableHead className="font-black uppercase tracking-widest text-muted-foreground text-[10px]">Date</TableHead>
+                      <TableHead className="font-black uppercase tracking-widest text-muted-foreground text-[10px]">Service</TableHead>
                       <TableHead className="font-black uppercase tracking-widest text-muted-foreground text-[10px]">Name</TableHead>
                       <TableHead className="font-black uppercase tracking-widest text-muted-foreground text-[10px]">Email</TableHead>
+                      <TableHead className="font-black uppercase tracking-widest text-muted-foreground text-[10px]">WhatsApp</TableHead>
                       <TableHead className="font-black uppercase tracking-widest text-muted-foreground text-[10px]">Company</TableHead>
-                      <TableHead className="font-black uppercase tracking-widest text-muted-foreground text-[10px]">Budget</TableHead>
+                      <TableHead className="font-black uppercase tracking-widest text-muted-foreground text-[10px]">Bride</TableHead>
+                      <TableHead className="font-black uppercase tracking-widest text-muted-foreground text-[10px]">Groom</TableHead>
+                      <TableHead className="font-black uppercase tracking-widest text-muted-foreground text-[10px]">Venue</TableHead>
                       <TableHead className="font-black uppercase tracking-widest text-muted-foreground text-[10px]">Details</TableHead>
                     </TableRow>
                   </TableHeader>
@@ -86,12 +96,16 @@ export default function AdminPage() {
                               )
                             : 'N/A'}
                         </TableCell>
-                        <TableCell className="font-bold">{enquiry.name}</TableCell>
-                        <TableCell className="text-muted-foreground italic">{enquiry.email}</TableCell>
-                        <TableCell className="font-bold">{enquiry.company}</TableCell>
                         <TableCell>
-                          <Badge variant="secondary">{enquiry.budget}</Badge>
+                          <Badge variant="secondary" className="whitespace-nowrap">{enquiry.service || 'N/A'}</Badge>
                         </TableCell>
+                        <TableCell className="font-bold whitespace-nowrap">{enquiry.name}</TableCell>
+                        <TableCell className="text-muted-foreground italic whitespace-nowrap">{enquiry.email}</TableCell>
+                        <TableCell className="text-muted-foreground italic whitespace-nowrap">{enquiry.whatsapp}</TableCell>
+                        <TableCell className="font-bold whitespace-nowrap">{enquiry.company || '-'}</TableCell>
+                        <TableCell className="font-medium text-sm whitespace-nowrap">{enquiry.brideName ? `${enquiry.brideName} (${enquiry.bridePhone})` : '-'}</TableCell>
+                        <TableCell className="font-medium text-sm whitespace-nowrap">{enquiry.groomName ? `${enquiry.groomName} (${enquiry.groomPhone})` : '-'}</TableCell>
+                        <TableCell className="font-medium text-sm whitespace-nowrap">{enquiry.weddingVenue || '-'}</TableCell>
                         <TableCell className="max-w-xs truncate text-muted-foreground italic">{enquiry.projectDetails}</TableCell>
                       </TableRow>
                     ))}
