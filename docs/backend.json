@@ -28,12 +28,26 @@
         "createdAt": {
           "type": "string",
           "format": "date-time"
+        },
+        "brideName": {
+          "type": "string"
+        },
+        "bridePhone": {
+          "type": "string"
+        },
+        "groomName": {
+          "type": "string"
+        },
+        "groomPhone": {
+          "type": "string"
+        },
+        "weddingVenue": {
+          "type": "string"
         }
       },
       "required": [
         "name",
         "email",
-        "company",
         "whatsapp",
         "service",
         "projectDetails"
