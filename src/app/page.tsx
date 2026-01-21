@@ -55,7 +55,7 @@ export default function Home() {
               src="https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Getpik%20Website%2FAkshaya%20Shoot.webp?alt=media&token=5820e360-c663-4d7b-9842-24750ee1390c"
               alt="GetPik Hero Image"
               fill
-              sizes="100vw"
+              sizes="(max-width: 360px) 100vw, 360px"
               className={cn(
                 'absolute inset-0 mx-auto rounded-none object-cover h-full w-full transition-opacity duration-1000',
                 isVideoLoaded ? 'opacity-0' : 'opacity-100'
