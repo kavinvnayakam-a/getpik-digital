@@ -169,7 +169,7 @@ function PricingCard({
     tagline,
     description,
     price,
-    pricePeriod, // Added prop
+    pricePeriod,
     features,
     isPopular,
   }: {
@@ -177,68 +177,73 @@ function PricingCard({
     tagline: string;
     description: string;
     price: string;
-    pricePeriod?: string; // Optional prop
+    pricePeriod?: string;
     features: string[];
     isPopular: boolean;
   }) {
     return (
-      <Card
-        className={cn(
-          "relative flex flex-col p-8 rounded-[2.5rem] border bg-card/80 backdrop-blur-sm transition-all duration-300",
-          isPopular ? "border-primary shadow-2xl shadow-primary/10" : "border-border/50 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10"
-        )}
-      >
+      <div className="relative h-full"> {/* Wrapper for positioning and grid alignment */}
         {isPopular && (
-          <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-primary text-primary-foreground text-xs font-bold uppercase tracking-widest">
-            Most Popular
-          </div>
+          <div className="absolute -inset-1 bg-gradient-to-r from-primary/60 to-blue-500/60 rounded-[2.75rem] blur-xl opacity-70 animate-pulse-slow -z-10" />
         )}
-        <div className="flex-1">
-          <p className="text-primary font-bold uppercase tracking-widest text-[10px] mb-2">{tagline}</p>
-          <h3 className="text-2xl font-black italic uppercase tracking-tighter mb-3">{planName}</h3>
-          <p className="text-sm text-muted-foreground font-medium italic mb-8">{description}</p>
-          
-          <div className="mb-8">
-            <span className="text-5xl font-black text-foreground">₹{price}</span>
-            {pricePeriod && <span className="text-muted-foreground font-bold">{pricePeriod}</span>}
-            <span className="text-muted-foreground font-bold"> + GST</span>
+        <Card
+          className={cn(
+            "relative flex flex-col p-8 rounded-[2.5rem] border bg-card/80 backdrop-blur-sm transition-all duration-300 h-full",
+            isPopular ? "border-primary shadow-2xl shadow-primary/10" : "border-border/50 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10"
+          )}
+        >
+          {isPopular && (
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-primary text-primary-foreground text-xs font-bold uppercase tracking-widest">
+              Most Popular
+            </div>
+          )}
+          <div className="flex-1">
+            <p className="text-primary font-bold uppercase tracking-widest text-[10px] mb-2">{tagline}</p>
+            <h3 className="text-2xl font-black italic uppercase tracking-tighter mb-3">{planName}</h3>
+            <p className="text-sm text-muted-foreground font-medium italic mb-8">{description}</p>
+            
+            <div className="mb-8">
+              <span className="text-5xl font-black text-foreground">₹{price}</span>
+              {pricePeriod && <span className="text-muted-foreground font-bold">{pricePeriod}</span>}
+              <span className="text-muted-foreground font-bold"> + GST</span>
+            </div>
+    
+            <p className="text-muted-foreground text-[10px] font-black uppercase tracking-[0.2em] mb-4">What's Included</p>
+            <ul className="space-y-3 text-sm font-medium text-foreground/80 italic">
+              {features.map((feature, index) => (
+                <li key={index} className="flex items-center gap-3">
+                  <Check className="w-4 h-4 text-primary" />
+                  {feature.toLowerCase().includes('free') ? (
+                    <span>
+                      {feature.split(/(free)/i).map((part, i) =>
+                        part.toLowerCase() === 'free' ? (
+                          <span
+                            key={i}
+                            className="font-black not-italic uppercase text-primary bg-primary/10 px-2 py-0.5 rounded-md"
+                          >
+                            {part}
+                          </span>
+                        ) : (
+                          part
+                        )
+                      )}
+                    </span>
+                  ) : (
+                    <span>{feature}</span>
+                  )}
+                </li>
+              ))}
+            </ul>
           </div>
-  
-          <p className="text-muted-foreground text-[10px] font-black uppercase tracking-[0.2em] mb-4">What's Included</p>
-          <ul className="space-y-3 text-sm font-medium text-foreground/80 italic">
-            {features.map((feature, index) => (
-              <li key={index} className="flex items-center gap-3">
-                <Check className="w-4 h-4 text-primary" />
-                {feature.toLowerCase().includes('free') ? (
-                  <span>
-                    {feature.split(/(free)/i).map((part, i) =>
-                      part.toLowerCase() === 'free' ? (
-                        <span
-                          key={i}
-                          className="font-black not-italic uppercase text-primary bg-primary/10 px-2 py-0.5 rounded-md"
-                        >
-                          {part}
-                        </span>
-                      ) : (
-                        part
-                      )
-                    )}
-                  </span>
-                ) : (
-                  <span>{feature}</span>
-                )}
-              </li>
-            ))}
-          </ul>
-        </div>
-  
-        <div className="mt-10">
-          <Button asChild size="lg" className="w-full rounded-2xl h-14 font-black italic uppercase text-base">
-            <Link href="/contact">
-              Book Now <ArrowRight className="ml-2"/>
-            </Link>
-          </Button>
-        </div>
-      </Card>
+    
+          <div className="mt-10">
+            <Button asChild size="lg" className="w-full rounded-2xl h-14 font-black italic uppercase text-base">
+              <Link href="/contact">
+                Book Now <ArrowRight className="ml-2"/>
+              </Link>
+            </Button>
+          </div>
+        </Card>
+      </div>
     );
 }
