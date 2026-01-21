@@ -109,7 +109,8 @@ export default function PricingPage() {
                     pricePeriod="/month"
                     features={[
                         'Digital & Social Media Marketing',
-                        '20 Carousel Posts + 1 Free Reel',
+                        '20 Carousel Posts',
+                        '20 Reel Videos Included',
                         'In-depth Social Media Analysis',
                         'Influencer Initiation (Add-on)',
                         'Free Static Website/Enhancement',
@@ -133,69 +134,69 @@ export default function PricingPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 max-w-7xl mx-auto">
                 <PricingCard
                     planName="Basic"
-                    tagline="Intimate Moments"
-                    description="Beautifully capture the essence of your most important ceremony."
+                    tagline="For Intimate Ceremonies"
+                    description="Beautifully capture the essence of your most important day."
                     price="13,999"
+                    pricePeriod="+ GST"
                     features={[
-                        'One Event Coverage',
+                        'Single Event Coverage',
                         '3 Edited Wedding Reels',
-                        'Professional Camera Shoot',
+                        'Shot on Professional Camera',
                         'Instant Reel Delivery',
-                        'Complimentary Photo Stills',
-                        'All Raw Footage (Bring SD Card)',
-                        'Includes GetPik Branding',
+                        'Free Photo Stills',
+                        'All Raw Footage Provided',
                     ]}
                     isPopular={false}
                     ctaText="Enquire Now"
                 />
                 <PricingCard
                     planName="Silver"
-                    tagline="Extended Celebration"
+                    tagline="For the Grand Celebration"
                     description="Perfect for capturing the joy of multiple wedding events, from sangeet to reception."
                     price="42,999"
+                    pricePeriod="+ GST"
                     features={[
-                        'Up to Three Events',
+                        'Covers up to Three Events',
                         '7 Edited Wedding Reels',
-                        'Professional Camera Shoot',
+                        'Shot on Professional Camera',
                         'Instant Reel Delivery',
-                        'Complimentary Photo Stills',
-                        'All Raw Footage (Bring SD Card)',
-                        'Includes GetPik Branding',
+                        'Free Photo Stills',
+                        'All Raw Footage Provided',
                     ]}
                     isPopular={false}
                     ctaText="Enquire Now"
                 />
                 <PricingCard
                     planName="Gold"
-                    tagline="The Grand Affair"
+                    tagline="For the Fairy Tale Wedding"
                     description="Comprehensive coverage for larger weddings with more functions and guests."
                     price="55,999"
+                    pricePeriod="+ GST"
                     features={[
-                        'Up to Four Events',
+                        'Covers up to Four Events',
                         '10 Edited Wedding Reels',
-                        'Professional Camera Shoot',
+                        'Shot on Professional Camera',
                         'Instant Reel Delivery',
-                        'Complimentary Photo Stills',
-                        'All Raw Footage (Bring SD Card)',
-                        'Includes GetPik Branding',
+                        'Free Photo Stills',
+                        'All Raw Footage Provided',
                     ]}
                     isPopular={true}
                     ctaText="Enquire Now"
                 />
                 <PricingCard
                     planName="Platinum"
-                    tagline="The Ultimate Story"
+                    tagline="For the Ultimate Story"
                     description="Our all-inclusive package, telling your complete wedding story with cinematic detail."
                     price="99,999"
+                    pricePeriod="+ GST"
                     features={[
                         'Full Wedding Coverage (All Events)',
                         '15 Edited Wedding Reels',
-                        'Cinematic Camera Shoot',
+                        'Shot on Cinematic Camera',
                         'Instant Reel Delivery',
                         'Guest Interaction Videos',
-                        'Complimentary Mobile Portraits',
-                        'All Raw Footage (Bring SD Card)',
-                        'Includes GetPik Branding',
+                        'Free Mobile Portraits',
+                        'All Raw Footage Provided',
                     ]}
                     isPopular={false}
                     ctaText="Enquire Now"
@@ -287,7 +288,7 @@ function PricingCard({
             <div className="mb-8">
               <span className="text-5xl font-black text-foreground">₹{price}</span>
               {pricePeriod && <span className="text-muted-foreground font-bold">{pricePeriod}</span>}
-              <span className="text-muted-foreground font-bold"> + GST</span>
+              {!pricePeriod?.includes('GST') && <span className="text-muted-foreground font-bold"> + GST</span>}
             </div>
     
             <p className="text-muted-foreground text-[10px] font-black uppercase tracking-[0.2em] mb-4">What's Included</p>
