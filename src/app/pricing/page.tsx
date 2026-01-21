@@ -267,9 +267,6 @@ function PricingCard({
   }) {
     return (
       <div className="relative h-full"> {/* Wrapper for positioning and grid alignment */}
-        {isPopular && (
-          <div className="absolute -inset-1 bg-gradient-to-r from-primary/60 to-blue-500/60 rounded-[2.75rem] blur-xl opacity-70 -z-10" />
-        )}
         <Card
           className={cn(
             "relative flex flex-col p-8 rounded-[2.5rem] border bg-card/80 backdrop-blur-sm transition-all duration-300 h-full",
