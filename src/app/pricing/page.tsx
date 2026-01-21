@@ -50,7 +50,7 @@ export default function PricingPage() {
                 features={[
                     '1 Hour Shoot',
                     '1 Edited Reel Delivered',
-                    '(Shoot on Camera)',
+                    'shoot on phone 4k',
                     'Fast Delivery (10 mins post shoot)',
                     'Trained and Certified Reel Maker',
                     'GetPik Branding Included',
@@ -65,7 +65,7 @@ export default function PricingPage() {
                 features={[
                     'Up to 3 Hours Shoot',
                     '2 Edited reels',
-                    '(Shoot on Camera)',
+                    'shoot on phone 4k',
                     'Fast Delivery (10 mins post shoot)',
                     'Trained and Certified Reel Maker',
                     'GetPik Branding Included',
@@ -268,7 +268,7 @@ function PricingCard({
     return (
       <div className="relative h-full"> {/* Wrapper for positioning and grid alignment */}
         {isPopular && (
-          <div className="absolute -inset-1 bg-gradient-to-r from-primary/60 to-blue-500/60 rounded-[2.75rem] blur-xl opacity-70 animate-pulse-slow -z-10" />
+          <div className="absolute -inset-1 bg-gradient-to-r from-primary/60 to-blue-500/60 rounded-[2.75rem] blur-xl opacity-70 -z-10" />
         )}
         <Card
           className={cn(
