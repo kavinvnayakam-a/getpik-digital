@@ -209,7 +209,24 @@ function PricingCard({
             {features.map((feature, index) => (
               <li key={index} className="flex items-center gap-3">
                 <Check className="w-4 h-4 text-primary" />
-                <span>{feature}</span>
+                {feature.toLowerCase().includes('free') ? (
+                  <span>
+                    {feature.split(/(free)/i).map((part, i) =>
+                      part.toLowerCase() === 'free' ? (
+                        <span
+                          key={i}
+                          className="font-black not-italic uppercase text-primary bg-primary/10 px-2 py-0.5 rounded-md"
+                        >
+                          {part}
+                        </span>
+                      ) : (
+                        part
+                      )
+                    )}
+                  </span>
+                ) : (
+                  <span>{feature}</span>
+                )}
               </li>
             ))}
           </ul>
