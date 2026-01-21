@@ -31,7 +31,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen text-foreground">
       {/* --- HERO SECTION --- */}
-      <section className="relative flex flex-col pt-28 md:pt-0">
+      <section className="relative pt-28 md:pt-0">
         <ContainerScroll
           titleComponent={
             <>
