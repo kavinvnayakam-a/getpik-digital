@@ -18,11 +18,8 @@ export function WhatsAppButton() {
       className="fixed bottom-6 right-6 z-50 flex h-16 w-16 items-center justify-center rounded-full shadow-2xl transition-transform hover:scale-110 active:scale-95"
       aria-label="Chat on WhatsApp"
     >
-      {/* Pulse effect */}
-      <div className="absolute h-full w-full animate-pulse rounded-full bg-[#25D366] opacity-75"></div>
-      {/* The actual icon, layered on top */}
       <Image
-        src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+        src="https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Getpik%20Website%2FWhatsApp.webp?alt=media&token=91513a5f-7e55-4114-8ae9-25f3da8cd22f"
         alt="WhatsApp icon"
         width={64}
         height={64}
