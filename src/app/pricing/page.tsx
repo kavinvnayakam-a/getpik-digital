@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { Check, ArrowRight, Camera, BarChart3 } from 'lucide-react';
+import { Check, ArrowRight, Camera, BarChart3, Heart } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 export default function PricingPage() {
@@ -119,6 +119,88 @@ export default function PricingPage() {
                 />
             </div>
 
+            {/* --- Wedding Section --- */}
+            <div className="text-center max-w-3xl mx-auto mb-16 mt-32">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.2em] mb-6">
+                <Heart className="w-3 h-3" />
+                Capture Your Wedding Memories
+              </div>
+              <h2 className="text-4xl md:text-5xl font-black italic tracking-tighter uppercase leading-tight">
+                Your Forever Story, Beautifully Told
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 max-w-7xl mx-auto">
+                <PricingCard
+                    planName="Basic"
+                    tagline="Single Event"
+                    description="Perfect for couples looking for a stunning, professionally crafted wedding shoot that won't break the bank."
+                    price="14,999"
+                    features={[
+                        'Covers up to one event',
+                        'Includes 3 Reels',
+                        'Shot on iPhone',
+                        'Instant reel delivery',
+                        'Complementary Pictures',
+                        'Please provide an SD card to receive all raw content if needed',
+                        'Flashoot Logo Mandatory',
+                    ]}
+                    isPopular={false}
+                    ctaText="Enquire Now"
+                />
+                <PricingCard
+                    planName="Silver"
+                    tagline="Three Events"
+                    description="Perfect for those who want comprehensive coverage with an extra touch of elegance."
+                    price="44,999"
+                    features={[
+                        'Covers up to three events',
+                        'Includes 10 Reels',
+                        'Shot on iPhone',
+                        'Instant reel delivery',
+                        'Complementary Pictures',
+                        'Please provide an SD card to receive all raw content if needed',
+                        'Flashoot Logo Mandatory',
+                    ]}
+                    isPopular={false}
+                    ctaText="Enquire Now"
+                />
+                <PricingCard
+                    planName="Gold"
+                    tagline="Four Events"
+                    description="Perfect for those who want comprehensive coverage with an extra touch of elegance."
+                    price="59,999"
+                    features={[
+                        'Covers up to four events',
+                        'Includes 15 Reels',
+                        'Shot on iPhone',
+                        'Instant reel delivery',
+                        'Complementary Pictures',
+                        'Please provide an SD card to receive all raw content if needed',
+                        'Flashoot Logo Mandatory',
+                    ]}
+                    isPopular={true}
+                    ctaText="Enquire Now"
+                />
+                <PricingCard
+                    planName="Platinum"
+                    tagline="Complete Wedding"
+                    description="For couples who want it all—every moment captured with unmatched attention to detail."
+                    price="99,999"
+                    features={[
+                        'Covers whole wedding events',
+                        'Includes 25 Reels',
+                        'Shot on iPhone',
+                        'Instant reel delivery',
+                        'Interaction videos with complimentary mobile portraits',
+                        'Please provide an SD card to receive all raw content if needed',
+                        'Flashoot Logo Mandatory',
+                    ]}
+                    isPopular={false}
+                    ctaText="Enquire Now"
+                />
+            </div>
+
             <div className="mt-24 max-w-4xl mx-auto">
                 <div className="p-8 md:p-12 rounded-[3rem] bg-foreground text-background border border-primary/30 shadow-2xl shadow-primary/10 transition-all duration-300 hover:shadow-primary/20 hover:border-primary/50">
                 <div className="text-center mb-8">
@@ -172,6 +254,7 @@ function PricingCard({
     pricePeriod,
     features,
     isPopular,
+    ctaText = "Book Now"
   }: {
     planName: string;
     tagline: string;
@@ -180,6 +263,7 @@ function PricingCard({
     pricePeriod?: string;
     features: string[];
     isPopular: boolean;
+    ctaText?: string;
   }) {
     return (
       <div className="relative h-full"> {/* Wrapper for positioning and grid alignment */}
@@ -239,7 +323,7 @@ function PricingCard({
           <div className="mt-10">
             <Button asChild size="lg" className="w-full rounded-2xl h-14 font-black italic uppercase text-base">
               <Link href="/contact">
-                Book Now <ArrowRight className="ml-2"/>
+                {ctaText} <ArrowRight className="ml-2"/>
               </Link>
             </Button>
           </div>
