@@ -19,7 +19,6 @@ import {
   Users,
   Smile,
   Camera,
-  Check,
 } from 'lucide-react';
 import Link from 'next/link';
 import { ContainerScroll } from '@/components/ui/container-scroll-animation';
@@ -29,7 +28,7 @@ export default function Home() {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
   return (
-    <div className="flex flex-col min-h-screen text-foreground">
+    <div className="min-h-screen">
       {/* --- HERO SECTION --- */}
       <section className="relative pt-28 md:pt-0">
         <ContainerScroll
@@ -55,7 +54,7 @@ export default function Home() {
               src="https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Getpik%20Website%2FAkshaya%20Shoot.webp?alt=media&token=5820e360-c663-4d7b-9842-24750ee1390c"
               alt="GetPik Hero Image"
               fill
-              sizes="(max-width: 768px) 100vw, 360px"
+              sizes="360px"
               className={cn(
                 'absolute inset-0 mx-auto rounded-none object-cover h-full w-full transition-opacity duration-1000',
                 isVideoLoaded ? 'opacity-0' : 'opacity-100'
@@ -122,91 +121,6 @@ export default function Home() {
               title="Pro-Grade Equipment"
               description="We shoot on the latest iPhones, mirrorless cameras, and other pro gear to ensure your content is top-notch."
             />
-          </div>
-        </div>
-      </section>
-
-      {/* --- PRICING SECTION --- */}
-      <section className="py-12 sm:py-24 bg-muted/20">
-        <div className="container mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl md:text-6xl font-black italic tracking-tighter uppercase leading-tight">
-              Bestsellers
-            </h2>
-            <p className="text-muted-foreground font-medium italic mt-4">
-              Affordable plans for every need. Find the perfect fit for your project.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <PricingCard
-              planName="Hourly Plan"
-              tagline="Quickest Content"
-              description="Perfect for anyone who wants a single, fast, high-quality reel."
-              price="1,999"
-              features={[
-                '1 Hour Shoot',
-                '1 Edited Reel Delivered',
-                'Shot on Latest iPhone',
-                'Fast Delivery (10 mins post shoot)',
-                'Trained and Certified Reel Maker',
-                'GetPik Branding Included',
-              ]}
-              isPopular={false}
-            />
-            <PricingCard
-              planName="Half-Day Plan"
-              tagline="Event Essential"
-              description="Ideal for events and creators who need more time and more content."
-              price="4,999"
-              features={[
-                'Up to 3 Hours Shoot',
-                '2 Edited reels',
-                'Shot on Latest iPhone',
-                'Fast Delivery (10 mins post shoot)',
-                'Trained and Certified Reel Maker',
-                'GetPik Branding Included',
-              ]}
-              isPopular={true}
-            />
-          </div>
-          <div className="mt-16 max-w-4xl mx-auto">
-            <div className="p-8 md:p-12 rounded-[3rem] bg-foreground text-background border border-primary/30 shadow-2xl shadow-primary/10 transition-all duration-300 hover:shadow-primary/20 hover:border-primary/50">
-              <div className="text-center mb-8">
-                <p className="text-sm font-bold uppercase tracking-widest text-primary mb-4">Enterprise & Brand Protocol</p>
-                <h3 className="text-5xl font-bold text-background mb-4">Strategic Content</h3>
-                <p className="text-lg text-muted max-w-2xl mx-auto">
-                    Scalable content solutions for enterprises. We deploy dedicated teams and cinematic equipment to produce high-fidelity visual assets for your campaigns, events, and brand showcases.
-                </p>
-              </div>
-
-              <div className="my-12 text-center">
-                  <h4 className="text-4xl md:text-6xl font-bold text-primary">Customised Pricing <span className="text-lg md:text-2xl text-muted align-middle">+GST</span></h4>
-              </div>
-
-              <div>
-                <h5 className="font-bold text-center text-background mb-8 uppercase tracking-widest">Core Inclusions:</h5>
-                <div className="grid md:grid-cols-2 gap-x-12 gap-y-4 text-muted">
-                    <ul className="space-y-4">
-                        <li className="flex items-center gap-3"><Check className="w-4 h-4 text-primary" /><span>Bespoke Content Strategy</span></li>
-                        <li className="flex items-center gap-3"><Check className="w-4 h-4 text-primary" /><span>Multi-Format Asset Delivery</span></li>
-                        <li className="flex items-center gap-3"><Check className="w-4 h-4 text-primary" /><span>On-Demand Creative Teams</span></li>
-                    </ul>
-                    <ul className="space-y-4">
-                        <li className="flex items-center gap-3"><Check className="w-4 h-4 text-primary" /><span>Priority Scheduling & Logistics</span></li>
-                        <li className="flex items-center gap-3"><Check className="w-4 h-4 text-primary" /><span>Expedited Post-Production</span></li>
-                        <li className="flex items-center gap-3"><Check className="w-4 h-4 text-primary" /><span>Full Commercial Licensing</span></li>
-                    </ul>
-                </div>
-              </div>
-
-              <div className="mt-12 text-center">
-                  <Button asChild size="lg" variant="default" className="rounded-full px-12 h-16 text-lg font-bold group bg-primary hover:bg-primary/90">
-                    <Link href="/contact">
-                      Book Now <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                  </Button>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -385,65 +299,6 @@ function FeatureCard({
           </Button>
         </div>
       </CardContent>
-    </Card>
-  );
-}
-
-function PricingCard({
-  planName,
-  tagline,
-  description,
-  price,
-  features,
-  isPopular,
-}: {
-  planName: string;
-  tagline: string;
-  description: string;
-  price: string;
-  features: string[];
-  isPopular: boolean;
-}) {
-  return (
-    <Card
-      className={cn(
-        "relative flex flex-col p-8 rounded-[2.5rem] border bg-card/80 backdrop-blur-sm transition-all duration-300",
-        isPopular ? "border-primary shadow-2xl shadow-primary/10" : "border-border/50 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10"
-      )}
-    >
-      {isPopular && (
-        <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-primary text-primary-foreground text-xs font-bold uppercase tracking-widest">
-          Most Popular
-        </div>
-      )}
-      <div className="flex-1">
-        <p className="text-primary font-bold uppercase tracking-widest text-[10px] mb-2">{tagline}</p>
-        <h3 className="text-2xl font-black italic uppercase tracking-tighter mb-3">{planName}</h3>
-        <p className="text-sm text-muted-foreground font-medium italic mb-8">{description}</p>
-        
-        <div className="mb-8">
-          <span className="text-5xl font-black text-foreground">₹{price}</span>
-          <span className="text-muted-foreground font-bold"> + GST</span>
-        </div>
-
-        <p className="text-muted-foreground text-[10px] font-black uppercase tracking-[0.2em] mb-4">What's Included</p>
-        <ul className="space-y-3 text-sm font-medium text-foreground/80 italic">
-          {features.map((feature, index) => (
-            <li key={index} className="flex items-center gap-3">
-              <Check className="w-4 h-4 text-primary" />
-              <span>{feature}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div className="mt-10">
-        <Button asChild size="lg" className="w-full rounded-2xl h-14 font-black italic uppercase text-base">
-          <Link href="/contact">
-            Book Now <ArrowRight className="ml-2"/>
-          </Link>
-        </Button>
-      </div>
     </Card>
   );
 }

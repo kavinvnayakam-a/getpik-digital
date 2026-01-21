@@ -14,6 +14,7 @@ const links = [
   { href: '/', label: 'Home' },
   { href: '/work', label: 'Work' },
   { href: '/clients', label: 'Clients' },
+  { href: '/pricing', label: 'Pricing' },
   { href: '/seo-analyzer', label: 'SEO' },
   { href: '/ideas', label: 'Ideas' },
 ];
