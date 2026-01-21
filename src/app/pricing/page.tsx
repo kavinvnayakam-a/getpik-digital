@@ -133,68 +133,69 @@ export default function PricingPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 max-w-7xl mx-auto">
                 <PricingCard
                     planName="Basic"
-                    tagline="Single Event"
-                    description="Perfect for couples looking for a stunning, professionally crafted wedding shoot that won't break the bank."
-                    price="14,999"
+                    tagline="Intimate Moments"
+                    description="Beautifully capture the essence of your most important ceremony."
+                    price="13,999"
                     features={[
-                        'Covers up to one event',
-                        'Includes 3 Reels',
-                        '(Shoot on Camera)',
-                        'Instant reel delivery',
-                        'Complementary Pictures',
-                        'Please provide an SD card to receive all raw content if needed',
-                        'GetPik Logo Mandatory',
+                        'One Event Coverage',
+                        '3 Edited Wedding Reels',
+                        'Professional Camera Shoot',
+                        'Instant Reel Delivery',
+                        'Complimentary Photo Stills',
+                        'All Raw Footage (Bring SD Card)',
+                        'Includes GetPik Branding',
                     ]}
                     isPopular={false}
                     ctaText="Enquire Now"
                 />
                 <PricingCard
                     planName="Silver"
-                    tagline="Three Events"
-                    description="Perfect for those who want comprehensive coverage with an extra touch of elegance."
-                    price="44,999"
+                    tagline="Extended Celebration"
+                    description="Perfect for capturing the joy of multiple wedding events, from sangeet to reception."
+                    price="42,999"
                     features={[
-                        'Covers up to three events',
-                        'Includes 10 Reels',
-                        '(Shoot on Camera)',
-                        'Instant reel delivery',
-                        'Complementary Pictures',
-                        'Please provide an SD card to receive all raw content if needed',
-                        'GetPik Logo Mandatory',
+                        'Up to Three Events',
+                        '7 Edited Wedding Reels',
+                        'Professional Camera Shoot',
+                        'Instant Reel Delivery',
+                        'Complimentary Photo Stills',
+                        'All Raw Footage (Bring SD Card)',
+                        'Includes GetPik Branding',
                     ]}
                     isPopular={false}
                     ctaText="Enquire Now"
                 />
                 <PricingCard
                     planName="Gold"
-                    tagline="Four Events"
-                    description="Perfect for those who want comprehensive coverage with an extra touch of elegance."
-                    price="59,999"
+                    tagline="The Grand Affair"
+                    description="Comprehensive coverage for larger weddings with more functions and guests."
+                    price="55,999"
                     features={[
-                        'Covers up to four events',
-                        'Includes 15 Reels',
-                        '(Shoot on Camera)',
-                        'Instant reel delivery',
-                        'Complementary Pictures',
-                        'Please provide an SD card to receive all raw content if needed',
-                        'GetPik Logo Mandatory',
+                        'Up to Four Events',
+                        '10 Edited Wedding Reels',
+                        'Professional Camera Shoot',
+                        'Instant Reel Delivery',
+                        'Complimentary Photo Stills',
+                        'All Raw Footage (Bring SD Card)',
+                        'Includes GetPik Branding',
                     ]}
                     isPopular={true}
                     ctaText="Enquire Now"
                 />
                 <PricingCard
                     planName="Platinum"
-                    tagline="Complete Wedding"
-                    description="For couples who want it all—every moment captured with unmatched attention to detail."
+                    tagline="The Ultimate Story"
+                    description="Our all-inclusive package, telling your complete wedding story with cinematic detail."
                     price="99,999"
                     features={[
-                        'Covers whole wedding events',
-                        'Includes 25 Reels',
-                        '(Shoot on Camera)',
-                        'Instant reel delivery',
-                        'Interaction videos with complimentary mobile portraits',
-                        'Please provide an SD card to receive all raw content if needed',
-                        'GetPik Logo Mandatory',
+                        'Full Wedding Coverage (All Events)',
+                        '15 Edited Wedding Reels',
+                        'Cinematic Camera Shoot',
+                        'Instant Reel Delivery',
+                        'Guest Interaction Videos',
+                        'Complimentary Mobile Portraits',
+                        'All Raw Footage (Bring SD Card)',
+                        'Includes GetPik Branding',
                     ]}
                     isPopular={false}
                     ctaText="Enquire Now"
