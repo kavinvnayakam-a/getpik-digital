@@ -19,6 +19,8 @@ import {
   Users,
   Smile,
   Camera,
+  BarChart3,
+  Heart,
 } from 'lucide-react';
 import Link from 'next/link';
 import { ContainerScroll } from '@/components/ui/container-scroll-animation';
@@ -36,6 +38,30 @@ export default function Home() {
       });
     }
   }, []);
+
+  const pricingPlans = [
+    {
+      icon: <Camera className="w-6 h-6" />,
+      title: 'Hourly Plan',
+      price: '₹1,999',
+      description: 'For quick, high-quality reels.',
+      href: '/pricing',
+    },
+    {
+      icon: <BarChart3 className="w-6 h-6" />,
+      title: 'Growth Catalyst',
+      price: '₹49,999/mo',
+      description: 'Consistent monthly marketing.',
+      href: '/pricing',
+    },
+    {
+      icon: <Heart className="w-6 h-6" />,
+      title: 'Wedding Silver',
+      price: '₹42,999',
+      description: 'For grand celebrations.',
+      href: '/pricing',
+    },
+  ];
 
   return (
     <div className="min-h-screen">
@@ -132,6 +158,28 @@ export default function Home() {
               title="Pro-Grade Equipment"
               description="We shoot on the latest iPhones, mirrorless cameras, and other pro gear to ensure your content is top-notch."
             />
+          </div>
+        </div>
+      </section>
+
+      {/* --- PRICING HIGHLIGHT SECTION --- */}
+      <section className="py-24 bg-muted/30">
+        <div className="container mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.2em] mb-6">
+              Pricing
+            </div>
+            <h2 className="text-4xl md:text-6xl font-black italic tracking-tighter uppercase leading-tight text-primary">
+              Plans for Every Need
+            </h2>
+            <p className="text-muted-foreground font-medium italic mt-6 max-w-md mx-auto">
+              Transparent, affordable pricing to get you started.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {pricingPlans.map((plan, index) => (
+              <PricingHighlightCard key={index} {...plan} />
+            ))}
           </div>
         </div>
       </section>
@@ -310,6 +358,46 @@ function FeatureCard({
           </Button>
         </div>
       </CardContent>
+    </Card>
+  );
+}
+
+function PricingHighlightCard({
+  icon,
+  title,
+  price,
+  description,
+  href,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  price: string;
+  description: string;
+  href: string;
+}) {
+  return (
+    <Card className="group relative flex flex-col rounded-3xl border border-border bg-card overflow-hidden transition-all duration-500 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/5 p-8 text-center items-center">
+      <div className="w-16 h-16 rounded-2xl bg-background border border-border flex items-center justify-center mb-6 text-primary group-hover:scale-110 transition-transform">
+        {icon}
+      </div>
+      <h3 className="text-2xl font-black italic uppercase tracking-tighter mb-2">
+        {title}
+      </h3>
+      <p className="text-sm text-muted-foreground font-medium italic mb-6">
+        {description}
+      </p>
+      <div className="mb-8">
+        <span className="text-4xl font-black text-foreground">{price}</span>
+      </div>
+      <Button
+        asChild
+        variant="outline"
+        className="mt-auto rounded-full font-bold w-full"
+      >
+        <Link href={href}>
+          Know More <ArrowRight className="ml-2 h-4 w-4" />
+        </Link>
+      </Button>
     </Card>
   );
 }
