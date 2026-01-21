@@ -67,7 +67,7 @@ export function Footer() {
             <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-primary mb-8 italic">Solutions</h4>
             <ul className="space-y-4">
               {footerLinks.product.map((link) => (
-                <li key={link.label}>
+                <li key={link.href}>
                   <Link href={link.href} className="text-xs font-bold text-muted-foreground hover:text-foreground transition-colors uppercase tracking-widest">
                     {link.label}
                   </Link>
@@ -80,7 +80,7 @@ export function Footer() {
             <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-primary mb-8 italic">Company</h4>
             <ul className="space-y-4">
               {footerLinks.company.map((link) => (
-                <li key={link.label}>
+                <li key={link.href}>
                   <Link href={link.href} className="text-xs font-bold text-muted-foreground hover:text-foreground transition-colors uppercase tracking-widest">
                     {link.label}
                   </Link>
@@ -135,7 +135,7 @@ export function Footer() {
           
           <div className="flex items-center gap-8">
             {footerLinks.legal.map((link) => (
-              <Link key={link.label} href={link.href} className="text-[10px] font-black uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors">
+              <Link key={link.href} href={link.href} className="text-[10px] font-black uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors">
                 {link.label}
               </Link>
             ))}
