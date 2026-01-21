@@ -16,6 +16,9 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
+  SelectGroup,
+  SelectLabel,
+  SelectSeparator,
 } from '@/components/ui/select';
 import { Loader2, Send, MessageSquare, Globe, Building2, Phone, Radio } from 'lucide-react';
 
@@ -143,22 +146,44 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                {/* Budget Selection */}
+                {/* Service Selection */}
                 <div className="space-y-2">
-                  <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground px-1">Investment Range (INR)</Label>
-                  <Select name="budget" required>
+                  <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground px-1">Service of Interest</Label>
+                  <Select name="service" required>
                     <SelectTrigger className="bg-background/50 border-border h-12 rounded-xl">
-                      <SelectValue placeholder="Select INR Range" />
+                      <SelectValue placeholder="Select a service or plan" />
                     </SelectTrigger>
                     <SelectContent className="bg-popover border-border">
-                      <SelectItem value="<50k">Under ₹50,000</SelectItem>
-                      <SelectItem value="50k-1.5l">₹50,000 — ₹1.5 Lakh</SelectItem>
-                      <SelectItem value="1.5l-5l">₹1.5 Lakh — ₹5 Lakh</SelectItem>
-                      <SelectItem value="5l+">₹5 Lakh +</SelectItem>
+                      <SelectGroup>
+                        <SelectLabel>Content Creation</SelectLabel>
+                        <SelectItem value="hourly-plan">Hourly Plan (Reels)</SelectItem>
+                        <SelectItem value="half-day-plan">Half-Day Plan (Reels)</SelectItem>
+                      </SelectGroup>
+                      <SelectSeparator />
+                      <SelectGroup>
+                        <SelectLabel>Digital & Social Media Marketing</SelectLabel>
+                        <SelectItem value="growth-catalyst">Growth Catalyst (Monthly)</SelectItem>
+                        <SelectItem value="scale-engine">Scale Engine (Monthly)</SelectItem>
+                      </SelectGroup>
+                      <SelectSeparator />
+                      <SelectGroup>
+                        <SelectLabel>Wedding Memories</SelectLabel>
+                        <SelectItem value="wedding-basic">Wedding - Basic</SelectItem>
+                        <SelectItem value="wedding-silver">Wedding - Silver</SelectItem>
+                        <SelectItem value="wedding-gold">Wedding - Gold</SelectItem>
+                        <SelectItem value="wedding-platinum">Wedding - Platinum</SelectItem>
+                      </SelectGroup>
+                      <SelectSeparator />
+                      <SelectGroup>
+                        <SelectLabel>Other</SelectLabel>
+                        <SelectItem value="enterprise-custom">Enterprise / Custom Project</SelectItem>
+                        <SelectItem value="general-enquiry">General Enquiry</SelectItem>
+                      </SelectGroup>
                     </SelectContent>
                   </Select>
-                  {state.errors?.budget && <p className="text-red-500 text-[10px] italic mt-1 font-bold">{state.errors.budget[0]}</p>}
+                  {state.errors?.service && <p className="text-red-500 text-[10px] italic mt-1 font-bold">{state.errors.service[0]}</p>}
                 </div>
+
 
                 {/* Mission Brief - Now allows 1 character minimum */}
                 <div className="space-y-2">

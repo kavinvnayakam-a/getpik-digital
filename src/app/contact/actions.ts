@@ -12,7 +12,7 @@ const EnquirySchema = z.object({
   email: z.string().email('Invalid digital mail address'),
   company: z.string().min(1, 'Brand/Company name is required'),
   whatsapp: z.string().regex(/^[0-9+\s-]{10,15}$/, 'Invalid WhatsApp number format'),
-  budget: z.string().min(1, 'Please select an investment range'),
+  service: z.string().min(1, 'Please select a service of interest'),
   projectDetails: z.string().min(1, 'Mission brief cannot be empty'),
 });
 
@@ -24,7 +24,7 @@ export type FormState = {
     email?: string[];
     company?: string[];
     whatsapp?: string[];
-    budget?: string[];
+    service?: string[];
     projectDetails?: string[];
   };
 };

@@ -18,8 +18,9 @@
         "whatsapp": {
           "type": "string"
         },
-        "budget": {
-          "type": "string"
+        "service": {
+          "type": "string",
+          "description": "The service or plan the user is interested in."
         },
         "projectDetails": {
           "type": "string"
@@ -34,7 +35,7 @@
         "email",
         "company",
         "whatsapp",
-        "budget",
+        "service",
         "projectDetails"
       ]
     },
