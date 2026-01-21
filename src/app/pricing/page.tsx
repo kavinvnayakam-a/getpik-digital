@@ -50,7 +50,7 @@ export default function PricingPage() {
                 features={[
                     '1 Hour Shoot',
                     '1 Edited Reel Delivered',
-                    'Shot on Latest iPhone',
+                    '(Shoot on Camera)',
                     'Fast Delivery (10 mins post shoot)',
                     'Trained and Certified Reel Maker',
                     'GetPik Branding Included',
@@ -65,7 +65,7 @@ export default function PricingPage() {
                 features={[
                     'Up to 3 Hours Shoot',
                     '2 Edited reels',
-                    'Shot on Latest iPhone',
+                    '(Shoot on Camera)',
                     'Fast Delivery (10 mins post shoot)',
                     'Trained and Certified Reel Maker',
                     'GetPik Branding Included',
@@ -139,11 +139,11 @@ export default function PricingPage() {
                     features={[
                         'Covers up to one event',
                         'Includes 3 Reels',
-                        'Shot on iPhone',
+                        '(Shoot on Camera)',
                         'Instant reel delivery',
                         'Complementary Pictures',
                         'Please provide an SD card to receive all raw content if needed',
-                        'Flashoot Logo Mandatory',
+                        'GetPik Logo Mandatory',
                     ]}
                     isPopular={false}
                     ctaText="Enquire Now"
@@ -156,11 +156,11 @@ export default function PricingPage() {
                     features={[
                         'Covers up to three events',
                         'Includes 10 Reels',
-                        'Shot on iPhone',
+                        '(Shoot on Camera)',
                         'Instant reel delivery',
                         'Complementary Pictures',
                         'Please provide an SD card to receive all raw content if needed',
-                        'Flashoot Logo Mandatory',
+                        'GetPik Logo Mandatory',
                     ]}
                     isPopular={false}
                     ctaText="Enquire Now"
@@ -173,11 +173,11 @@ export default function PricingPage() {
                     features={[
                         'Covers up to four events',
                         'Includes 15 Reels',
-                        'Shot on iPhone',
+                        '(Shoot on Camera)',
                         'Instant reel delivery',
                         'Complementary Pictures',
                         'Please provide an SD card to receive all raw content if needed',
-                        'Flashoot Logo Mandatory',
+                        'GetPik Logo Mandatory',
                     ]}
                     isPopular={true}
                     ctaText="Enquire Now"
@@ -190,11 +190,11 @@ export default function PricingPage() {
                     features={[
                         'Covers whole wedding events',
                         'Includes 25 Reels',
-                        'Shot on iPhone',
+                        '(Shoot on Camera)',
                         'Instant reel delivery',
                         'Interaction videos with complimentary mobile portraits',
                         'Please provide an SD card to receive all raw content if needed',
-                        'Flashoot Logo Mandatory',
+                        'GetPik Logo Mandatory',
                     ]}
                     isPopular={false}
                     ctaText="Enquire Now"
