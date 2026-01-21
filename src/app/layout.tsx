@@ -6,6 +6,7 @@ import { Footer } from '@/components/footer';
 import { ScrollTimeline } from '@/components/ui/scroll-timeline';
 import { GridBackground } from '@/components/ui/grid-background';
 import { FirebaseClientProvider } from '@/firebase/client-provider';
+import { WhatsAppButton } from '@/components/WhatsAppButton';
 
 export const metadata: Metadata = {
   title: {
@@ -60,6 +61,7 @@ export default function RootLayout({
           </div>
           <ScrollTimeline />
           <Toaster />
+          <WhatsAppButton />
         </FirebaseClientProvider>
       </body>
     </html>
