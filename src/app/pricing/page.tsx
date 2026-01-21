@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { Check, ArrowRight } from 'lucide-react';
+import { Check, ArrowRight, Camera, BarChart3 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 export default function PricingPage() {
@@ -30,7 +30,17 @@ export default function PricingPage() {
                 </p>
             </div>
 
-            {/* Pricing Section Content from homepage */}
+            {/* --- Content Creation Section --- */}
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.2em] mb-6">
+                <Camera className="w-3 h-3" />
+                Content Creation
+              </div>
+              <h2 className="text-4xl md:text-5xl font-black italic tracking-tighter uppercase leading-tight">
+                Same-Day Visuals
+              </h2>
+            </div>
+            
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
                 <PricingCard
                 planName="Hourly Plan"
@@ -63,7 +73,53 @@ export default function PricingPage() {
                 isPopular={true}
                 />
             </div>
-            <div className="mt-16 max-w-4xl mx-auto">
+            
+            {/* --- Digital Marketing Section --- */}
+            <div className="text-center max-w-3xl mx-auto mb-16 mt-32">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.2em] mb-6">
+                <BarChart3 className="w-3 h-3" />
+                Digital & Social Media Marketing
+              </div>
+              <h2 className="text-4xl md:text-5xl font-black italic tracking-tighter uppercase leading-tight">
+                Market Domination
+              </h2>
+            </div>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                 <PricingCard
+                    planName="Growth Catalyst"
+                    tagline="Monthly Marketing"
+                    description="Consistent social media presence and digital marketing to grow your audience."
+                    price="49,999"
+                    pricePeriod="/month"
+                    features={[
+                        'Digital & Social Media Marketing',
+                        '15 Carousel Posts',
+                        '1 Free Reel Included',
+                        '7-Day Free Trial',
+                        'Ad Budget Excluded',
+                    ]}
+                    isPopular={false}
+                />
+                <PricingCard
+                    planName="Scale Engine"
+                    tagline="Full-Stack Dominance"
+                    description="An all-in-one solution for aggressive growth, analytics, and market leadership."
+                    price="99,999"
+                    pricePeriod="/month"
+                    features={[
+                        'Digital & Social Media Marketing',
+                        '20 Carousel Posts + 1 Free Reel',
+                        'In-depth Social Media Analysis',
+                        'Influencer Initiation (Add-on)',
+                        'Free Static Website/Enhancement',
+                        '7-Day Free Trial (Ad Budget Excluded)',
+                    ]}
+                    isPopular={true}
+                />
+            </div>
+
+            <div className="mt-24 max-w-4xl mx-auto">
                 <div className="p-8 md:p-12 rounded-[3rem] bg-foreground text-background border border-primary/30 shadow-2xl shadow-primary/10 transition-all duration-300 hover:shadow-primary/20 hover:border-primary/50">
                 <div className="text-center mb-8">
                     <p className="text-sm font-bold uppercase tracking-widest text-primary mb-4">Enterprise & Brand Protocol</p>
@@ -107,12 +163,13 @@ export default function PricingPage() {
   );
 }
 
-// Re-usable PricingCard component from homepage
+// Re-usable PricingCard component
 function PricingCard({
     planName,
     tagline,
     description,
     price,
+    pricePeriod, // Added prop
     features,
     isPopular,
   }: {
@@ -120,6 +177,7 @@ function PricingCard({
     tagline: string;
     description: string;
     price: string;
+    pricePeriod?: string; // Optional prop
     features: string[];
     isPopular: boolean;
   }) {
@@ -142,6 +200,7 @@ function PricingCard({
           
           <div className="mb-8">
             <span className="text-5xl font-black text-foreground">₹{price}</span>
+            {pricePeriod && <span className="text-muted-foreground font-bold">{pricePeriod}</span>}
             <span className="text-muted-foreground font-bold"> + GST</span>
           </div>
   
