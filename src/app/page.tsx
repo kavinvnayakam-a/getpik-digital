@@ -21,10 +21,17 @@ import {
   Camera,
   BarChart3,
   Heart,
+  HelpCircle,
 } from 'lucide-react';
 import Link from 'next/link';
 import { ContainerScroll } from '@/components/ui/container-scroll-animation';
 import { cn } from '@/lib/utils';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
 
 export default function Home() {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
@@ -60,6 +67,39 @@ export default function Home() {
       price: '₹42,999',
       description: 'For grand celebrations.',
       href: '/pricing',
+    },
+  ];
+
+  const faqs = [
+    {
+      question: 'What does "same-day delivery" for reels really mean?',
+      answer:
+        "It means you receive your professionally edited, ready-to-post reel within minutes after our creator completes the shoot. We prioritize speed to ensure your content is always timely and fresh.",
+    },
+    {
+      question: 'What kind of equipment do your creators use?',
+      answer:
+        'Our creators use a range of professional gear, including the latest iPhones for crisp 4K footage, high-quality mirrorless cameras, and even cinematic cameras for our premium wedding packages to guarantee top-notch visual quality.',
+    },
+    {
+      question: 'How simple is the booking process?',
+      answer:
+        "It's straightforward. Navigate to our contact page, choose the service you need, and fill out the form. Our team will contact you in under 4 hours to finalize the details and assign the perfect creator for your project.",
+    },
+    {
+      question: 'Do you offer services other than video reels?',
+      answer:
+        "Yes! While we're famous for our rapid-deployment reels, we are a full-service digital agency. We build high-performance websites, develop mobile apps, execute data-driven SEO strategies, and manage social media for brands.",
+    },
+    {
+      question: 'Are there any hidden fees in your pricing?',
+      answer:
+        'No. All our prices are listed transparently on our pricing page. The only addition is GST as required. For custom enterprise projects, we provide a detailed, all-inclusive quote before any work begins.',
+    },
+    {
+      question: 'Can I request a custom plan for my business?',
+      answer:
+        'Absolutely. We offer custom Enterprise plans for strategic content needs. This can include dedicated teams, specialized cinematic equipment, and bespoke content strategy. Contact us to discuss your unique requirements.',
     },
   ];
 
@@ -226,6 +266,39 @@ export default function Home() {
           />
         </div>
       </section>
+
+      {/* --- FAQ SECTION --- */}
+      <section className="py-24 container mx-auto px-6">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.2em] mb-6">
+              <HelpCircle className="w-4 h-4" />
+              <span>Common Queries</span>
+            </div>
+          <h2 className="text-5xl md:text-7xl font-black italic tracking-tighter uppercase leading-[0.9]">
+            Answers <br />
+            <span className="text-muted-foreground/50">on Demand.</span>
+          </h2>
+          <p className="text-muted-foreground font-medium italic mt-6 max-w-md mx-auto">
+            Key intelligence on our protocols and operational parameters.
+          </p>
+        </div>
+
+        <div className="max-w-4xl mx-auto">
+            <Accordion type="single" collapsible className="w-full space-y-4">
+              {faqs.map((faq, index) => (
+                <AccordionItem key={index} value={`item-${index}`} className="bg-card/50 border border-border/30 rounded-[2rem] px-8 transition-all hover:border-primary/30">
+                  <AccordionTrigger className="text-left font-black italic uppercase tracking-tighter text-lg hover:no-underline text-foreground">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="pt-2 pb-4 text-muted-foreground font-medium italic text-sm leading-relaxed">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+        </div>
+      </section>
+
 
       {/* --- ANALYTICS TOOLS (Your Original Features) --- */}
       <section className="py-32 bg-muted/50 border-y border-border">
