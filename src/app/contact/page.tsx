@@ -20,16 +20,13 @@ import {
   SelectLabel,
   SelectSeparator,
 } from '@/components/ui/select';
-import { Loader2, Send, MessageSquare, Globe, Building2, Phone, Radio, Heart, User } from 'lucide-react';
+import { Loader2, Send, MessageSquare, Globe, Building2, Phone, Radio, Heart, UtensilsCrossed } from 'lucide-react';
 
 const initialState = {
   message: '',
   errors: {},
 };
 
-/**
- * Isolated Submit Button component to utilize useFormStatus hook
- */
 function SubmitButton() {
   const { pending } = useFormStatus();
   return (
@@ -56,6 +53,7 @@ export default function ContactPage() {
   const formRef = useRef<HTMLFormElement>(null);
   
   const isWeddingService = selectedService.startsWith('wedding-');
+  const isPOSSService = selectedService.startsWith('poss-');
 
   useEffect(() => {
     if (state.message === 'success') {
@@ -63,11 +61,9 @@ export default function ContactPage() {
         title: 'TRANSMISSION RECEIVED',
         description: 'Our strategists are reviewing your data. Stand by.',
       });
-      // Reset form on successful Firestore write
       formRef.current?.reset();
       setSelectedService('');
     } else if (state.message && state.message !== 'success' && !state.errors) {
-       // Only show error toast for global/server errors, not validation errors
        toast({
         title: 'SIGNAL ERROR',
         description: state.message,
@@ -77,45 +73,47 @@ export default function ContactPage() {
   }, [state, toast]);
 
   return (
-    <div className="min-h-screen text-foreground pt-32 pb-20 px-6 relative overflow-hidden">
+    /* pt-28 on mobile ensures we are well below the header. lg:pt-36 for desktop. */
+    <div className="min-h-screen text-foreground pt-28 lg:pt-36 pb-20 px-6 relative overflow-hidden">
       {/* Background Abstract Glows */}
       <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-primary/10 blur-[120px] rounded-full -z-10" />
 
-      <div className="container mx-auto max-w-6xl">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+      <div className="container mx-auto max-w-6xl relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           
           {/* Left Side: Contextual Info */}
-          <div className="space-y-8 animate-in fade-in slide-in-from-left-8 duration-700 sticky top-32">
+          <div className="space-y-6 lg:space-y-10 animate-in fade-in slide-in-from-left-8 duration-700 lg:sticky lg:top-36">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-widest">
               <Radio className="w-3 h-3 animate-pulse" /> Uplink Active
             </div>
-            <h1 className="text-6xl md:text-8xl font-black italic tracking-tighter uppercase leading-[0.85]">
+            
+            <h1 className="text-5xl md:text-8xl font-black italic tracking-tighter uppercase leading-[0.85] pt-2">
               Contact <br /><span className="text-muted-foreground/80 not-italic">Protocol.</span>
             </h1>
-            <p className="text-muted-foreground text-lg font-medium max-w-md leading-relaxed">
-              Initiate your brand upgrade. Our systems usually process inquiries in <span className="text-primary italic font-bold">&lt; 4 hours.</span>
+            
+            <p className="text-muted-foreground text-base lg:text-lg font-medium max-w-md leading-relaxed">
+              Initiate your brand upgrade. Our systems process inquiries in <span className="text-primary italic font-bold">&lt; 4 hours.</span>
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-              <div className="p-6 rounded-[2rem] bg-card border border-border space-y-2">
-                <Globe className="w-5 h-5 text-primary" />
-                <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Availability</p>
-                <p className="text-sm font-bold italic">Global / Remote</p>
+            <div className="grid grid-cols-2 gap-4 pt-4">
+              <div className="p-5 lg:p-6 rounded-[1.5rem] lg:rounded-[2rem] bg-card border border-border space-y-1">
+                <Globe className="w-4 h-4 text-primary" />
+                <p className="text-[9px] font-black uppercase tracking-widest text-muted-foreground leading-none">Availability</p>
+                <p className="text-xs font-bold italic leading-none">Global / Remote</p>
               </div>
-              <div className="p-6 rounded-[2rem] bg-card border border-border space-y-2">
-                <MessageSquare className="w-5 h-5 text-primary" />
-                <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Direct Line</p>
-                <p className="text-sm font-bold italic">WhatsApp Priority</p>
+              <div className="p-5 lg:p-6 rounded-[1.5rem] lg:rounded-[2rem] bg-card border border-border space-y-1">
+                <MessageSquare className="w-4 h-4 text-primary" />
+                <p className="text-[9px] font-black uppercase tracking-widest text-muted-foreground leading-none">Direct Line</p>
+                <p className="text-xs font-bold italic leading-none">WhatsApp Priority</p>
               </div>
             </div>
           </div>
 
           {/* Right Side: The Form */}
-          <Card className="bg-card/80 border-border/50 rounded-[3rem] backdrop-blur-2xl shadow-2xl overflow-hidden animate-in fade-in slide-in-from-right-8 duration-700">
-            <CardContent className="p-8 md:p-12">
-              <form ref={formRef} action={formAction} className="space-y-5">
+          <Card className="mt-6 lg:mt-0 bg-card/80 border-border/50 rounded-[2.5rem] lg:rounded-[3rem] backdrop-blur-2xl shadow-2xl overflow-hidden animate-in fade-in slide-in-from-right-8 duration-700">
+            <CardContent className="p-6 md:p-12">
+              <form ref={formRef} action={formAction} className="space-y-5 lg:space-y-6">
                 
-                {/* Service Selection */}
                 <div className="space-y-2">
                   <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground px-1">Service of Interest</Label>
                   <Select name="service" required onValueChange={setSelectedService}>
@@ -123,6 +121,12 @@ export default function ContactPage() {
                       <SelectValue placeholder="Select a service or plan" />
                     </SelectTrigger>
                     <SelectContent className="bg-popover border-border">
+                      <SelectGroup>
+                        <SelectLabel>QR Code POSS (Restaurant Tech)</SelectLabel>
+                        <SelectItem value="poss-scale">Scale Plan - ₹1,999/mo + GST</SelectItem>
+                        <SelectItem value="poss-enterprise">Enterprise / Custom POSS</SelectItem>
+                      </SelectGroup>
+                      <SelectSeparator />
                       <SelectGroup>
                         <SelectLabel>Content Creation</SelectLabel>
                         <SelectItem value="hourly-plan">Hourly Plan (Reels) - ₹1,999</SelectItem>
@@ -142,107 +146,66 @@ export default function ContactPage() {
                         <SelectItem value="wedding-gold">Wedding - Gold - ₹55,999</SelectItem>
                         <SelectItem value="wedding-platinum">Wedding - Platinum - ₹99,999</SelectItem>
                       </SelectGroup>
-                      <SelectSeparator />
-                      <SelectGroup>
-                        <SelectLabel>Other</SelectLabel>
-                        <SelectItem value="enterprise-custom">Enterprise / Custom Project</SelectItem>
-                        <SelectItem value="general-enquiry">General Enquiry</SelectItem>
-                      </SelectGroup>
                     </SelectContent>
                   </Select>
-                  {state.errors?.service && <p className="text-red-500 text-[10px] italic mt-1 font-bold">{state.errors.service[0]}</p>}
                 </div>
 
-                {/* Identity & Email */}
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div className="space-y-2">
                     <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground px-1">Your Name</Label>
                     <Input id="name" name="name" placeholder="Name" required className="bg-background/50 border-border h-12 rounded-xl" />
-                    {state.errors?.name && <p className="text-red-500 text-[10px] italic mt-1 font-bold">{state.errors.name[0]}</p>}
                   </div>
                   <div className="space-y-2">
                     <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground px-1">Digital Mail</Label>
                     <Input id="email" name="email" type="email" placeholder="Email" required className="bg-background/50 border-border h-12 rounded-xl" />
-                    {state.errors?.email && <p className="text-red-500 text-[10px] italic mt-1 font-bold">{state.errors.email[0]}</p>}
                   </div>
                 </div>
 
-                {isWeddingService ? (
-                  <>
-                    <div className="grid gap-5 sm:grid-cols-2">
-                       <div className="space-y-2">
-                        <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground px-1">Bride's Name</Label>
-                        <Input id="brideName" name="brideName" placeholder="Bride's full name" required className="bg-background/50 border-border h-12 rounded-xl" />
-                        {state.errors?.brideName && <p className="text-red-500 text-[10px] italic mt-1 font-bold">{state.errors.brideName[0]}</p>}
-                      </div>
-                       <div className="space-y-2">
-                        <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground px-1">Bride's Phone</Label>
-                        <Input id="bridePhone" name="bridePhone" placeholder="Contact number" required className="bg-background/50 border-border h-12 rounded-xl" />
-                        {state.errors?.bridePhone && <p className="text-red-500 text-[10px] italic mt-1 font-bold">{state.errors.bridePhone[0]}</p>}
-                      </div>
+                {isWeddingService && (
+                  <div className="grid gap-4 sm:grid-cols-2 animate-in fade-in duration-300">
+                    <Input name="brideName" placeholder="Bride's Name" required className="bg-background/50 border-border h-12 rounded-xl" />
+                    <Input name="bridePhone" placeholder="Bride's Phone" required className="bg-background/50 border-border h-12 rounded-xl" />
+                    <Input name="groomName" placeholder="Groom's Name" required className="bg-background/50 border-border h-12 rounded-xl" />
+                    <Input name="groomPhone" placeholder="Groom's Phone" required className="bg-background/50 border-border h-12 rounded-xl" />
+                  </div>
+                )}
+
+                {isPOSSService ? (
+                  <div className="space-y-2 animate-in fade-in duration-300">
+                    <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground px-1">Restaurant / Outlet Name</Label>
+                    <div className="relative">
+                      <UtensilsCrossed className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                      <Input id="company" name="company" placeholder="E.g. GetPik Cloud Kitchen" required className="bg-background/50 border-border h-12 pl-11 rounded-xl" />
                     </div>
-                    <div className="grid gap-5 sm:grid-cols-2">
-                       <div className="space-y-2">
-                        <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground px-1">Groom's Name</Label>
-                        <Input id="groomName" name="groomName" placeholder="Groom's full name" required className="bg-background/50 border-border h-12 rounded-xl" />
-                        {state.errors?.groomName && <p className="text-red-500 text-[10px] italic mt-1 font-bold">{state.errors.groomName[0]}</p>}
-                      </div>
-                       <div className="space-y-2">
-                        <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground px-1">Groom's Phone</Label>
-                        <Input id="groomPhone" name="groomPhone" placeholder="Contact number" required className="bg-background/50 border-border h-12 rounded-xl" />
-                        {state.errors?.groomPhone && <p className="text-red-500 text-[10px] italic mt-1 font-bold">{state.errors.groomPhone[0]}</p>}
-                      </div>
-                    </div>
-                     <div className="space-y-2">
-                      <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground px-1">Wedding Venue</Label>
-                      <div className="relative">
-                        <Heart className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                        <Input id="weddingVenue" name="weddingVenue" placeholder="City, Venue Name" required className="bg-background/50 border-border h-12 pl-11 rounded-xl" />
-                      </div>
-                      {state.errors?.weddingVenue && <p className="text-red-500 text-[10px] italic mt-1 font-bold">{state.errors.weddingVenue[0]}</p>}
-                    </div>
-                  </>
-                ) : (
+                  </div>
+                ) : !isWeddingService && (
                   <div className="space-y-2">
                     <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground px-1">Brand / Company</Label>
                     <div className="relative">
                       <Building2 className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                       <Input id="company" name="company" placeholder="Brand Name" required className="bg-background/50 border-border h-12 pl-11 rounded-xl" />
                     </div>
-                    {state.errors?.company && <p className="text-red-500 text-[10px] italic mt-1 font-bold">{state.errors.company[0]}</p>}
                   </div>
                 )}
                 
-                {/* WhatsApp is always visible */}
                 <div className="space-y-2">
                   <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground px-1">WhatsApp Protocol</Label>
                   <div className="relative">
                     <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-primary" />
                     <Input id="whatsapp" name="whatsapp" placeholder="+91" required className="bg-background/50 border-border h-12 pl-11 rounded-xl" />
                   </div>
-                  {state.errors?.whatsapp && <p className="text-red-500 text-[10px] italic mt-1 font-bold">{state.errors.whatsapp[0]}</p>}
                 </div>
 
-
-                {/* Mission Brief - Now allows 1 character minimum */}
                 <div className="space-y-2">
                   <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground px-1">Mission Brief</Label>
                   <Textarea
                     id="projectDetails"
                     name="projectDetails"
-                    placeholder="Describe your goals, event dates, or project requirements..."
+                    placeholder={isPOSSService ? "Tell us about your outlet type..." : "Describe your goals or project requirements..."}
                     className="min-h-[100px] bg-background/50 border-border rounded-xl"
                     required
                   />
-                  {state.errors?.projectDetails && <p className="text-red-500 text-[10px] italic mt-1 font-bold">{state.errors.projectDetails[0]}</p>}
                 </div>
-
-                {/* Global Error Message Display */}
-                {state.message && state.message !== 'success' && !state.errors && (
-                  <p className="text-red-500 text-xs font-bold text-center uppercase tracking-tighter">
-                    {state.message}
-                  </p>
-                )}
 
                 <SubmitButton />
               </form>
