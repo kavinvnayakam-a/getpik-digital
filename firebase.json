@@ -11,10 +11,18 @@
     ],
     "alwaysDeployFromSource": true
   },
+  "hosting": {
+    "public": "public",
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
   "firestore": {
     "database": "(default)",
     "location": "asia-south1",
-    "rules": "firestore.rules",
-    "indexes": "firebase firestore:databases:list"
+    "rules": "firestore.rules"
   }
 }
