@@ -1,4 +1,4 @@
-import type {NextConfig} from 'next';
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -7,6 +7,22 @@ const nextConfig: NextConfig = {
   },
   eslint: {
     ignoreDuringBuilds: true,
+  },
+  async redirects() {
+    return [
+      {
+        // This catches anyone coming in on getpik.in and sends them to www.getpik.in
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'getpik.in',
+          },
+        ],
+        destination: 'https://www.getpik.in/:path*',
+        permanent: true, // This sends a 301 status code (Permanent Redirect)
+      },
+    ];
   },
   images: {
     remotePatterns: [
