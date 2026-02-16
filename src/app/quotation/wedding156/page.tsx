@@ -70,6 +70,7 @@ export default function GetPikWeddingQuotation() {
             <span className="bg-gradient-to-r from-rose-600 to-pink-500 bg-clip-text text-transparent italic">Pik.</span>
           </h1>
           <p className="text-rose-400 font-medium italic uppercase tracking-[0.2em] text-sm">Capturing Your Eternal Love Story</p>
+          <p className="text-rose-400 text-lg italic leading-relaxed"><strong>Event Date : May 19,20 - 2026 Kongu Maligai Erode</strong></p>
         </div>
 
         {/* --- CHARACTER ANIMATION SECTION --- */}
@@ -146,12 +147,15 @@ export default function GetPikWeddingQuotation() {
                   <div className="w-12 h-12 bg-pink-700 text-white flex items-center justify-center rounded-2xl shadow-pink-200 shadow-lg">
                     <LucideImage size={24} />
                   </div>
-                  <h3 className="text-2xl font-black italic uppercase tracking-tighter leading-none text-rose-900">The Keepsakes</h3>
+                  <h3 className="text-2xl font-black italic uppercase tracking-tighter leading-none text-rose-900">The Physical Deliverables</h3>
                 </div>
                 <ul className="space-y-4 text-rose-400 text-sm italic font-medium">
-                  <li className="flex gap-3 items-center text-rose-900"><Sparkles className="w-4 h-4 text-pink-400" /> <span>Luxury Album with Designer Editing</span></li>
+                  <li className="flex gap-3 items-center text-rose-900"><Sparkles className="w-4 h-4 text-pink-400" /> <span> 2 Luxury Album with Designer Editing</span></li>
                   <li className="flex gap-3 items-center text-rose-900"><ShieldCheck className="w-4 h-4 text-pink-400" /> <span>Private Online Selection Portal</span></li>
-                  <li className="flex gap-3 items-center text-rose-900"><Heart className="w-4 h-4 text-pink-400 fill-pink-400/20" /> <span>Digital Invitations & Video Teasers</span></li>
+                  <li className="flex gap-3 items-center text-rose-900"><Heart className="w-4 h-4 text-pink-400 fill-pink-400/20" /> <span>Digital Invitations</span></li>
+                  <li className="flex gap-3 items-center text-rose-900"><Heart className="w-4 h-4 text-pink-400 fill-pink-400/20" /> <span>Cinematic Video Teasers & 4-5mins Video 4K</span></li>
+                  <li className="flex gap-3 items-center text-rose-900"><Heart className="w-4 h-4 text-pink-400 fill-pink-400/20" /> <span>Full length Traditional Video 4K out in Pendrive</span></li>
+                  <li className="flex gap-3 items-center text-rose-900"><Heart className="w-4 h-4 text-pink-400 fill-pink-400/20" /> <span>Complimentary Photo Frame & Calendar Year 2026</span></li>
                 </ul>
               </div>
             </div>
@@ -166,14 +170,21 @@ export default function GetPikWeddingQuotation() {
                     <Monitor className="w-10 h-10 text-rose-600 p-2 bg-rose-50 rounded-lg" />
                     <div>
                       <h4 className="text-sm font-bold uppercase tracking-tight text-rose-900">LED Walls ({packages[tier].ledCount} Nos)</h4>
-                      <p className="text-xs text-rose-400 italic mt-1">Live mixing unit with HD output for all venue corners.</p>
+                      <p className="text-xs text-rose-400 italic mt-1">Live mixing unit with HD output for all venues LED's.</p>
                     </div>
                   </div>
                   <div className="flex gap-4 p-4 bg-white rounded-2xl border border-rose-50 shadow-sm">
-                    <Box className="w-10 h-10 text-pink-600 p-2 bg-pink-50 rounded-lg" />
+                    <Video className="w-10 h-10 text-pink-600 p-2 bg-pink-50 rounded-lg" />
                     <div>
                       <h4 className="text-sm font-bold uppercase tracking-tight text-rose-900">360 Video Booth</h4>
                       <p className="text-xs text-rose-400 italic mt-1">Fun interactive booth with instant guest file transfers.</p>
+                    </div>
+                    </div>
+                  <div className="flex gap-4 p-4 bg-white rounded-2xl border border-rose-50 shadow-sm">
+                    <Heart className="w-10 h-10 text-pink-600 p-2 bg-pink-50 rounded-lg" />
+                    <div>
+                      <h4 className="text-sm font-bold uppercase tracking-tight text-rose-900">Instant Photo Booth</h4>
+                      <p className="text-xs text-rose-400 italic mt-1">Guest will get instant photo print from the event.</p>
                     </div>
                   </div>
                </div>
@@ -188,7 +199,7 @@ export default function GetPikWeddingQuotation() {
               </div>
               <div className="text-center md:text-right relative z-10">
                 <div className="text-rose-400 font-black italic uppercase tracking-tighter text-sm mb-1">Total Package Value</div>
-                <div className="text-7xl md:text-8xl font-black italic tracking-tighter text-white">
+                <div className="text-5xl md:text-6xl font-black italic tracking-tighter text-white">
                   {packages[tier].total}<span className="text-lg ml-2 text-rose-400 italic">₹</span>
                 </div>
               </div>
@@ -207,6 +218,7 @@ export default function GetPikWeddingQuotation() {
                 </div>
             </div>
             <div className="mt-4 md:mt-0 text-3xl font-black italic text-rose-950">15,000<span className="text-sm ml-1 text-rose-200">₹</span></div>
+            <p className="text-rose-400 text-lg italic leading-relaxed"><strong>Event Date : March 8 - 2026 Rhukra Hall Erode</strong></p>
         </div>
 
       </section>
