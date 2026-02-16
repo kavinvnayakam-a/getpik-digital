@@ -1,12 +1,10 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
-import { Header } from '@/components/header';
-import { Footer } from '@/components/footer';
 import { ScrollTimeline } from '@/components/ui/scroll-timeline';
 import { GridBackground } from '@/components/ui/grid-background';
 import { FirebaseClientProvider } from '@/firebase/client-provider';
-import { WhatsAppButton } from '@/components/WhatsAppButton';
+import { LayoutVisibilityWrapper } from '@/components/LayoutVisibilityWrapper';
 
 export const metadata: Metadata = {
   title: {
@@ -26,7 +24,7 @@ export default function RootLayout({
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'GetPik',
-    url: 'https://www.getpik.in', // Please replace with your actual domain
+    url: 'https://www.getpik.in',
   };
 
   return (
@@ -54,14 +52,14 @@ export default function RootLayout({
       <body className="font-body antialiased">
         <FirebaseClientProvider>
           <GridBackground />
-          <div className="flex min-h-screen flex-col">
-            <Header />
-            <main className="flex-1">{children}</main>
-            <Footer />
-          </div>
+          
+          {/* This wrapper handles hiding the header/footer/whatsapp */}
+          <LayoutVisibilityWrapper>
+            {children}
+          </LayoutVisibilityWrapper>
+
           <ScrollTimeline />
           <Toaster />
-          <WhatsAppButton />
         </FirebaseClientProvider>
       </body>
     </html>
