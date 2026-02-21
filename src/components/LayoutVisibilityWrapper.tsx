@@ -10,7 +10,7 @@ export function LayoutVisibilityWrapper({ children }: { children: React.ReactNod
   
   // Define the path where you want to hide the global elements
   // Change '/quotation' to whatever your actual file path is
-  const isPrivatePage = pathname === '/quotation/wedding156'; 
+  const isPrivatePage = pathname === '/quotation/wedding156';
 
   return (
     <div className="flex min-h-screen flex-col">
