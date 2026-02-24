@@ -14,7 +14,14 @@
   "hosting": {
     "public": "public",
     "cleanUrls": true,
-    "trailingSlash": false
+    "trailingSlash": false,
+    "redirects": [
+      {
+        "source": "/:path*",
+        "destination": "https://www.getpik.in/:path*",
+        "type": 301
+      }
+    ]
   },
   "firestore": {
     "database": "(default)",
