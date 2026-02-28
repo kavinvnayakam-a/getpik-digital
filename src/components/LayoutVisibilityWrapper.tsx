@@ -9,7 +9,7 @@ export function LayoutVisibilityWrapper({ children }: { children: React.ReactNod
   const pathname = usePathname();
   
   // This targets your invitation folder specifically
-  const isInvitationPage = pathname.includes('/invitation/engagement150');
+  const isInvitationPage = pathname.includes('/invitation/sruthi&akashvar');
 
   return (
     <div className="flex min-h-screen flex-col">
