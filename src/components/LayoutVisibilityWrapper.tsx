@@ -3,21 +3,20 @@
 import { usePathname } from 'next/navigation';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
-import { WhatsAppButton } from '@/components/WhatsAppButton';
+import { WhatsAppButton } from '@/components/WhatsAppButton'; // Added braces back
 
 export function LayoutVisibilityWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   
-  // Define the path where you want to hide the global elements
-  // Change '/quotation' to whatever your actual file path is
-  const isPrivatePage = pathname === '/quotation/wedding156';
+  // This targets your invitation folder specifically
+  const isInvitationPage = pathname.includes('/invitation/engagement150');
 
   return (
     <div className="flex min-h-screen flex-col">
-      {!isPrivatePage && <Header />}
+      {!isInvitationPage && <Header />}
       <main className="flex-1">{children}</main>
-      {!isPrivatePage && <Footer />}
-      {!isPrivatePage && <WhatsAppButton />}
+      {!isInvitationPage && <Footer />}
+      {!isInvitationPage && <WhatsAppButton />}
     </div>
   );
 }
