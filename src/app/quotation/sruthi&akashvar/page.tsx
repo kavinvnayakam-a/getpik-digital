@@ -6,7 +6,8 @@ import {
   Sparkles, Monitor, ShieldCheck, Star, 
   Image as LucideImage, Heart, Users, 
   ChevronRight, Activity, MousePointer2,
-  Camera, Video, Clock, CheckCircle
+  Camera, Video, Clock, CheckCircle, Database, BookOpen,
+  Plane, Zap, Share2, Printer
 } from 'lucide-react';
 
 // --- REALISTIC BUTTERFLY COMPONENT ---
@@ -28,15 +29,29 @@ const RealisticButterfly = ({ delay, duration, top }: { delay: number; duration:
 );
 
 export default function GetPikWeddingQuotation() {
-  const [tier, setTier] = useState<'signature' | 'elite'>('elite'); // Default to Elite
+  const [tier, setTier] = useState<'basic' | 'signature' | 'elite'>('elite'); 
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const packages = {
+    basic: {
+      total: "1,62,000",
+      title: "The Basic",
+      subtitle: "Essential Ritual Coverage",
+      ref: "GP-WED-2026-BSC",
+      led: "2 Nos (8x6)",
+      crew: [
+        { label: "Traditional Photographer", count: 1 },
+        { label: "Traditional Videographer", count: 1 },
+        { label: "Candid Photographer", count: 1 },
+        { label: "Candid Videographer", count: 1 }
+      ]
+    },
     signature: {
-      total: "2,02,000",
+      total: "2,12,000",
       title: "The Signature",
       subtitle: "Dual-Event Ritual & Grandeur",
       ref: "VJ-WED-2026-SIG",
+      led: "2 Nos (12x8)",
       crew: [
         { label: "Traditional Photographer", count: 1 },
         { label: "Traditional Videographer", count: 2 },
@@ -46,10 +61,11 @@ export default function GetPikWeddingQuotation() {
       ]
     },
     elite: {
-      total: "2,56,000",
+      total: "2,76,000",
       title: "The Elite",
       subtitle: "Dual-Event Luxury Coverage",
       ref: "GP-WED-2026-ELT",
+      led: "2 Nos (12x8) + 2 Nos (8x6)",
       crew: [
         { label: "Traditional Photographer", count: 1 },
         { label: "Traditional Videographer", count: 2 },
@@ -61,9 +77,36 @@ export default function GetPikWeddingQuotation() {
   };
 
   const artistry = [
-    { title: "Candid Excellence", desc: "We don't just take photos; we capture the 'shiver' in your breath. Our candid style is documentary-heavy, focusing on stolen glances and unscripted joy." },
-    { title: "Cinematic Depth", desc: "Using 4K cinema-grade glass, our videography mimics the look of high-end feature films, ensuring your wedding video feels like a Netflix original." },
-    { title: "The GetPik Edit", desc: "Our signature color grading balances the vibrant colors of Indian weddings with a timeless, airy aesthetic that won't look dated in 20 years." }
+    { 
+      title: "Candid Excellence", 
+      desc: "We don't just take photos; we capture the 'shiver' in your breath. Our candid style is documentary-heavy, focusing on stolen glances and unscripted joy.",
+      icon: <Zap className="w-6 h-6" />
+    },
+    { 
+      title: "4K Drone Cinematography", 
+      desc: "Our aerial experts provide a 'God's eye view' of your grand entry and venue. We use stable 4K drone tech to capture sweeping cinematic vistas that add a movie-like scale to your wedding film.",
+      icon: <Plane className="w-6 h-6" />
+    },
+    { 
+      title: "360° Social Hot Talk", 
+      desc: "The ultimate entertainment hub! Guests record high-energy slo-mo videos that they can instantly share to Instagram or TikTok. It’s the viral highlight that keeps everyone talking.",
+      icon: <Share2 className="w-6 h-6" />
+    },
+    { 
+      title: "Instant Photo Prints", 
+      desc: "Forget waiting for weeks. Our instant booth gives guests studio-quality physical prints in their hands seconds after the click—a tangible souvenir they’ll cherish forever.",
+      icon: <Printer className="w-6 h-6" />
+    },
+    { 
+      title: "Next-Gen LED Display", 
+      desc: "We use ultra-high-definition LED tech with zero-latency live mixing. Every guest, even in the farthest corner, experiences every ritual in crystal-clear detail, as if they were on stage.",
+      icon: <Monitor className="w-6 h-6" />
+    },
+    { 
+      title: "The GetPik Edit", 
+      desc: "Our signature color grading balances the vibrant colors of Indian weddings with a timeless, airy aesthetic that won't look dated in 20 years.",
+      icon: <Sparkles className="w-6 h-6" />
+    }
   ];
 
   const faqs = [
@@ -125,20 +168,20 @@ export default function GetPikWeddingQuotation() {
           <p className="mt-4 text-rose-950 text-lg italic"><strong>May 19,20 - 2026 Kongu Maligai Erode</strong></p>
         </div>
 
-        {/* --- TOGGLE WITH POINTER BELOW ELITE --- */}
-        <div className="flex flex-col items-center mb-20 relative">
-          <div className="bg-white p-2 rounded-2xl border border-rose-100 shadow-xl flex gap-1 z-20 relative">
-            <button onClick={() => setTier('signature')} className={`px-10 py-4 rounded-xl text-xs font-black uppercase tracking-widest transition-all duration-500 ${tier === 'signature' ? 'bg-rose-600 text-white shadow-lg' : 'text-rose-300'}`}>Signature</button>
-            <button onClick={() => setTier('elite')} className={`px-10 py-4 rounded-xl text-xs font-black uppercase tracking-widest transition-all duration-500 relative ${tier === 'elite' ? 'bg-pink-700 text-white shadow-[0_0_20px_rgba(190,24,93,0.4)] scale-105' : 'text-rose-300'}`}>
+        {/* --- TOGGLE SECTION --- */}
+        <div className="flex flex-col items-center mb-16 relative">
+          <div className="bg-white p-2 rounded-2xl border border-rose-100 shadow-xl flex gap-1 z-20 relative overflow-x-auto max-w-full">
+            <button onClick={() => setTier('basic')} className={`px-6 py-4 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all duration-500 ${tier === 'basic' ? 'bg-rose-500 text-white shadow-lg' : 'text-rose-300'}`}>Basic</button>
+            <button onClick={() => setTier('signature')} className={`px-6 py-4 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all duration-500 ${tier === 'signature' ? 'bg-rose-600 text-white shadow-lg' : 'text-rose-300'}`}>Signature</button>
+            <button onClick={() => setTier('elite')} className={`px-8 py-4 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all duration-500 relative ${tier === 'elite' ? 'bg-pink-700 text-white shadow-[0_0_20px_rgba(190,24,93,0.4)] scale-105' : 'text-rose-300'}`}>
                 Elite
                 {tier === 'elite' && <div className="absolute -top-1 -right-1 w-3 h-3 bg-pink-400 rounded-full animate-ping" />}
             </button>
           </div>
           
-          {/* POINTER BELOW ELITE */}
           <div className="mt-4 flex flex-col items-center animate-bounce ml-32">
              <MousePointer2 className="text-pink-600 w-6 h-6" />
-             <span className="text-[9px] font-black text-pink-600 uppercase tracking-widest mt-1 italic"></span>
+             <span className="text-[9px] font-black text-pink-600 uppercase tracking-widest mt-1 italic">Our Recommendation</span>
           </div>
         </div>
 
@@ -167,32 +210,31 @@ export default function GetPikWeddingQuotation() {
                   <h3 className="text-2xl font-black italic uppercase tracking-tighter text-rose-900">Deliverables</h3>
                 </div>
                 <ul className="space-y-4 text-rose-400 text-sm italic font-medium">
-                  <li className="flex gap-3 items-center text-rose-900"><Sparkles className="w-4 h-4 text-pink-400" /> <span> 2 Luxury Album with Designer Editing</span></li>
-                  <li className="flex gap-3 items-center text-rose-900"><CheckCircle className="w-4 h-4 text-pink-400" /> <span>Cinematic Video Teasers & 4K Wedding Film</span></li>
-                  <li className="flex gap-3 items-center text-rose-900"><Clock className="w-4 h-4 text-pink-400" /> <span>Complimentary 2026 Calendar & Photo Frame</span></li>
+                  <li className="flex gap-3 items-center text-rose-900"><Monitor className="w-4 h-4 text-pink-400" /> <span>LED Screens: <strong>{packages[tier].led}</strong></span></li>
+                  <li className="flex gap-3 items-center text-rose-900"><Sparkles className="w-4 h-4 text-pink-400" /> <span>Luxury Album Production</span></li>
+                  <li className="flex gap-3 items-center text-rose-900"><CheckCircle className="w-4 h-4 text-pink-400" /> <span>Cinematic 4K Wedding Film</span></li>
+                  {tier !== 'basic' && (
+                    <>
+                      <li className="flex gap-3 items-center text-rose-900"><Activity className="w-4 h-4 text-pink-400" /> <span>360° Video Booth Experience</span></li>
+                      <li className="flex gap-3 items-center text-rose-900"><Camera className="w-4 h-4 text-pink-400" /> <span>Instant Photo Booth Prints</span></li>
+                    </>
+                  )}
+                  <li className="flex gap-3 items-center text-rose-900"><Clock className="w-4 h-4 text-pink-400" /> <span>Complimentary Calendar & Frame</span></li>
                 </ul>
-              </div>
-            </div>
-
-            <div className="mt-12 p-12 bg-rose-950 rounded-[2.5rem] flex flex-col md:flex-row justify-between items-center gap-8 relative overflow-hidden shadow-2xl">
-              <div className="relative z-10 text-center md:text-left">
-                <h4 className="text-4xl font-black italic uppercase tracking-tighter text-rose-50">{packages[tier].total}<span className="text-lg ml-2 text-rose-400">₹</span></h4>
-                <p className="text-rose-300 font-bold uppercase tracking-widest text-[10px]">Reference: {packages[tier].ref}</p>
-              </div>
-              <div className="relative z-10 w-20 h-20 bg-white/10 rounded-full flex items-center justify-center animate-heart-pop">
-                 <Heart className="text-white fill-white" size={32} />
               </div>
             </div>
           </div>
         </div>
 
-        {/* --- UNIQUE ARTISTRY --- */}
+        {/* --- UNIQUE ARTISTRY SECTION --- */}
         <div className="mb-24 mt-24">
             <h2 className="text-4xl font-black italic uppercase tracking-tighter mb-12 text-rose-950 text-center">Our Unique Artistry</h2>
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {artistry.map((item, i) => (
                     <div key={i} className="p-10 bg-white/60 border border-rose-100 rounded-[2.5rem] hover:bg-white transition-all duration-500 shadow-sm group">
-                        <div className="w-12 h-12 bg-rose-50 text-rose-600 rounded-full flex items-center justify-center font-black mb-6 group-hover:bg-rose-600 group-hover:text-white transition-colors">0{i+1}</div>
+                        <div className="w-12 h-12 bg-rose-50 text-rose-600 rounded-full flex items-center justify-center font-black mb-6 group-hover:bg-rose-600 group-hover:text-white transition-colors">
+                           {item.icon}
+                        </div>
                         <h4 className="text-xl font-black italic uppercase text-rose-900 mb-4">{item.title}</h4>
                         <p className="text-sm text-rose-400 italic leading-relaxed">{item.desc}</p>
                     </div>
@@ -201,7 +243,7 @@ export default function GetPikWeddingQuotation() {
         </div>
 
         {/* --- FAQ SECTION --- */}
-        <div className="max-w-4xl mx-auto mb-24">
+        <div className="max-w-4xl mx-auto mb-16">
             <h3 className="text-3xl font-black italic uppercase tracking-tighter mb-10 text-rose-950 text-center">Frequently Asked</h3>
             <div className="space-y-4">
                 {faqs.map((faq, i) => (
@@ -222,18 +264,77 @@ export default function GetPikWeddingQuotation() {
             </div>
         </div>
 
-        {/* ENGAGEMENT CARD */}
-        <div className="bg-white/80 backdrop-blur-sm border border-rose-100 rounded-[3rem] p-10 flex flex-col md:flex-row justify-between items-center shadow-lg">
-            <div className="flex items-center gap-8">
-                <div className="relative w-16 h-16 bg-rose-100 text-rose-600 rounded-2xl flex items-center justify-center">
-                    <Camera size={28} />
-                </div>
-                <div>
-                    <h3 className="text-2xl font-black italic uppercase text-rose-900 tracking-tighter">Engagement Session</h3>
-                    <p className="text-[10px] text-rose-300 uppercase font-black tracking-widest">March 8, 2026 • Rhukra Hall Erode</p>
+        {/* --- INVESTMENT BOX --- */}
+        <div className="max-w-5xl mx-auto mt-12 mb-20 p-12 bg-rose-950 rounded-[3rem] flex flex-col md:flex-row justify-between items-center gap-8 relative overflow-hidden shadow-2xl border-4 border-rose-800/50">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-rose-500/10 blur-[100px] rounded-full" />
+            <div className="relative z-10 text-center md:text-left">
+                <span className="text-[10px] font-black uppercase tracking-[0.4em] text-rose-400 mb-2 block">The Investment</span>
+                <h4 className="text-5xl md:text-6xl font-black italic uppercase tracking-tighter text-rose-50 leading-tight">
+                    {packages[tier].total}<span className="text-2xl ml-2 text-rose-400">₹</span>
+                </h4>
+                <p className="text-rose-300 font-bold uppercase tracking-widest text-[10px] mt-2">Ref: {packages[tier].ref}</p>
+            </div>
+            <div className="relative z-10">
+                <div className="w-24 h-24 bg-white/5 rounded-full flex items-center justify-center animate-heart-pop border border-white/10">
+                    <Heart className="text-rose-500 fill-rose-500" size={40} />
                 </div>
             </div>
-            <div className="text-4xl font-black italic text-rose-950 mt-6 md:mt-0">48,000<span className="text-sm ml-1 text-rose-200">₹</span></div>
+        </div>
+
+        {/* --- ENGAGEMENT CARD --- */}
+        <div className="bg-white/80 backdrop-blur-sm border border-rose-100 rounded-[3rem] p-8 md:p-12 shadow-lg relative overflow-hidden group">
+            <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
+                <Camera size={120} className="-rotate-12" />
+            </div>
+            
+            <div className="flex flex-col lg:flex-row justify-between gap-12 relative z-10">
+                <div className="max-w-md">
+                    <div className="flex items-center gap-6 mb-6">
+                        <div className="w-16 h-16 bg-rose-100 text-rose-600 rounded-2xl flex items-center justify-center shrink-0 shadow-inner">
+                            <Camera size={32} />
+                        </div>
+                        <div>
+                            <h3 className="text-3xl font-black italic uppercase text-rose-900 tracking-tighter">Engagement Session</h3>
+                            <p className="text-xs text-rose-400 uppercase font-black tracking-widest mt-1">March 8, 2026 • Rhukra Hall Erode</p>
+                        </div>
+                    </div>
+                    <div className="text-5xl font-black italic text-rose-950 mb-4">48,000<span className="text-xl ml-1 text-rose-200">₹</span></div>
+                    <p className="text-sm text-rose-400 italic font-medium leading-relaxed">A focused pre-wedding session capturing the beginning of your grand celebration.</p>
+                </div>
+
+                <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-3">
+                        <h4 className="text-[10px] font-black uppercase tracking-widest text-rose-300 mb-4">On-Site Experts</h4>
+                        <div className="flex justify-between items-center bg-rose-50/50 p-3 rounded-xl border border-rose-100/50">
+                            <span className="text-xs font-bold text-rose-900">Traditional Photo</span>
+                            <span className="text-[10px] bg-white px-2 py-1 rounded-md text-rose-600 font-black">1</span>
+                        </div>
+                        <div className="flex justify-between items-center bg-rose-50/50 p-3 rounded-xl border border-rose-100/50">
+                            <span className="text-xs font-bold text-rose-900">Traditional Video</span>
+                            <span className="text-[10px] bg-white px-2 py-1 rounded-md text-rose-600 font-black">1</span>
+                        </div>
+                        <div className="flex justify-between items-center bg-rose-50/50 p-3 rounded-xl border border-rose-100/50">
+                            <span className="text-xs font-bold text-rose-900">Candid Photo</span>
+                            <span className="text-[10px] bg-white px-2 py-1 rounded-md text-rose-600 font-black">1</span>
+                        </div>
+                    </div>
+                    <div className="space-y-3">
+                        <h4 className="text-[10px] font-black uppercase tracking-widest text-rose-300 mb-4">Physical & Digital</h4>
+                        <div className="flex items-center gap-3 bg-white p-3 rounded-xl border border-rose-50 shadow-sm">
+                            <BookOpen size={16} className="text-pink-400" />
+                            <span className="text-xs font-bold text-rose-900">35-50 Page Photo Book</span>
+                        </div>
+                        <div className="flex items-center gap-3 bg-white p-3 rounded-xl border border-rose-50 shadow-sm">
+                            <Monitor size={16} className="text-pink-400" />
+                            <span className="text-xs font-bold text-rose-900">Digital Book Access</span>
+                        </div>
+                        <div className="flex items-center gap-3 bg-white p-3 rounded-xl border border-rose-50 shadow-sm">
+                            <Database size={16} className="text-pink-400" />
+                            <span className="text-xs font-bold text-rose-900 italic">1-Year Free Gallery Storage</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
       </section>
@@ -257,6 +358,7 @@ export default function GetPikWeddingQuotation() {
         .animate-heartbeat-line { animation: heartbeat-line 2s linear infinite; }
         .animate-heart-pop { animation: heart-pop 1s ease-in-out infinite; }
         @keyframes heart-pop { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+        strong { color: #be185d; }
       `}</style>
     </div>
   );
