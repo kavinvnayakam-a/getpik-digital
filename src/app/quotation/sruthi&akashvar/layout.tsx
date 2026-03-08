@@ -2,8 +2,7 @@ import { Metadata } from 'next';
 import ClientLayout from './ClientLayout';
 
 export const metadata: Metadata = {
-  title: "Sruthi & Akashvar | Engagement Invitation",
-  description: "Join us in celebrating the engagement of Sruthi and Akashvar.",
+  title: "Sruthi & Akashvar | Wedding Quotations",
   robots: { index: false, follow: false }, // FORCE NO CRAWLING
   openGraph: {
     title: "Sruthi & Akashvar | Wedding & Reception Quotation",
