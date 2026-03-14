@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Heart, MapPin, Calendar, ExternalLink, Camera, Send, MessageCircle } from 'lucide-react';
+import { Heart, MapPin, Calendar, Camera, Send, MessageCircle } from 'lucide-react';
 import { initializeApp, getApps } from "firebase/app";
 import { getFirestore, collection, addDoc, onSnapshot, query, orderBy, serverTimestamp } from "firebase/firestore";
 
@@ -46,7 +46,7 @@ const FloatingHearts = () => {
 };
 
 export default function LongScrollWeddingInvitation() {
-  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, mins: 0, passed: false });
+  const [timeLeft, setTimeLeft] = useState({ days: "00", hours: "00", mins: "00", secs: "00", passed: false });
   const [wishes, setWishes] = useState<any[]>([]);
   const [formData, setFormData] = useState({ name: '', phone: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -57,10 +57,19 @@ export default function LongScrollWeddingInvitation() {
       const now = new Date().getTime();
       const diff = target - now;
       const absDiff = Math.abs(diff);
+
+      const days = Math.floor(absDiff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((absDiff / (1000 * 60 * 60)) % 24);
+      const mins = Math.floor((absDiff / 1000 / 60) % 60);
+      const secs = Math.floor((absDiff / 1000) % 60);
+
+      const format = (num: number) => num.toString().padStart(2, '0');
+
       setTimeLeft({
-        days: Math.floor(absDiff / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((absDiff / (1000 * 60 * 60)) % 24),
-        mins: Math.floor((absDiff / 1000 / 60) % 60),
+        days: format(days),
+        hours: format(hours),
+        mins: format(mins),
+        secs: format(secs),
         passed: diff < 0
       });
     }, 1000);
@@ -102,26 +111,20 @@ export default function LongScrollWeddingInvitation() {
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
       </Head>
 
-      {/* Strict Mobile Container */}
-      <div className="w-full max-w-[500px] bg-[#001f3f] relative overflow-x-hidden shadow-2xl">
+      <div className="w-full max-w-[500px] bg-[#001f3f] relative overflow-x-hidden shadow-2xl font-playfair">
         <FloatingHearts />
 
-        {/* SECTION 1: INVITATION (Full Bleed) */}
+        {/* --- SECTION 1: THE INVITATION --- */}
         <div className="relative w-full overflow-hidden" style={{ aspectRatio: '1080 / 3840' }}>
           {layers.map((layer) => (
-            <img 
-              key={layer.id} 
-              src={layer.url} 
-              alt="" 
-              className="absolute top-0 left-0 w-full h-full pointer-events-none" 
-              style={{ objectFit: 'fill', margin: 0, padding: 0 }} 
-            />
+            <img key={layer.id} src={layer.url} alt="" className="absolute top-0 left-0 w-full h-full pointer-events-none" style={{ objectFit: 'fill', margin: 0, padding: 0 }} />
           ))}
 
-          <div className="absolute inset-0 flex flex-col items-center z-10">
-            {/* Header */}
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="pt-[180px] text-center px-6">
-              <div className="space-y-3 mb-10">
+          <div className="absolute inset-0 z-10">
+            
+            {/* Header Text */}
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="absolute top-[180px] w-full text-center px-6">
+              <div className="space-y-3">
                 <h2 className="text-[#5d1a1a] text-lg font-bold font-cinzel tracking-tight leading-tight">
                   Mr Vijayakumar & Mrs Ponne <br/> & <br/> Mr Sureshkumar & Mrs Punithavalli
                 </h2>
@@ -129,69 +132,93 @@ export default function LongScrollWeddingInvitation() {
                   Cordially solicit your esteemed presence and blessings with your family and friends on the auspicious occasion of the wedding of
                 </p>
               </div>
-              
-              <div className="py-2">
-                <h1 className="text-7xl text-[#5d1a1a] font-dancing drop-shadow-sm">Sruthi</h1>
-                <Heart className="mx-auto text-[#d4af37] fill-[#d4af37] animate-pulse my-4" size={28} />
-                <h1 className="text-7xl text-[#5d1a1a] font-dancing drop-shadow-sm">Akashvar</h1>
+
+              <div className="flex flex-col items-center mt-6">
+                  <h1 className="text-5xl text-[#5d1a1a] font-dancing leading-none">Sruthi</h1>
+                  <Heart className="text-[#d4af37] fill-[#d4af37] animate-pulse my-4" size={28} />
+                  <h1 className="text-5xl text-[#5d1a1a] font-dancing leading-none">Akashvar</h1>
               </div>
             </motion.div>
 
             {/* Timeline */}
-            <div className="absolute top-[830px] w-full px-10">
-              <div className="relative border-l-2 border-dotted border-white/40 ml-4 pl-8 space-y-12 py-2 text-white">
+            <div className="absolute top-[810px] w-full px-10">
+              <div className="relative border-l-2 border-dotted border-white/40 ml-4 pl-8 space-y-12 py-2 text-white text-left text-sm">
+                
                 <div className="relative">
-                  <div className="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-white shadow-lg" />
-                  <h4 className="font-black text-[10px] uppercase tracking-[0.3em] text-white mb-1">Reception</h4>
-                  <p className="font-bold text-lg leading-none">19th May 2026, Tuesday</p>
-                  <p className="text-xs italic mt-2 border-t border-white/40 pt-1 inline-block">From 6:00 PM onwards</p>
+                    <div className="absolute -left-[42px] top-1">
+                        <div className="w-4 h-4 rounded-full bg-white relative z-10" />
+                        <div className="w-4 h-4 rounded-full bg-white absolute top-0 animate-ping opacity-75" />
+                    </div>
+                    <h4 className="font-black text-[10px] uppercase tracking-[0.3em] text-white">Reception</h4>
+                    <p className="font-bold text-white">19th May 2026, Tuesday</p>
+                    <p className="text-xs italic mt-2 border-t border-white/40 pt-1 inline-block text-white">From 6:00 PM onwards</p>
                 </div>
+
                 <div className="relative">
-                  <div className="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-white shadow-lg" />
-                  <h4 className="font-black text-[10px] uppercase tracking-[0.3em] text-white mb-1">Muhurtham</h4>
-                  <p className="font-bold text-lg leading-none">20th May 2026, Wednesday</p>
-                  <p className="text-xs font-black mt-2 border-t border-white/40 pt-1 inline-block">9:00 AM to 9:45 AM</p>
+                    <div className="absolute -left-[42px] top-1">
+                        <div className="w-4 h-4 rounded-full bg-white relative z-10" />
+                        <div className="w-4 h-4 rounded-full bg-white absolute top-0 animate-ping opacity-75" />
+                    </div>
+                    <h4 className="font-black text-[10px] uppercase tracking-[0.3em] text-white">Muhurtham</h4>
+                    <p className="font-bold text-white">20th May 2026, Wednesday</p>
+                    <p className="text-xs font-black mt-2 border-t border-white/40 pt-1 inline-block text-white">9:00 AM to 9:45 AM</p>
                 </div>
+
               </div>
             </div>
 
-            {/* Venue & Calendar */}
+            {/* --- UPDATED DD:HH:MM:SS COUNTDOWN --- */}
             <div className="absolute top-[1030px] w-full px-8 flex flex-col items-center">
+               
+               <div className="mb-10 w-full max-w-[340px]">
+                  <p className="text-[10px] uppercase tracking-[0.5em] mb-4 font-black text-white/60 text-center">
+                    {timeLeft.passed ? "CELEBRATED" : "COUNTDOWN"}
+                  </p>
+                  <div className="grid grid-cols-4 gap-2">
+                    {[
+                        { v: timeLeft.days, l: "Days" },
+                        { v: timeLeft.hours, l: "Hours" },
+                        { v: timeLeft.mins, l: "Mins" },
+                        { v: timeLeft.secs, l: "Secs" }
+                    ].map((item, i) => (
+                      <div key={i} className="flex flex-col items-center">
+                        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl w-full py-4 flex items-center justify-center shadow-lg">
+                            <span className="text-2xl font-bold text-white tracking-widest leading-none">{item.v}</span>
+                        </div>
+                        <span className="text-[8px] mt-2 font-black text-[#d4af37] uppercase tracking-widest">{item.l}</span>
+                      </div>
+                    ))}
+                  </div>
+               </div>
+
                <div className="bg-white/95 backdrop-blur-md p-6 rounded-[2.5rem] border border-[#d4af37]/30 w-full max-w-[280px] shadow-2xl text-[#5d1a1a] text-center">
                   <a href="https://maps.google.com/?q=Kongu+Maligai+Erode" target="_blank" className="flex flex-col items-center gap-1 group">
                       <MapPin size={20} className="text-[#d4af37]" />
                       <span className="text-sm font-bold uppercase tracking-widest group-hover:underline">Kongu Maligai, Erode</span>
                   </a>
                   <div className="h-px w-6 bg-[#d4af37]/30 mx-auto my-3" />
-                  <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Sruthi+%26+Akashvar+Wedding&dates=20260519T180000/20260520T100000&location=Kongu+Maligai,+Erode" 
-                     target="_blank" 
-                     className="text-[10px] font-black uppercase tracking-widest text-[#5d1a1a] flex justify-center items-center gap-2 underline">
-                    Open in Calendar
-                  </a>
-               </div>
-
-               <div className="mt-12 text-center text-white">
-                  <p className="text-[10px] uppercase tracking-[0.4em] mb-4 font-black">{timeLeft.passed ? "CELEBRATED" : "COUNTDOWN"}</p>
-                  <div className="flex gap-4 justify-center items-center">
-                    {[{ v: timeLeft.days, l: "Days" }, { v: timeLeft.hours, l: "Hrs" }, { v: timeLeft.mins, l: "Min" }].map((item, i) => (
-                      <div key={i} className="flex flex-col"><span className="text-3xl font-bold">{item.v}</span><span className="text-[8px] opacity-60 uppercase">{item.l}</span></div>
-                    ))}
-                  </div>
-               </div>
-
-               <div className="mt-16 flex flex-col items-center opacity-40 text-white">
-                  <Camera size={14} /><span className="text-[10px] font-black tracking-widest uppercase">GetPik</span>
+                  <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Sruthi+%26+Akashvar+Wedding&dates=20260519T180000/20260520T100000&location=Kongu+Maligai,+Erode" target="_blank" className="text-[10px] font-black uppercase tracking-widest text-[#5d1a1a] underline">Save the Date</a>
                </div>
             </div>
           </div>
         </div>
 
-        {/* SECTION 2: GUESTBOOK */}
+        {/* --- GUESTBOOK --- */}
         <section className="relative bg-[#fffcf5] py-20 px-6 border-t-[12px] border-[#5d1a1a]">
           <div className="max-w-md mx-auto">
-            <div className="text-center mb-10">
-              <h3 className="text-3xl font-black italic uppercase text-[#5d1a1a] font-cinzel">Guestbook</h3>
-              <p className="text-[#d4af37] text-xs font-bold uppercase tracking-[0.3em]">Send Your Blessings</p>
+            
+            <div className="mb-10 flex flex-col items-center text-[#5d1a1a]">
+              <div className="flex items-center gap-2 mb-1 opacity-70">
+                <Camera size={18} />
+                <span className="text-[11px] font-black uppercase tracking-[0.3em]">GetPik</span>
+              </div>
+              <p className="text-[8px] uppercase tracking-[0.5em] opacity-60">Photography & Videography</p>
+              <div className="h-px w-12 bg-[#d4af37]/30 mx-auto mt-6" />
+            </div>
+
+            <div className="text-center mb-10 text-[#5d1a1a]">
+              <h3 className="text-3xl font-black italic uppercase font-cinzel leading-none">Guestbook</h3>
+              <p className="text-[#d4af37] text-xs font-bold uppercase tracking-[0.3em] mt-2">Send Your Blessings</p>
             </div>
 
             <div className="bg-white p-6 rounded-[2.5rem] shadow-xl border border-rose-100 mb-12">
@@ -200,7 +227,7 @@ export default function LongScrollWeddingInvitation() {
                   <input required placeholder="Name" className="w-1/2 px-4 py-3 rounded-xl bg-rose-50/50 border border-rose-100 text-sm outline-none" value={formData.name} onChange={(e)=>setFormData({...formData, name: e.target.value})} />
                   <input placeholder="Phone" className="w-1/2 px-4 py-3 rounded-xl bg-rose-50/50 border border-rose-100 text-sm outline-none" value={formData.phone} onChange={(e)=>setFormData({...formData, phone: e.target.value})} />
                 </div>
-                <textarea required placeholder="Wishes..." rows={2} className="w-full px-4 py-3 rounded-xl bg-rose-50/50 border border-rose-100 text-sm outline-none" value={formData.message} onChange={(e)=>setFormData({...formData, message: e.target.value})} />
+                <textarea required placeholder="Write your wishes..." rows={2} className="w-full px-4 py-3 rounded-xl bg-rose-50/50 border border-rose-100 text-sm outline-none" value={formData.message} onChange={(e)=>setFormData({...formData, message: e.target.value})} />
                 <button disabled={isSubmitting} className="w-full py-4 bg-[#5d1a1a] text-white rounded-full font-black uppercase text-xs tracking-widest flex items-center justify-center gap-2 active:scale-95 transition-all">
                   {isSubmitting ? "Delivering..." : <><Send size={16}/> Send Blessing</>}
                 </button>
@@ -229,13 +256,11 @@ export default function LongScrollWeddingInvitation() {
       <style jsx global>{`
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@400;700&family=Cinzel:wght@700&display=swap');
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background-color: black; font-family: 'Playfair Display', serif; }
+        body { background-color: black; font-family: 'Playfair Display', serif; overflow-x: hidden; }
         .font-dancing { font-family: 'Dancing Script', cursive; }
         .font-cinzel { font-family: 'Cinzel', serif; }
-        
         .bubble-left::after { content: ""; position: absolute; bottom: 0; left: -8px; width: 20px; height: 20px; background-color: white; border-left: 1px solid #ffe4e6; border-bottom: 1px solid #ffe4e6; border-bottom-right-radius: 15px; z-index: -1; }
         .bubble-right::after { content: ""; position: absolute; bottom: 0; right: -8px; width: 20px; height: 20px; background-color: #5d1a1a; border-bottom-left-radius: 15px; z-index: -1; }
-        
         @keyframes float-up { 0% { transform: translateY(0) rotate(0deg); opacity: 0; } 10% { opacity: 0.4; } 100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; } }
         .animate-float-up { animation: float-up linear forwards; }
         ::-webkit-scrollbar { display: none; }
