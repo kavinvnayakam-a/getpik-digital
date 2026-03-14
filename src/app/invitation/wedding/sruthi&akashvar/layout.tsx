@@ -2,13 +2,13 @@ import { Metadata } from 'next';
 import ClientLayout from './ClientLayout';
 
 export const metadata: Metadata = {
-  title: "Sruthi & Akashvar | Engagement Invitation",
-  description: "Join us in celebrating the engagement of Sruthi and Akashvar.",
+  title: "Sruthi & Akashvar | Wedding Invitation",
+  description: "Join us in celebrating the Wedding of Sruthi and Akashvar.",
   robots: { index: false, follow: false }, // FORCE NO CRAWLING
   openGraph: {
-    title: "Sruthi & Akashvar | Engagement Invitation",
+    title: "Sruthi & Akashvar | Wedding Invitation",
     images: [{
-      url: 'https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Getpik%20Website%2Fengagementsruthi%2FSruthi.webp?alt=media&token=5084f7a4-7714-4fcf-ba69-d49a035a156e',
+      url: 'https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Sruthiwedding%20invitation%2FSocial%20Share%20wedding%20invitation.webp?alt=media&token=68c0f8d2-e8d7-4d8d-ba26-cf27b746e060',
       width: 1200,
       height: 630,
     }],
