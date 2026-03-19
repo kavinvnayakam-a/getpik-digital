@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Sruthi & Akashvar | Wedding Invitation",
     images: [{
-      url: 'https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Sruthiwedding%20invitation%2FSocial%20Share%20wedding%20invitation.webp?alt=media&token=68c0f8d2-e8d7-4d8d-ba26-cf27b746e060',
+      url: 'https://firebasestorage.googleapis.com/v0/b/getpik-digital.firebasestorage.app/o/Sruthiwedding%20invitation%2FSruthi%202%20Social%20Sharing%20(1).webp?alt=media&token=8c801bd4-0b73-43ca-9d4a-3181f29885fe',
       width: 1200,
       height: 630,
     }],
