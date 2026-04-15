@@ -83,7 +83,7 @@ export default function BirthdayQuotation() {
           <div className="mt-8 flex flex-col items-center gap-2">
             <div className="flex items-center gap-2 text-slate-900 font-bold text-xl italic">
                 <Users className="text-blue-500" size={20} />
-                <span>Client: Prathap</span>
+                <span>Client: Arvind </span>
             </div>
             <div className="flex items-center gap-2 text-slate-500 text-sm font-semibold uppercase tracking-widest">
                 <MapPin size={16} className="text-blue-400" />
