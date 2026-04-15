@@ -31,7 +31,7 @@ export default function BirthdayQuotation() {
     {
       date: "April 30th",
       event: "Birthday Rituals - Session I",
-      crew: ["Traditional Photographer", "Traditional Videographer"]
+      crew: ["Traditional Photographer"]
     },
     {
       date: "May 3rd",
@@ -145,7 +145,7 @@ export default function BirthdayQuotation() {
             <div className="relative z-10 text-center md:text-left">
                 <span className="text-[10px] font-black uppercase tracking-[0.4em] text-blue-400 mb-2 block">Total Investment</span>
                 <h4 className="text-5xl md:text-7xl font-black italic uppercase tracking-tighter text-white leading-tight">
-                    57,000<span className="text-2xl ml-2 text-blue-400">₹</span>
+                    47,000<span className="text-2xl ml-2 text-blue-400">₹</span>
                 </h4>
                 <p className="text-slate-400 font-bold uppercase tracking-widest text-[10px] mt-2 italic">Comprehensive Package • Ref: GP-BTH-2026-CBE</p>
             </div>
