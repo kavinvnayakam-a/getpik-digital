@@ -7,7 +7,7 @@ import {
   Image as LucideImage, Heart, Users, 
   ChevronRight, Activity, MousePointer2,
   Camera, Video, Clock, CheckCircle, Database, BookOpen,
-  Plane, Zap, Share2, Printer
+  Plane, Zap, Share2, Printer, CreditCard
 } from 'lucide-react';
 
 // --- REALISTIC BUTTERFLY COMPONENT ---
@@ -115,7 +115,7 @@ export default function GetPikWeddingQuotation() {
     { q: "Can we choose the music for our cinematic film?", a: "Absolutely. We encourage you to share your favorite playlist, and our editors sync the film to your rhythm." },
     { q: "Do you cover destination weddings outside Erode?", a: "Yes, we travel globally. Travel and stay are usually handled by the client or added to the quote at actuals." },
     { q: "What is the 'Private Online Selection Portal'?", a: "It's a password-protected digital gallery where you can 'heart' your favorite photos for the album design." },
-    { q: "What are the payment terms?", a: "30% booking advance, 50% on the event day, and the remaining 20% upon digital delivery." }
+    { q: "What are the payment terms?", a: "50% as the advance for confirmation, 40% on the event date, and the remaining 10% during the album and other deliverables." }
   ];
 
   return (
@@ -265,7 +265,7 @@ export default function GetPikWeddingQuotation() {
         </div>
 
         {/* --- INVESTMENT BOX --- */}
-        <div className="max-w-5xl mx-auto mt-12 mb-20 p-12 bg-rose-950 rounded-[3rem] flex flex-col md:flex-row justify-between items-center gap-8 relative overflow-hidden shadow-2xl border-4 border-rose-800/50">
+        <div className="max-w-5xl mx-auto mt-12 mb-8 p-12 bg-rose-950 rounded-[3rem] flex flex-col md:flex-row justify-between items-center gap-8 relative overflow-hidden shadow-2xl border-4 border-rose-800/50">
             <div className="absolute top-0 right-0 w-64 h-64 bg-rose-500/10 blur-[100px] rounded-full" />
             <div className="relative z-10 text-center md:text-left">
                 <span className="text-[10px] font-black uppercase tracking-[0.4em] text-rose-400 mb-2 block">The Investment</span>
@@ -277,6 +277,33 @@ export default function GetPikWeddingQuotation() {
             <div className="relative z-10">
                 <div className="w-24 h-24 bg-white/5 rounded-full flex items-center justify-center animate-heart-pop border border-white/10">
                     <Heart className="text-rose-500 fill-rose-500" size={40} />
+                </div>
+            </div>
+        </div>
+
+        {/* --- PAYMENT MILESTONES --- */}
+        <div className="max-w-5xl mx-auto mb-20 p-8 md:p-12 bg-white/80 backdrop-blur-sm border border-rose-100 rounded-[3rem] shadow-lg">
+            <div className="flex items-center gap-4 mb-8">
+                <div className="w-10 h-10 bg-rose-600 text-white flex items-center justify-center rounded-xl shadow-md">
+                    <CreditCard size={20} />
+                </div>
+                <h3 className="text-2xl font-black italic uppercase tracking-tighter text-rose-900">Payment Milestones</h3>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="p-6 bg-rose-50/50 rounded-2xl border border-rose-100 group hover:bg-white transition-all">
+                    <div className="text-3xl font-black text-rose-600 mb-1">50%</div>
+                    <div className="text-[10px] font-black uppercase tracking-widest text-rose-400 mb-3">Phase 01</div>
+                    <p className="text-sm font-bold text-rose-900 italic">Advance for Confirmation</p>
+                </div>
+                <div className="p-6 bg-rose-50/50 rounded-2xl border border-rose-100 group hover:bg-white transition-all">
+                    <div className="text-3xl font-black text-rose-600 mb-1">40%</div>
+                    <div className="text-[10px] font-black uppercase tracking-widest text-rose-400 mb-3">Phase 02</div>
+                    <p className="text-sm font-bold text-rose-900 italic">On the Event Date</p>
+                </div>
+                <div className="p-6 bg-rose-50/50 rounded-2xl border border-rose-100 group hover:bg-white transition-all">
+                    <div className="text-3xl font-black text-rose-600 mb-1">10%</div>
+                    <div className="text-[10px] font-black uppercase tracking-widest text-rose-400 mb-3">Phase 03</div>
+                    <p className="text-sm font-bold text-rose-900 italic">During Album & Deliverables</p>
                 </div>
             </div>
         </div>
