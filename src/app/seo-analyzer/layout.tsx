@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Free SEO Analyzer',
+  title: 'SEO Analyzer | Website Audit Tool',
   description:
-    "Analyze your website's technical SEO with our free tool. Get an instant score and identify opportunities to improve your ranking and get picked by search engines.",
+    'Audit your website’s performance with GetPik’s technical SEO analyzer. Optimize for keywords like photography in TN and more.',
 };
 
 export default function SeoAnalyzerLayout({

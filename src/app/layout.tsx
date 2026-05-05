@@ -7,37 +7,36 @@ import { FirebaseClientProvider } from '@/firebase/client-provider';
 import { LayoutVisibilityWrapper } from '@/components/LayoutVisibilityWrapper';
 
 export const metadata: Metadata = {
-  // Forces all metadata links (canonical, OG images) to use the www domain
   metadataBase: new URL('https://www.getpik.in'),
   title: {
-    template: '%s | GetPik - Reels, Content, & Websites',
-    default: 'GetPik - Same-Day Reels, Content & Websites',
+    template: '%s | GetPik - Content & Photography',
+    default: 'GetPik - Same-Day Reels, Content & Photography in Hyderabad & Erode',
   },
   description:
-    'Get your brand picked on social media with same-day content delivery. High-quality reels, commercial videos, and high-performance websites in Hyderabad.',
+    'GetPik offers high-end wedding and commercial photography in Hyderabad, Erode, and TN. Same-day content delivery for reels, video content, and high-performance websites.',
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'GetPik - Content & Websites',
-    description: 'Same-day delivery for reels and digital marketing content.',
+    title: 'GetPik - Premium Content & Photography',
+    description: 'Specializing in GetPik Photography and digital content delivery in Hyderabad and Erode.',
     url: 'https://www.getpik.in',
     siteName: 'GetPik',
     locale: 'en_IN',
     type: 'website',
     images: [
       {
-        url: '/og-image.png', // Ensure you have an OG image in your public folder
+        url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'GetPik - Professional Content Creation',
+        alt: 'GetPik Digital - Professional Photography & Content',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'GetPik - Content & Websites',
-    description: 'Same-day reels and website development.',
+    title: 'GetPik - Content & Photography',
+    description: 'Expert photography in Hyderabad and Erode. Same-day reels and content creation.',
   },
 };
 
@@ -46,15 +45,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Enhanced Professional Service Schema for Local SEO
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
     name: 'GetPik',
+    alternateName: 'Getpik Photography',
     url: 'https://www.getpik.in',
     logo: 'https://www.getpik.in/logo.png',
     image: 'https://www.getpik.in/og-image.png',
-    description: 'Same-day reels, video content, and website development services.',
+    description: 'Premium photography in Hyderabad, Erode, and across TN. We provide same-day reels, video content, and professional wedding photography.',
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Hyderabad',
@@ -63,7 +62,7 @@ export default function RootLayout({
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: '17.3850', // Hyderabad coordinates
+      latitude: '17.3850',
       longitude: '78.4867',
     },
     openingHoursSpecification: {
@@ -80,7 +79,7 @@ export default function RootLayout({
       closes: '20:00',
     },
     sameAs: [
-      'https://www.instagram.com/getpik', // Replace with your actual URLs
+      'https://www.instagram.com/getpik',
       'https://www.facebook.com/getpik',
     ],
   };
@@ -111,7 +110,6 @@ export default function RootLayout({
         <FirebaseClientProvider>
           <GridBackground />
           
-          {/* This wrapper handles hiding the header/footer/whatsapp */}
           <LayoutVisibilityWrapper>
             {children}
           </LayoutVisibilityWrapper>

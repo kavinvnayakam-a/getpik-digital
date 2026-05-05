@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Pricing',
+  title: 'Pricing & Packages | Photography & Content',
   description:
-    'Affordable and transparent pricing for same-day reels, content, and websites. Find the perfect plan for your project with GetPik.',
+    'Transparent pricing for wedding photography in Hyderabad, reels in Erode, and full-stack digital marketing. Find your growth plan here.',
 };
 
 export default function PricingLayout({

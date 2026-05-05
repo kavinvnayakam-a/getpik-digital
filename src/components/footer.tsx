@@ -126,7 +126,7 @@ export function Footer() {
         <div className="pt-12 border-t border-border flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex flex-col gap-2">
             <p className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">
-                © {new Date().getFullYear()} GetPik Intelligence Agency
+                © {new Date().getFullYear()} GetPik Creative Solutions
             </p>
             <p className="text-[8px] font-bold text-muted-foreground/50 uppercase tracking-widest">
                 Optimized for High-Performance Execution

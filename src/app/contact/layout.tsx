@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Contact Us',
+  title: 'Contact Us | Hire GetPik Photography',
   description:
-    'Ready to get your brand picked? Contact the GetPik team to start your project today. We provide same-day content and digital marketing solutions.',
+    'Ready to launch? Contact GetPik for the best photography in Hyderabad and Erode. Fast inquiry response for weddings and commercial projects.',
 };
 
 export default function ContactLayout({

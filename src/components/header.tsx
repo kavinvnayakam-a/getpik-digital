@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
-import { Bot, Menu, X, ArrowRight, Zap, LogOut, LogIn } from 'lucide-react';
+import { Menu, X, ArrowRight, Zap, LogOut } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from './ui/button';
 import { useUser, useAuth } from '@/firebase';
@@ -12,11 +12,11 @@ import { useToast } from '@/hooks/use-toast';
 
 const links = [
   { href: '/', label: 'Home' },
+  { href: '/photography', label: 'Photography' },
   { href: '/work', label: 'Work' },
   { href: '/clients', label: 'Clients' },
   { href: '/pricing', label: 'Pricing' },
-  { href: '/seo-analyzer', label: 'SEO' },
-  { href: '/ideas', label: 'Ideas' },
+  { href: '/contact', label: 'Contact' },
 ];
 
 export function Header() {

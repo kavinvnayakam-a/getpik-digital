@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Content Idea Engine',
+  title: 'Content Idea Engine | Creative Concepts',
   description:
-    'Generate endless high-quality content ideas for your brand. Our AI-powered idea engine helps you create content that gets you picked by your target audience.',
+    'Generate viral concepts for your photography or brand with GetPik’s neural idea engine. Perfect for creators in Erode and Hyderabad.',
 };
 
 export default function IdeasLayout({

@@ -20,7 +20,7 @@ import {
   SelectLabel,
   SelectSeparator,
 } from '@/components/ui/select';
-import { Loader2, Send, MessageSquare, Globe, Building2, Phone, Radio, Heart, UtensilsCrossed } from 'lucide-react';
+import { Loader2, Send, MessageSquare, Globe, Building2, Phone, Radio, UtensilsCrossed, MapPin } from 'lucide-react';
 
 const initialState = {
   message: '',
@@ -73,15 +73,12 @@ export default function ContactPage() {
   }, [state, toast]);
 
   return (
-    /* pt-28 on mobile ensures we are well below the header. lg:pt-36 for desktop. */
     <div className="min-h-screen text-foreground pt-28 lg:pt-36 pb-20 px-6 relative overflow-hidden">
-      {/* Background Abstract Glows */}
       <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-primary/10 blur-[120px] rounded-full -z-10" />
 
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           
-          {/* Left Side: Contextual Info */}
           <div className="space-y-6 lg:space-y-10 animate-in fade-in slide-in-from-left-8 duration-700 lg:sticky lg:top-36">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-widest">
               <Radio className="w-3 h-3 animate-pulse" /> Uplink Active
@@ -107,9 +104,30 @@ export default function ContactPage() {
                 <p className="text-xs font-bold italic leading-none">WhatsApp Priority</p>
               </div>
             </div>
+
+            {/* Address Section */}
+            <div className="space-y-6 pt-4 border-t border-border/50">
+              <div className="flex gap-4">
+                <MapPin className="w-5 h-5 text-primary shrink-0 mt-1" />
+                <div className="space-y-1">
+                  <p className="text-[10px] font-black uppercase tracking-widest text-primary">Erode Location</p>
+                  <p className="text-sm font-medium text-muted-foreground leading-relaxed">
+                    18F, Hospital Road, 2nd Cross St, Behind Boys Higher Sec School, Kavindapadi, Erode, 638455
+                  </p>
+                </div>
+              </div>
+              <div className="flex gap-4">
+                <MapPin className="w-5 h-5 text-primary shrink-0 mt-1" />
+                <div className="space-y-1">
+                  <p className="text-[10px] font-black uppercase tracking-widest text-primary">Hyderabad Office</p>
+                  <p className="text-sm font-medium text-muted-foreground leading-relaxed">
+                    501, 5th Floor, Potluri Elite, Priyadharshini Colony, Hyathnagar, Hyderabad 501505
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* Right Side: The Form */}
           <Card className="mt-6 lg:mt-0 bg-card/80 border-border/50 rounded-[2.5rem] lg:rounded-[3rem] backdrop-blur-2xl shadow-2xl overflow-hidden animate-in fade-in slide-in-from-right-8 duration-700">
             <CardContent className="p-6 md:p-12">
               <form ref={formRef} action={formAction} className="space-y-5 lg:space-y-6">
