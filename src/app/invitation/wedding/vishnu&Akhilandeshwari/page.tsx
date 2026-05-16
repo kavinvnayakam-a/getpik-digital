@@ -61,10 +61,13 @@ export default function WeddingInvitation() {
 
   // Target Date: June 17, 2026
   const weddingDate = "2026-06-17";
-  const googleCalendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=Wedding+of+Vishnu+%26+Akilandeshwari&dates=20260617T003000Z/20260617T033000Z&details=Join+us+for+our+wedding+at+Arulmigu+Amarapaneeswarar+Temple,+Pariyur!&location=Arulmigu+Amarapaneeswarar+Temple,+Pariyur,+Gobi&sf=true&output=xml`;
+  
+  // Updated to match exactly: Reception timing (11:00 AM - 3:00 PM IST) & Location (Sri Bannari Amman Mahal, Gobi)
+  // 11:00 AM IST = 05:30 UTC | 03:00 PM IST = 09:30 UTC
+  const googleCalendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=Wedding+Reception%3A+Vishnu+%26+Akilandeshwari&dates=20260617T053000Z/20260617T093000Z&details=Join+us+for+our+Wedding+Reception%21&location=Sri+Bannari+Amman+Mahal%2C+Karattadipalayam+-+Bungalowpudur+Rd%2C+NanjaiPuliampatti%2C+Gobi&sf=true&output=xml`;
 
   useEffect(() => {
-    const target = new Date(`${weddingDate}T06:00:00`).getTime();
+    const target = new Date(`${weddingDate}T11:00:00`).getTime();
     const interval = setInterval(() => {
       const now = new Date().getTime();
       const diff = target - now;
@@ -128,24 +131,24 @@ export default function WeddingInvitation() {
           </div>
 
           <div className="relative mb-6 px-4">
-    <span className="absolute top-1/2 left-1/2 -translate-x-[-20%] -translate-y-1/2 text-[120px] font-thin text-pink-100 pointer-events-none italic opacity-60">&</span>
-    <div className="relative z-10 font-decorative">
-        {/* Groom Section */}
-        <div className="mb-8">
-            <h1 className="text-[32px] tracking-wide text-[#a69177] uppercase leading-tight">VISHNUPATHY</h1>
-            <p className="text-[20px] text-stone-700 font-bold mt-1">Er. V. விஷ்ணுபதி</p>
-            <p className="text-[11px] text-stone-400 uppercase tracking-widest mt-1 font-serif">B.E (Civil)., A.M.L.E</p>
-        </div>
-        
-        <div className="h-px w-12 bg-stone-200 mx-auto mb-8"></div>
+            <span className="absolute top-1/2 left-1/2 -translate-x-[-20%] -translate-y-1/2 text-[120px] font-thin text-pink-100 pointer-events-none italic opacity-60">&</span>
+            <div className="relative z-10 font-decorative">
+                {/* Groom Section */}
+                <div className="mb-8">
+                    <h1 className="text-[32px] tracking-wide text-[#a69177] uppercase leading-tight">VISHNUPATHY</h1>
+                    <p className="text-[20px] text-stone-700 font-bold mt-1">Er. V. விஷ்ணுபதி</p>
+                    <p className="text-[11px] text-stone-400 uppercase tracking-widest mt-1 font-serif">B.E (Civil)., A.M.I.E</p>
+                </div>
+                
+                <div className="h-px w-12 bg-stone-200 mx-auto mb-8"></div>
 
-        {/* Bride Section */}
-        <div>
-            <h1 className="text-[32px] tracking-wide text-[#a69177] uppercase leading-tight">AKILANDESHWARI</h1>
-            <p className="text-[20px] text-stone-700 font-bold mt-1">R. அகிலாண்டேஸ்வரி</p>
-            <p className="text-[11px] text-stone-400 uppercase tracking-widest mt-1 font-serif">M.Sc (Maths)., PGDCA</p>
-        </div>
-    </div>
+                {/* Bride Section */}
+                <div>
+                    <h1 className="text-[32px] tracking-wide text-[#a69177] uppercase leading-tight">AKILANDESHWARI</h1>
+                    <p className="text-[20px] text-stone-700 font-bold mt-1">R. அகிலாண்டேஸ்வரி</p>
+                    <p className="text-[11px] text-stone-400 uppercase tracking-widest mt-1 font-serif">M.Sc (Maths)., PGDCA</p>
+                </div>
+            </div>
           </div>
 
           <div className="mb-12 px-8 font-serif">
@@ -156,105 +159,49 @@ export default function WeddingInvitation() {
             </p>
           </div>
 
-          {/* Timeline */}
-         {/* Timeline */}
+          {/* Timeline Section */}
+          <div className="relative py-8 px-4">
+            <div className="space-y-16 relative">
 
-<div className="relative py-8 px-4">
+                {/* Reception */}
+                <div className="relative flex items-center justify-between">
+                    <div className="w-[42%] text-right pr-4">
+                        <p className="text-md font-bold text-stone-700">17 JUNE</p>
+                        <p className="text-stone-400 text-[9px] uppercase font-bold tracking-tighter">11:00 AM - 3:00 PM</p>
+                    </div>
 
-    {/* Adjusted line height to h-[100px] to connect both events */}
+                    <div className="z-10 bg-white border-2 border-[#c5a37d] p-2 rounded-full shadow-sm">
+                        <Calendar size={16} className="text-[#c5a37d]" />
+                    </div>
 
-    <div className="absolute left-1/2 top-[44px] h-[100px] w-[1px] bg-stone-200 -translate-x-1/2"></div>
-
-    
-
-    <div className="space-y-16 relative">
-
-        {/* Muhurtham */}
-
-        <div className="relative flex items-center justify-between">
-
-            <div className="w-[42%] text-right pr-4">
-
-                <h4 className="text-xs font-bold text-stone-700 uppercase tracking-widest font-decorative">Muhurtham</h4>
-
-                <p className="text-[#c5a37d] text-[10px] font-bold mt-1">முகூர்த்தம்</p>
-
-            </div>
-
-            <div className="z-10 bg-white border-2 border-[#c5a37d] p-2 rounded-full shadow-sm">
-
-                <Heart size={16} className="text-pink-400 fill-pink-400" />
-
-            </div>
-
-            <div className="w-[42%] text-left pl-4">
-
-                <p className="text-md font-bold text-stone-700">17 JUNE</p>
-
-                <p className="text-stone-400 text-[9px] uppercase font-bold tracking-tighter">6:00 AM - 7:30 AM</p>
-
-            </div>
-
-        </div>
-
-
-
-        {/* Reception */}
-
-        <div className="relative flex items-center justify-between">
-
-            <div className="w-[42%] text-right pr-4">
-
-                <p className="text-md font-bold text-stone-700">17 JUNE</p>
-
-                <p className="text-stone-400 text-[9px] uppercase font-bold tracking-tighter">11:00 AM - 3:00 PM</p>
-
-            </div>
-
-            <div className="z-10 bg-white border-2 border-[#c5a37d] p-2 rounded-full shadow-sm">
-
-                <Calendar size={16} className="text-[#c5a37d]" />
-
-            </div>
-
-            <div className="w-[42%] text-left pl-4">
-
-                <h4 className="text-xs font-bold text-stone-700 uppercase tracking-widest font-decorative">Reception</h4>
-
-                <p className="text-[#c5a37d] text-[10px] font-bold mt-1">வரவேற்பு</p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-             <div className="mt-16 text-center">
-                <h2 className="text-xl text-stone-700 mb-1 font-decorative">Arulmigu Amarapaneeswarar Temple</h2>
-                <p className="text-stone-600 text-sm font-bold">அருள்மிகு அமரபணீஸ்வரர் திருக்கோயில்</p>
-                <p className="text-stone-500 text-xs mb-8 uppercase tracking-widest font-serif">Pariyur, Gobi | பாரியூர், கோபி.</p>
-                
-                <div className="flex flex-col gap-4 items-center px-6">
-                    <a href="https://maps.app.goo.gl/BJ7afKfFHC2sAJtGA" target="_blank" rel="noopener noreferrer" className="w-full inline-flex justify-center items-center gap-2 py-3 rounded-full bg-stone-800 text-white uppercase text-[10px] font-bold tracking-[0.2em] shadow-lg active:scale-95 transition-all">
-                      <MapPin size={14} /> View Location / வரைபடம்
-                    </a>
-                    <a href={googleCalendarUrl} target="_blank" rel="noopener noreferrer" className="w-full inline-flex justify-center items-center gap-2 py-3 rounded-full border border-stone-300 text-stone-600 uppercase text-[10px] font-bold tracking-[0.2em] hover:bg-stone-50 active:scale-95 transition-all">
-                      <Calendar size={14} className="text-blue-500" />
-                      Save the Date / நினைவூட்டல்
-                    </a>
+                    <div className="w-[42%] text-left pl-4">
+                        <h4 className="text-xs font-bold text-stone-700 uppercase tracking-widest font-decorative">Reception</h4>
+                        <p className="text-[#c5a37d] text-[10px] font-bold mt-1">வரவேற்பு</p>
+                    </div>
                 </div>
+
                 <div>
-        <h3 className="text-[10px] uppercase tracking-[0.3em] text-[#c5a37d] font-bold mb-2 font-serif">Reception Venue</h3>
-        <h2 className="text-xl text-stone-700 mb-1 font-decorative">Sri Bannari Amman Mahal</h2>
-        <p className="text-stone-600 text-sm font-bold">ஸ்ரீ பண்ணாரி அம்மன் மஹால்</p>
-        <p className="text-stone-500 text-[10px] mb-4 uppercase leading-relaxed font-serif">
-            Karattadipalayam - Bungalowpudur Rd,<br/>
-            NanjaiPuliampatti, Gobi.
-        </p>
-        <a href="https://maps.app.goo.gl/knDx948oPzaFwBv47" target="_blank" rel="noopener noreferrer" className="w-full inline-flex justify-center items-center gap-2 py-3 rounded-full bg-stone-800 text-white uppercase text-[10px] font-bold tracking-[0.2em] shadow-lg active:scale-95 transition-all">
-            <MapPin size={14} /> Reception Location / வரைபடம்
-        </a>
-    </div>
+                    <h3 className="text-[10px] uppercase tracking-[0.3em] text-[#c5a37d] font-bold mb-2 font-serif">Reception Venue</h3>
+                    <h2 className="text-xl text-stone-700 mb-1 font-decorative">Sri Bannari Amman Mahal</h2>
+                    <p className="text-stone-600 text-sm font-bold">ஸ்ரீ பண்ணாரி அம்மன் மஹால்</p>
+                    <p className="text-stone-500 text-[10px] mb-6 uppercase leading-relaxed font-serif">
+                        Karattadipalayam - Bungalowpudur Rd,<br/>
+                        NanjaiPuliampatti, Gobi.
+                    </p>
+                    
+                    {/* Action Buttons Container with proper vertical gap spacing */}
+                    <div className="flex flex-col gap-4 mt-2">
+                        <a href="https://maps.app.goo.gl/knDx948oPzaFwBv47" target="_blank" rel="noopener noreferrer" className="w-full inline-flex justify-center items-center gap-2 py-3 rounded-full bg-stone-800 text-white uppercase text-[10px] font-bold tracking-[0.2em] shadow-lg active:scale-95 transition-all">
+                            <MapPin size={14} /> Reception Location / வரைபடம்
+                        </a>
+
+                        <a href={googleCalendarUrl} target="_blank" rel="noopener noreferrer" className="w-full inline-flex justify-center items-center gap-2 py-3 rounded-full border border-stone-300 text-stone-600 uppercase text-[10px] font-bold tracking-[0.2em] hover:bg-stone-50 active:scale-95 transition-all">
+                            <Calendar size={14} className="text-blue-500" />
+                            Save the Date / நினைவூட்டல்
+                        </a>
+                    </div>
+                </div>
+
              </div>
           </div>
         </section>
@@ -275,42 +222,42 @@ export default function WeddingInvitation() {
         </section>
 
         {/* Guestbook Section */}
-                <section className="bg-white/40 backdrop-blur-md py-16 px-6 border-t border-stone-100">
-                  <div className="text-center mb-10">
-                    <div className="mb-4 flex flex-col items-center opacity-70">
-                        <Camera size={20} className="text-[#c5a37d] mb-1" />
-                        <p className="text-[9px] uppercase tracking-[0.4em] font-bold text-stone-600 font-decorative">GetPik Photography & Videography</p>
-                    </div>
-                    <h3 className="text-2xl font-light uppercase text-stone-700 tracking-[0.2em] font-decorative">Guestbook</h3>
-                    <p className="text-stone-400 text-[9px] font-bold uppercase tracking-[0.3em] mt-2 font-serif">Send your blessings</p>
+        <section className="bg-white/40 backdrop-blur-md py-16 px-6 border-t border-stone-100">
+          <div className="text-center mb-10">
+            <div className="mb-4 flex flex-col items-center opacity-70">
+                <Camera size={20} className="text-[#c5a37d] mb-1" />
+                <p className="text-[9px] uppercase tracking-[0.4em] font-bold text-stone-600 font-decorative">GetPik Photography & Videography</p>
+            </div>
+            <h3 className="text-2xl font-light uppercase text-stone-700 tracking-[0.2em] font-decorative">Guestbook</h3>
+            <p className="text-stone-400 text-[9px] font-bold uppercase tracking-[0.3em] mt-2 font-serif">Send your blessings</p>
+          </div>
+
+          <div className="bg-white p-6 rounded-3xl shadow-sm border border-stone-100 mb-12">
+            <form onSubmit={handleSubmit} className="space-y-4 text-xs font-serif">
+              <div className="flex flex-col gap-3">
+                  <input required placeholder="Your Name" className="w-full px-4 py-3 rounded-xl bg-stone-50 border border-stone-100 outline-none focus:border-[#c5a37d] transition-all" value={formData.name} onChange={(e)=>setFormData({...formData, name: e.target.value})} />
+                  <input required type="tel" placeholder="Phone Number" className="w-full px-4 py-3 rounded-xl bg-stone-50 border border-stone-100 outline-none focus:border-[#c5a37d] transition-all" value={formData.phone} onChange={(e)=>setFormData({...formData, phone: e.target.value})} />
+              </div>
+              <textarea required placeholder="Write your wishes here..." rows={3} className="w-full px-4 py-3 rounded-xl bg-stone-50 border border-stone-100 outline-none resize-none focus:border-[#c5a37d] transition-all" value={formData.message} onChange={(e)=>setFormData({...formData, message: e.target.value})} />
+              <button disabled={isSubmitting} className="w-full py-4 bg-[#c5a37d] text-white rounded-full font-bold uppercase text-[11px] tracking-[0.2em] flex items-center justify-center gap-2 active:scale-95 transition-all shadow-lg hover:brightness-105">
+                {isSubmitting ? "Delivering..." : <><Send size={14}/> Submit Blessing</>}
+              </button>
+            </form>
+          </div>
+
+          <div className="flex flex-col space-y-6">
+            <AnimatePresence initial={false}>
+              {wishes.map((wish) => (
+                <motion.div key={wish.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="flex flex-col items-start">
+                  <span className="font-bold text-[8px] uppercase tracking-widest text-stone-400 mb-1 px-3">{wish.name}</span>
+                  <div className="px-5 py-4 rounded-2xl bg-white text-stone-600 border border-stone-100 text-sm shadow-sm">
+                    <p className="italic font-serif text-xs">"{wish.message}"</p>
                   </div>
-        
-                  <div className="bg-white p-6 rounded-3xl shadow-sm border border-stone-100 mb-12">
-                    <form onSubmit={handleSubmit} className="space-y-4 text-xs font-serif">
-                      <div className="flex flex-col gap-3">
-                          <input required placeholder="Your Name" className="w-full px-4 py-3 rounded-xl bg-stone-50 border border-stone-100 outline-none focus:border-[#c5a37d] transition-all" value={formData.name} onChange={(e)=>setFormData({...formData, name: e.target.value})} />
-                          <input required type="tel" placeholder="Phone Number" className="w-full px-4 py-3 rounded-xl bg-stone-50 border border-stone-100 outline-none focus:border-[#c5a37d] transition-all" value={formData.phone} onChange={(e)=>setFormData({...formData, phone: e.target.value})} />
-                      </div>
-                      <textarea required placeholder="Write your wishes here..." rows={3} className="w-full px-4 py-3 rounded-xl bg-stone-50 border border-stone-100 outline-none resize-none focus:border-[#c5a37d] transition-all" value={formData.message} onChange={(e)=>setFormData({...formData, message: e.target.value})} />
-                      <button disabled={isSubmitting} className="w-full py-4 bg-[#c5a37d] text-white rounded-full font-bold uppercase text-[11px] tracking-[0.2em] flex items-center justify-center gap-2 active:scale-95 transition-all shadow-lg hover:brightness-105">
-                        {isSubmitting ? "Delivering..." : <><Send size={14}/> Submit Blessing</>}
-                      </button>
-                    </form>
-                  </div>
-        
-                  <div className="flex flex-col space-y-6">
-                    <AnimatePresence initial={false}>
-                      {wishes.map((wish) => (
-                        <motion.div key={wish.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="flex flex-col items-start">
-                          <span className="font-bold text-[8px] uppercase tracking-widest text-stone-400 mb-1 px-3">{wish.name}</span>
-                          <div className="px-5 py-4 rounded-2xl bg-white text-stone-600 border border-stone-100 text-sm shadow-sm">
-                            <p className="italic font-serif text-xs">"{wish.message}"</p>
-                          </div>
-                        </motion.div>
-                      ))}
-                    </AnimatePresence>
-                  </div>
-                </section>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </div>
+        </section>
 
         <footer className="py-12 bg-white text-center border-t border-stone-100">
            <Heart className="mx-auto text-pink-200 mb-4 fill-pink-200" size={16} />
